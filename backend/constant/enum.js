@@ -1,0 +1,3 @@
+const enums = {
+    // ... other enums ...
+}
