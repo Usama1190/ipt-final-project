@@ -1,9 +1,9 @@
-import React from 'react'
+import HeaderCom from "../components/HeaderCom/HeaderCom"
 
 const Home = () => {
   return (
     <div>
-      Home
+      <HeaderCom />
     </div>
   )
 }
