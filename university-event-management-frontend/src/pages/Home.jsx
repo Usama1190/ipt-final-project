@@ -1,9 +1,9 @@
-import HeaderCom from "../components/HeaderCom/HeaderCom"
+import HomeCom from "../components/HomeCom/HomeCom"
 
 const Home = () => {
   return (
     <div>
-      <HeaderCom />
+      <HomeCom />
     </div>
   )
 }

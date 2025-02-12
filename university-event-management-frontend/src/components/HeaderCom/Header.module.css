@@ -21,7 +21,7 @@ nav {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 nav ul {
@@ -36,7 +36,6 @@ nav ul li a {
     color: #fff;
     font-size: 1.1rem;
     padding: 12px;
-    transition: all 0.3s;
     border-radius: 10px;
 }
 
@@ -45,22 +44,110 @@ nav ul li a:hover {
 }
 
 .ddi {
-    margin-left: 8px;
-    padding: 4px 8px 22px 8px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    margin-left: 6px;
+    padding: 2px 8px 22px 8px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
+
 nav ul li a:hover .ddi {
-    background-color: white;
+    background-color: var(--pure-white);
     color: var(--dark-color);
 }
 
+
 .new {
-    font-size: 14px;
-    /* margin: -30px 0 0 -10px; */
-    border: 1px solid yellow;
+    font-size: 10px;
+    margin: -15px 0 0 -12px;
+    border: 1px solid var(--pure-white);
     background-color: red;
-    color: white;
+    color: var(--pure-white);
     position: absolute;
+    border-radius: 10px;
+    padding: 1px 3px;
+    font-weight: 800;
 }
+
+.hf {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hsl {
+    display: flex;
+}
+
+.hsl li a {
+    color: var(--dark-color);
+    /* border: 1px solid red; */
+    padding: 5px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.hsl li a:hover {
+    background-color: var(--dark-green);
+    color: var(--pure-white);
+}
+
+.hir {
+    max-width: 567px;
+    height: 134px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.hcn {
+    color: var(--dark-green);
+    margin-right: 20px;
+    font-family: sans-serif;
+}
+
+.hiw {
+    /* border: 1px solid red; */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 10px 18px;
+    background-color: var(--dark-color);
+}
+
+.ip {
+    width: 300px;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.hiw input:focus {
+    outline: none;
+}
+
+.ib {
+    border: none;
+    position: absolute;
+    margin: 4px 0 0 -70px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+.ddo {
+    border: 1px solid blue;
+    position: absolute;
+    display: flex;
+    width: 80%;
+}
+
+
+.ddl {
+    border: 1px solid red;
+}
+

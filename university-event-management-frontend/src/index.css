@@ -2,6 +2,8 @@
     --light-green: #E0E5CA;
     --dark-green: #437C35;
     --dark-color: #444444;
+    --pure-white: #fff;
+    --pure-black: #000;
 }
 
 * {
@@ -17,4 +19,9 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+.active {
+    color: var(--pure-white) !important;
+    background-color: var(--dark-green);
 }

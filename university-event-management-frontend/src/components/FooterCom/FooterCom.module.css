@@ -1,0 +1,13 @@
+.fow {
+    width: 100%;
+}
+
+.fiw {
+    max-width: 1300px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.fiw img {
+    width: 100%;
+}
