@@ -6,4 +6,28 @@
     max-width: 1300px;
     box-sizing: border-box;
     margin: 0 auto;
+    text-align: center;
+    height: 400px;
+}
+
+.eiw h2 {
+    font-size: 4rem;
+    padding: 15rem 0 0 0;
+    color: var(--dark-green);
+}
+
+.eiw h3 {
+    font-size: 2rem;
+    color: var(--dark-color);
+}
+
+.eiw p {
+    margin: 20px 0 0 0;
+}
+
+.eiw span {
+    padding: 8px;
+    background-color: var(--light-green);
+    border-radius: 4px;
+    font-weight: bold;
 }

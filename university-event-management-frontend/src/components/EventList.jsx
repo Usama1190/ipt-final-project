@@ -16,7 +16,7 @@ const EventList = ({ events, setEvents, setEditingEvent }) => {
     <div>
       <h2>Events List</h2>
       <ul>
-        {events.map((event) => (
+        {events?.map((event) => (
           <li key={event._id}>
             <h3>{event.name}</h3>
             <p>{event.description}</p>

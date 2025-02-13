@@ -3,6 +3,9 @@
 .oh {
     background-color: var(--light-green);
     border-top: 8px solid var(--dark-green);
+    box-shadow: 0px 0px 8px var(--dark-color);
+    position: sticky;
+    top: 0;
 }
 
 .ih {

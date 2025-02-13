@@ -1,5 +1,6 @@
 .fow {
     width: 100%;
+    margin-top: 200px;
 }
 
 .fiw {
@@ -10,4 +11,74 @@
 
 .fiw img {
     width: 100%;
+}
+
+.fcw {
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+    border-top: 2px dashed #cecece;
+    border-bottom: 2px dashed #cecece;
+}
+
+.fcw>div {
+    width: 20%;
+}
+
+.fcw div h2 {
+    color: var(--dark-green);
+    font-weight: 600;
+    margin: 0 0 16px;
+}
+
+p {
+    font-size: 14px;
+    margin: 0 0 12px;
+    color: var(--gray-color);
+}
+
+.fcw div ul li a {
+    color: var(--gray-color);
+    font-size: 14px;
+}
+
+.fcw div ul li a:hover {
+    color: var(--dark-green);
+    font-weight: 600;
+    scale: 1.03;
+}
+
+.ffw {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.ffw p {
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+.ffsl {
+    display: flex;
+    font-size: 14px;
+}
+
+.ffsl li a {
+    padding: 10px 15px;
+    color: var(--dark-color);
+}
+
+.ffsl li a:hover {
+    text-decoration: underline;
+}
+
+.ffli {
+    font-size: 6px;
+    color: var(--dark-color);
+    margin: 0 5px 0 0;
+}
+
+.an {
+    color: var(--dark-green);
 }

@@ -1,0 +1,54 @@
+
+.ecdw {
+    border: 1px solid #cecece;
+    border-radius: 8px;
+    /* color: var(--gray-color); */
+}
+
+.ecdbw {
+    display: flex;
+}
+
+.ecdbw button {
+    padding: 12px;
+    width: 50%;
+    border: none;
+}
+
+.ecdac {
+    background-color: var(--dark-green);
+    color: var(--pure-white);
+}
+
+.ecdnac {
+    background-color: var(--light-col);
+    color: var(--gray-color);
+}
+
+.ecdcw {
+    display: flex;
+}
+
+.ecdc {
+    background-color: var(--light-col);
+    padding: 12px;
+    width: 100%;
+}
+
+.ecdc h3 {
+    margin: 24px 0 12px;
+    color: var(--dark-green);
+}
+
+.ecdc ul li {
+    border-bottom: 1px solid var(--light-color);
+    padding: 8px 0;
+}
+
+.dn {
+    display: none;
+}
+
+.db {
+    display: block;
+}

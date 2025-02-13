@@ -1,9 +1,27 @@
-.eow {
+.ecmow {
     width: 100%;
 }
 
-.eiw {
+.ecmiw {
     max-width: 1300px;
     box-sizing: border-box;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 48px 0;
+}
+
+.ecmtcw {
+    width: 57rem;
+}
+
+.ecmtcw h1 {
+    color: var(--dark-green);
+    margin: 0 0 24px;
+}
+
+.ecmcdsw {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
 }

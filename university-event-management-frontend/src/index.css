@@ -2,6 +2,9 @@
     --light-green: #E0E5CA;
     --dark-green: #437C35;
     --dark-color: #444444;
+    --light-color: #D0D0D0;
+    --gray-color: #5f5f5f;
+    --light-col: #F7F7F7;
     --pure-white: #fff;
     --pure-black: #000;
 }
@@ -19,9 +22,43 @@ ul {
 
 a {
     text-decoration: none;
+    color: var(--gray-color);
 }
 
 .active {
     color: var(--pure-white) !important;
     background-color: var(--dark-green);
+}
+
+
+
+
+.btn1 {
+    padding: 12px 18px;
+    background-color: var(--dark-green);
+    color: var(--pure-white);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn1:hover {
+    background-color: transparent;
+    color: var(--dark-green);
+    border: 1px solid var(--dark-green);
+}
+
+.btn2 {
+    padding: 12px 18px;
+    background-color: var(--pure-white);
+    color: var(--dark-green);
+    border-radius: 4px;
+    border: 1px solid var(--dark-green);
+    cursor: pointer;
+}
+
+.btn2:hover {
+    background-color: var(--dark-green);
+    color: var(--pure-white);
+    border: 1px solid transparent;
 }
