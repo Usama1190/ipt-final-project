@@ -1,7 +1,7 @@
 import HeroPageImgCom from "../HeroPageImgCom/HeroPageImgCom";
 import styles from "./HeroPageCom.module.css";
 
-const HeroPageCom = () => {
+const HeroPageCom = ({ imgTitle }) => {
   return (
     <div className={styles.hpcow}>
       <div className={styles.hpciw}>
@@ -13,7 +13,7 @@ const HeroPageCom = () => {
           <a href="/">Main page</a>
         </div>
         <div>
-            <HeroPageImgCom imgTitle={'Usama Israr Khan'} />
+            <HeroPageImgCom imgTitle={imgTitle} />
         </div>
         HeroPageCom
       </div>

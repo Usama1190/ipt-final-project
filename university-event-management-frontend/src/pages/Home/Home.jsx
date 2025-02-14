@@ -1,4 +1,4 @@
-import HomeCom from "../components/HomeCom/HomeCom"
+import HomeCom from "../../components/HomeCom/HomeCom"
 
 const Home = () => {
   return (

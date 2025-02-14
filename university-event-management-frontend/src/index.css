@@ -25,10 +25,10 @@ a {
     color: var(--gray-color);
 }
 
-.active {
+/* .active {
     color: var(--pure-white) !important;
     background-color: var(--dark-green);
-}
+} */
 
 
 

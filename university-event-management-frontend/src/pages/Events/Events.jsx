@@ -24,7 +24,7 @@ const Events = () => {
 
   return (
     <div>
-      <HeroPageCom />
+      <HeroPageCom imgTitle={'Karachi University Events'} />
       {/* <EventCom /> */}
       {/* {editingEvent ? (
         <EventEditForm

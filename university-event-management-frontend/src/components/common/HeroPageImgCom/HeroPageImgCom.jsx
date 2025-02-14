@@ -5,7 +5,7 @@ const HeroPageImgCom = ({ imgTitle }) => {
   return (
     <div>
       <div className={styles.hpicihw}>
-        <img src={heroPageImg} alt="Banner Image" />
+        <img src={heroPageImg} className={styles.hpicbn} alt="Banner Image" />
         <div className={styles.hpichw}>
           <h2>{`${imgTitle || 'Hero Page Image Component'}`}</h2>
         </div>

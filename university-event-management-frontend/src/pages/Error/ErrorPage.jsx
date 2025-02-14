@@ -1,4 +1,4 @@
-import ErrorCom from "../components/common/ErrorCom/ErrorCom"
+import ErrorCom from "../../components/common/ErrorCom/ErrorCom"
 
 const ErrorPage = () => {
   return (
