@@ -1,0 +1,33 @@
+
+.hpicihw {
+    position: relative;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.hpichw {
+    background-color: var(--pure-black);
+    color: var(--pure-white);
+    display: inline-block;
+    padding: 6px 18px;
+    position: absolute;
+    left: 0;
+    top: 110px;
+}
+
+.hpicdw {
+    display: inline-block;
+    padding: 3px 12px;
+    position: absolute;
+    left: 0;
+    top: 130px;
+    background: rgb(255, 255, 255); /* Fallback color */
+    background: rgba(255, 255, 255, 0.3); 
+}
+
+.hpicdw h2 {
+    visibility: hidden;
+}

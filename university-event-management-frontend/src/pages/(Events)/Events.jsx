@@ -3,7 +3,8 @@
 // import { getReq } from "../api/axios";
 // import EventList from "../components/EventList";
 
-import EventCom from "../components/EventCom/EventCom";
+import HeroPageCom from "../../components/common/HeroPageCom/HeroPageCom";
+// import EventCom from "../../components/EventCom/EventCom";
 
 const Events = () => {
   // const [events, setEvents] = useState([]);
@@ -23,7 +24,8 @@ const Events = () => {
 
   return (
     <div>
-      <EventCom />
+      <HeroPageCom />
+      {/* <EventCom /> */}
       {/* {editingEvent ? (
         <EventEditForm
           eventToEdit={editingEvent}

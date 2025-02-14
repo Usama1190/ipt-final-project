@@ -1,0 +1,11 @@
+.aneow {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.aneiw {
+    max-width: 1300px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 40px 0;
+}

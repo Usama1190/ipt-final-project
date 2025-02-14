@@ -22,7 +22,7 @@ const EventCom = () => {
             <EventStaticCardCom />
             <ButtonCom
               btnText={"Application for New Events"}
-              btnLink={"/application"}
+              btnLink={"/events/application-new-event"}
               btnLayout={'btn1'}
             />
           </div>
