@@ -7,4 +7,133 @@
     max-width: 1300px;
     box-sizing: border-box;
     margin: 0 auto;
+    padding: 16px 0;
+}
+
+.hpchlw {
+    margin: 0 0 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.hpchlw a {
+    margin: 0 12px 0 0;
+}
+
+.hpchlw a:hover {
+    text-decoration: underline;
+}
+
+.hpcicw {
+    font-size: 8px;
+    color: var(--gray-color);
+    margin: 0 12px 0 0;
+}
+
+.hpchiw {
+    border: none;
+    padding: 4px 4px 0 4px;
+    background-color: var(--light-col);
+    border-radius: 4px;
+    box-shadow: 0 4px 2px -2px var(--light-color);
+}
+
+.hpccow {
+    border: 1px solid transparent;
+    width: 100%;
+    margin: 24px 0 0 0;
+    position: relative;
+    height: 600px;
+}
+
+.hpcciw {
+    width: 99%;
+    height: 100px;
+    margin: 12px 0 0 0;
+    border-radius: 4px;
+    box-shadow: 2px -2px 4px var(--light-color);
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.hpccidw {
+    /* border: 1px solid red; */
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hpccidw div {
+    width: 33%;
+}
+
+.hpccidow {
+    overflow: hidden;
+    padding: 4px;
+    background-color: #277014;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+} 
+
+.hpccidtw {
+    overflow: hidden;
+    padding: 4px;
+    background-color: #659A58;
+} 
+
+.hpccidhw {
+    padding: 4px;
+    overflow: hidden;
+    background-color: #ECBA22;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+} 
+
+.do {
+    border: 1px solid var(--light-color);
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-col);
+    display: flex;
+    padding: 12px;
+    justify-content: space-between;
+}
+
+.tw {
+    border-top: 1px solid var(--light-color);
+    border-right: 1px solid var(--light-color);
+    border-left: 1px solid var(--light-color);
+    border-bottom: none;
+    position: absolute;
+    top: 0;
+    height: 54px;
+    z-index: 6;
+    background-color: var(--light-col);
+    padding: 16px;
+}
+
+.tw h3 {
+    color: var(--dark-green);
+    font-weight: 500;
+}
+
+.loc {
+    width: 20%;
+    border-right: 1px solid var(--light-color);
+    border-bottom: 1px solid var(--light-color);
+    border-left: 1px solid var(--light-color);
+    border-top: 12px solid var(--dark-green);
+    background-color: var(--pure-white);
+    height: 300px;
+}
+
+.poc {
+    border: 1px solid var(--light-color);
+    width: 79%;
+    background-color: var(--pure-white);
 }
