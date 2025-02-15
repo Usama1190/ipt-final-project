@@ -4,7 +4,7 @@
 // import EventList from "../components/EventList";
 
 import HeroPageCom from "../../components/common/HeroPageCom/HeroPageCom";
-// import EventCom from "../../components/EventCom/EventCom";
+import EventCom from "../../components/EventCom/EventCom";
 
 const Events = () => {
   // const [events, setEvents] = useState([]);
@@ -24,7 +24,7 @@ const Events = () => {
 
   return (
     <div>
-      <HeroPageCom imgTitle={'Karachi University Events'} />
+      <HeroPageCom imgTitle={'Karachi University Events'} ElementComponent={<EventCom />} />
       {/* <EventCom /> */}
       {/* {editingEvent ? (
         <EventEditForm
