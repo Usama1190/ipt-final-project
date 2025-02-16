@@ -70,7 +70,7 @@
 
 .pca {
     width: 20%;
-    padding: 4px;
+    padding: 12px;
     background-color: var(--pure-white);
     border-top: 12px solid var(--dark-green);
     border-left: 1px solid var(--light-color);
@@ -80,6 +80,7 @@
 
 .pcb {
     width: 79%;
+    padding: 12px;
     background-color: var(--pure-white);
     border: 1px solid var(--light-color);
 }

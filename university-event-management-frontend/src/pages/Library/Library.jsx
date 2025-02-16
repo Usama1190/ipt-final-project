@@ -1,9 +1,9 @@
-import HeroPageCom from "../../components/common/HeroPageCom/HeroPageCom"
+import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 
 const Library = () => {
   return (
     <div>
-      <HeroPageCom imgTitle={'Dr. Muhammad Husain Library'} />
+      <PageLayCom imgTitle={'Dr. Muhammad Husain Library'} />
     </div>
   )
 }

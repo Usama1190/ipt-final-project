@@ -1,8 +1,8 @@
 import { useState } from "react";
-import styles from "./EventCardCom.module.css";
+import styles from "./CardCom.module.css";
 import ButtonCom from "../ButtonCom/ButtonCom";
 
-const EventCardCom = () => {
+const CardCom = () => {
   const [isPassOpen, setIsPassOpen] = useState(false);
 
   const handleClick = () => {
@@ -11,24 +11,24 @@ const EventCardCom = () => {
 
   return (
     <div>
-      <div className={styles.ecdw}>
-        <div className={styles.ecdbw}>
+      <div className={styles.ca}>
+        <div className={styles.cb}>
           <button
-            className={isPassOpen ? styles.ecdnac : styles.ecdac}
+            className={isPassOpen ? styles.cd : styles.ce}
             onClick={handleClick}
           >
             Depart: UBIT
           </button>
           <button
-            className={!isPassOpen ? styles.ecdnac : styles.ecdac}
+            className={!isPassOpen ? styles.cd : styles.ce}
             onClick={handleClick}
           >
             Get Event Pass
           </button>
         </div>
 
-        <div className={styles.ecdcw}>
-          <div className={`${styles.ecdc} ${isPassOpen ? styles.dn : styles.db}`}>
+        <div className={styles.cc}>
+          <div className={`${styles.cf} ${isPassOpen ? styles.cg : styles.ch}`}>
             <h3>Event: Sport (for boys)</h3>
             <ul>
               <li><strong>Sport Type</strong>: Circket Match</li>
@@ -41,7 +41,7 @@ const EventCardCom = () => {
             <p><strong>Note</strong>: Last date for passes purchasing, Feb 25, 25</p>
           </div>
           <div
-            className={`${styles.ecdc} ${!isPassOpen ? styles.dn : styles.db}`}
+            className={`${styles.cf} ${!isPassOpen ? styles.cg : styles.ch}`}
           >
             <h3>Event Passes: Avalaible</h3>
             <ul>
@@ -63,4 +63,4 @@ const EventCardCom = () => {
   );
 };
 
-export default EventCardCom;
+export default CardCom;

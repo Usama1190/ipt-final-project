@@ -1,11 +1,11 @@
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 
-const Admissions = () => {
+const Alumni = () => {
   return (
     <div>
-      <PageLayCom imgTitle={'Admissions Page'} />
+      <PageLayCom imgTitle={'University of Karachi Alumni'} />
     </div>
   )
 }
 
-export default Admissions
+export default Alumni

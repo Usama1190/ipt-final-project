@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { postReq } from "../api/axios";
+import { postReq } from "../../../../api/axios";
 
 const EventForm = ({ addEvent }) => {
   const [name, setName] = useState("");

@@ -1,9 +1,9 @@
 import { useState } from "react";
 // import EventForm from "../../components/EventForm";
-import styles from './ApplicationNewEventPage.module.css'
-import HeroPageCom from "../../components/common/HeroPageCom/HeroPageCom";
+import styles from './EventAppPage.module.css'
+import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
 
-const ApplicationNewEvent = () => {
+const EventAppPage = () => {
   const [events, setEvents] = useState([]);
 
   const addEvent = (newEvent) => {
@@ -13,11 +13,11 @@ const ApplicationNewEvent = () => {
   return (
     <div className={styles.aneow}>
       <div className={styles.aneiw}>
-        <HeroPageCom />
+        <PageLayCom />
         {/* <EventForm addEvent={addEvent} /> */}
       </div>
     </div>
   );
 };
 
-export default ApplicationNewEvent;
+export default EventAppPage;

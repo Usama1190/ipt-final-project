@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { postReq } from '../api/axios';
+import { postReq } from '../../../../api/axios';
 
 const EventEditForm = ({ eventToEdit, setEvents, setEditingEvent }) => {
   const [name, setName] = useState('');

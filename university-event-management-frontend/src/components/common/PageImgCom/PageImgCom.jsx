@@ -1,7 +1,7 @@
-import styles from "./HeroPageImgCom.module.css";
+import styles from "./PageImgCom.module.css";
 import heroPageImg from "/assets/imgs/banner-blog.jpg";
 
-const HeroPageImgCom = ({ imgTitle }) => {
+const PageImgCom = ({ imgTitle }) => {
   return (
     <div>
       <div className={styles.hpicihw}>
@@ -17,4 +17,4 @@ const HeroPageImgCom = ({ imgTitle }) => {
   );
 };
 
-export default HeroPageImgCom;
+export default PageImgCom;

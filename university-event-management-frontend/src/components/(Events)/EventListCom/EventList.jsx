@@ -1,5 +1,5 @@
 import React from 'react';
-import { delReq } from '../api/axios';
+import { delReq } from '../../../api/axios';
 
 const EventList = ({ events, setEvents, setEditingEvent }) => {
 

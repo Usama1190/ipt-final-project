@@ -1,35 +1,57 @@
-.fow {
+
+.fa {
     width: 100%;
     margin-top: 80px;
 }
 
-.fiw {
+.fb {
     max-width: 1300px;
     box-sizing: border-box;
     margin: 0 auto;
 }
 
-.fiw img {
+.fb img {
     width: 100%;
 }
 
-.fcw {
-    display: flex;
-    padding: 20px 0;
-    justify-content: space-between;
-    border-top: 2px dashed #cecece;
-    border-bottom: 2px dashed #cecece;
+.fc div ul li a {
+    color: var(--gray-color);
+    font-size: 14px;
 }
 
-.fcw>div {
-    width: 20%;
-}
-
-.fcw div h2 {
+.fc div ul li a:hover {
     color: var(--dark-green);
     font-weight: 600;
-    margin: 0 0 16px;
+    scale: 1.03;
 }
+
+.fd {
+    font-size: 6px;
+    color: var(--dark-color);
+    margin: 0 5px 0 0;
+}
+
+.fe {
+    color: var(--dark-green);
+}
+
+.ff {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.ff p {
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+
+
+
+
+
+
 
 p {
     font-size: 14px;
@@ -37,27 +59,9 @@ p {
     color: var(--gray-color);
 }
 
-.fcw div ul li a {
-    color: var(--gray-color);
-    font-size: 14px;
-}
 
-.fcw div ul li a:hover {
-    color: var(--dark-green);
-    font-weight: 600;
-    scale: 1.03;
-}
 
-.ffw {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px 0;
-}
 
-.ffw p {
-    font-size: 14px;
-    color: var(--gray-color);
-}
 
 .ffsl {
     display: flex;
@@ -73,12 +77,3 @@ p {
     text-decoration: underline;
 }
 
-.ffli {
-    font-size: 6px;
-    color: var(--dark-color);
-    margin: 0 5px 0 0;
-}
-
-.an {
-    color: var(--dark-green);
-}

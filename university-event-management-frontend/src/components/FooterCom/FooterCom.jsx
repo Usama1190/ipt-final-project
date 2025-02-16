@@ -4,13 +4,13 @@ import styles from "./FooterCom.module.css";
 
 const FooterCom = () => {
   return (
-    <div className={styles.fow}>
-      <div className={styles.fiw}>
+    <div className={styles.fa}>
+      <div className={styles.fb}>
         <div>
           <img src="./assets/imgs/footerend-uok.png" alt="footer image uok" />
         </div>
 
-        <div className={styles.fcw}>
+        <div className={styles.fc}>
           {footerData.map((item, index) => {
             return (
               <div key={index}>
@@ -20,7 +20,7 @@ const FooterCom = () => {
                     item?.linksAndTexts.map((item, index) => {
                       return (
                         <li key={index}>
-                          <span className={styles.ffli}>
+                          <span className={styles.fd}>
                             <i className="fa-sharp fa-solid fa-play"></i>
                           </span>
                           <NavLink to={item.link}>{item.text}</NavLink>
@@ -50,7 +50,7 @@ const FooterCom = () => {
                         {" "}
                         Email:{" "}
                         <span>
-                          <a href=".email" className={styles.an}>{item.email.email}</a>
+                          <a href=".email" className={styles.fe}>{item.email.email}</a>
                         </span>
                       </span>
                     </p>
@@ -61,7 +61,7 @@ const FooterCom = () => {
           })}
         </div>
 
-        <div className={styles.ffw}>
+        <div className={styles.ff}>
           <div>
             <p>
               <span>

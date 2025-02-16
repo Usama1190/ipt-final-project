@@ -1,41 +1,45 @@
-.hpcow {
+
+
+.pa {
     width: 100%;
     box-sizing: border-box;
 }
 
-.hpciw {
+.pb {
     max-width: 1300px;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 16px 0;
 }
 
-.hpchlw {
+.pc {
     margin: 0 0 12px;
     font-size: 14px;
     display: flex;
     align-items: center;
 }
 
-.hpchlw a {
+.pc a {
     margin: 0 12px 0 0;
 }
 
-.hpchlw a:hover {
+.pc a:hover {
     text-decoration: underline;
 }
 
-.hpcicw {
-    font-size: 8px;
-    color: var(--gray-color);
-    margin: 0 12px 0 0;
-}
-
-.hpchiw {
+.pd {
     border: none;
     padding: 4px 4px 0 4px;
     background-color: var(--light-col);
     border-radius: 4px;
     box-shadow: 0 4px 2px -2px var(--light-color);
 }
+
+.pe {
+    font-size: 8px;
+    color: var(--gray-color);
+    margin: 0 12px 0 0;
+}
+
+
 

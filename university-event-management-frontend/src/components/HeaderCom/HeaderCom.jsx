@@ -5,16 +5,16 @@ import { contactNumber, socialData } from "../../utils/constant/socialData";
 
 const HeaderCom = () => {
   return (
-    <div className={styles.oh}>
-      <div className={styles.ih}>
-        <div className={styles.hf}>
-          <div className={styles.kul}>
+    <div className={styles.ha}>
+      <div className={styles.hb}>
+        <div className={styles.hc}>
+          <div className={styles.hd}>
             <img src={"./assets/imgs/uok-logo.png"} alt="uok logo" />
           </div>
 
-          <div className={styles.hir}>
+          <div className={styles.he}>
             <div>
-              <ul className={styles.hsl}>
+              <ul className={styles.hf}>
                 {
                   socialData.map((item, index) => {
                     const lastEle = socialData.length - 1;
@@ -30,11 +30,11 @@ const HeaderCom = () => {
               </ul>
             </div>
             <div>
-              <h2 className={styles.hcn}>Call: {contactNumber}</h2>
+              <h2 className={styles.hg}>Call: {contactNumber}</h2>
             </div>
-            <div className={styles.hiw}>
-              <input type="text" className={styles.ip} placeholder="Enter text to search" />
-              <input type="submit" placeholder="Search" className={`active ${styles.ib}`} />
+            <div className={styles.hh}>
+              <input type="text" className={styles.hi} placeholder="Enter text to search" />
+              <input type="submit" placeholder="Search" className={`active ${styles.hj}`} />
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ const HeaderCom = () => {
                       </span>
                     )}
                     {item.newCategory ? (
-                      <span className={styles.new}>new</span>
+                      <span className={styles.hl}>new</span>
                     ) : null}
                   </NavLink>
                 </li>
