@@ -14,6 +14,14 @@
     width: 100%;
 }
 
+.fc {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+    border-top: 1px dashed var(--gray-color);
+    border-bottom: 1px dashed var(--gray-color);
+}
+
 .fc div ul li a {
     color: var(--gray-color);
     font-size: 14px;
@@ -25,33 +33,30 @@
     scale: 1.03;
 }
 
+.fc > div {
+    width: 20%;
+}
+
 .fd {
-    font-size: 6px;
-    color: var(--dark-color);
-    margin: 0 5px 0 0;
-}
-
-.fe {
-    color: var(--dark-green);
-}
-
-.ff {
     display: flex;
     justify-content: space-evenly;
     padding: 20px 0;
 }
 
-.ff p {
+.fd p {
     font-size: 14px;
     color: var(--gray-color);
 }
 
+.fe {
+    font-size: 6px;
+    color: var(--dark-color);
+    margin: 0 5px 0 0;
+}
 
-
-
-
-
-
+.ff {
+    color: var(--dark-green);
+}
 
 p {
     font-size: 14px;
@@ -59,21 +64,20 @@ p {
     color: var(--gray-color);
 }
 
-
-
-
-
-.ffsl {
+.fg {
     display: flex;
     font-size: 14px;
 }
 
-.ffsl li a {
+.fg li a {
     padding: 10px 15px;
     color: var(--dark-color);
 }
 
-.ffsl li a:hover {
+.fg li a:hover {
     text-decoration: underline;
 }
 
+.an {
+    color: var(--dark-green);
+}

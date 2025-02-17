@@ -25,10 +25,9 @@ a {
     color: var(--gray-color);
 }
 
-/* .active {
-    color: var(--pure-white) !important;
-    background-color: var(--dark-green);
-} */
+strong {
+    color: var(--pure-black);
+}
 
 
 

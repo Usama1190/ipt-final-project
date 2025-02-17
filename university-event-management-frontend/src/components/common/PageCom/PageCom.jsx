@@ -1,6 +1,7 @@
+import EventCom from '../../(Events)/EventCom/EventCom'
 import styles from './PageCom.module.css'
 
-const PageCom = () => {
+const PageCom = ({ data }) => {
 
   return (
     <div>
@@ -20,13 +21,14 @@ const PageCom = () => {
             <div className={styles.pca}>
                 <div>
                     <ul>
-                        
+                        {data[0].title}
                     </ul>
                 </div>
             </div>
             <div className={styles.pcb}>
-              Hello Contents
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ad incidunt sapiente! Iure minima nostrum blanditiis mollitia voluptates ab reprehenderit, distinctio sed provident impedit doloribus nemo cupiditate maiores nulla non!</p>
+              {
+                data[0].title === 'Karachi University Events' && <EventCom />
+              }
             </div>
           </div>
         </div>

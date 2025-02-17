@@ -2,7 +2,7 @@ import PageImgCom from "../PageImgCom/PageImgCom";
 import PageCom from "../PageCom/PageCom";
 import styles from "./PageLayCom.module.css";
 
-const PageLayCom = ({ imgTitle }) => {
+const PageLayCom = ({ data }) => {
   return (
     <div className={styles.pa}>
       <div className={styles.pb}>
@@ -14,9 +14,9 @@ const PageLayCom = ({ imgTitle }) => {
           <a href="/">Main page</a>
         </div>
         <div className={styles.pd}>
-          <PageImgCom imgTitle={imgTitle} />
+          <PageImgCom imgTitle={data[0].title} />
         </div>
-        <PageCom />
+        <PageCom data={data} />
       </div>
     </div>
   );

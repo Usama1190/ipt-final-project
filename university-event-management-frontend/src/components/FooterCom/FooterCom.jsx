@@ -20,7 +20,7 @@ const FooterCom = () => {
                     item?.linksAndTexts.map((item, index) => {
                       return (
                         <li key={index}>
-                          <span className={styles.fd}>
+                          <span className={styles.fe}>
                             <i className="fa-sharp fa-solid fa-play"></i>
                           </span>
                           <NavLink to={item.link}>{item.text}</NavLink>
@@ -50,7 +50,7 @@ const FooterCom = () => {
                         {" "}
                         Email:{" "}
                         <span>
-                          <a href=".email" className={styles.fe}>{item.email.email}</a>
+                          <a href=".email" className={styles.ff}>{item.email.email}</a>
                         </span>
                       </span>
                     </p>
@@ -61,7 +61,7 @@ const FooterCom = () => {
           })}
         </div>
 
-        <div className={styles.ff}>
+        <div className={styles.fd}>
           <div>
             <p>
               <span>
@@ -74,7 +74,7 @@ const FooterCom = () => {
             </p>
           </div>
           <div>
-            <ul className={styles.ffsl}>
+            <ul className={styles.fg}>
               {footerData2.map((item, index) => {
                 const lastEle = footerData2.length - 1;
                 return (
