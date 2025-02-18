@@ -3,7 +3,7 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 const Faculties = () => {
   return (
     <div>
-      <PageLayCom imgTitle={'List of Faculties'} />
+      <PageLayCom data={[{ title: 'List of Faculties'}]} />
     </div>
   )
 }

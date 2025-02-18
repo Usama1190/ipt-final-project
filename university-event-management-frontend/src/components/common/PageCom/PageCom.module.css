@@ -78,6 +78,14 @@
     border-bottom: 1px solid var(--light-color);
 }
 
+.pca div ul li a {
+    line-height: 2.5rem;
+}
+
+.pca div ul li a:hover {
+    color: var(--dark-green);
+}
+
 .pcb {
     width: 79%;
     padding: 12px;

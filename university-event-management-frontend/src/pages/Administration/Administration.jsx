@@ -3,7 +3,7 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 const Administration = () => {
   return (
     <div>
-      <PageLayCom imgTitle={'Administration'} />
+      <PageLayCom data={[{ title: 'Administration'}]} />
     </div>
   )
 }

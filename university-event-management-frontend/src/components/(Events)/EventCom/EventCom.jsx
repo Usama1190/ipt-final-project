@@ -1,15 +1,20 @@
 import styles from "./EventCom.module.css";
-// import ButtonCom from "../../common/ButtonCom/ButtonCom";
 import CardCom from "../../common/CardCom/CardCom";
 
-const EventCom = () => {
+const EventCom = ({data}) => {
   return (
     <div className={styles.ea}>
       <h1>Events</h1>
       <div className={styles.eb}>
-        <CardCom />
-        <CardCom />
-        <CardCom />
+        {
+          data?.map((item, index) => {
+            return (
+              <div key={index}>
+                <CardCom data={item} />
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   );

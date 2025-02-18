@@ -16,7 +16,10 @@ const PageLayCom = ({ data }) => {
         <div className={styles.pd}>
           <PageImgCom imgTitle={data[0].title} />
         </div>
+
+        <div>
         <PageCom data={data} />
+        </div>
       </div>
     </div>
   );
