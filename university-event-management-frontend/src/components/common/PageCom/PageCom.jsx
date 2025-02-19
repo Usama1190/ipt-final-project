@@ -7,7 +7,7 @@ const PageCom = ({ data }) => {
       <div className={styles.pa}>
         <div className={styles.pb}>
           <div className={styles.pba}>
-            <h3>Main Page</h3>
+            <h3>{data[0].title}</h3>
           </div>
           <div className={styles.pbb}>
             <div className={styles.pbba}></div>
@@ -23,7 +23,7 @@ const PageCom = ({ data }) => {
                 {data[0].navigate?.map((item, index) => {
                   return (
                     <li key={index}>
-                      <a href={item.url}>{item.linkText}</a>
+                      <a href={item.linkUrl}>{item.linkText}</a><br /><br />
                     </li>
                   )
                 })}
