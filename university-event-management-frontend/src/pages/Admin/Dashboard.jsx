@@ -11,10 +11,6 @@ const AdminDashboard = () => {
           linkUrl: "/karachi-university-admin-dashboard",
         },
         {
-          linkText: "Home",
-          linkUrl: "/event-manager-dashboard/events",
-        },
-        {
           linkText: "Admissions Management System",
           linkUrl: "#events-announce",
         },
@@ -32,26 +28,6 @@ const AdminDashboard = () => {
         },
         {
           linkText: "Alumni Management System",
-          linkUrl: "#events-announce",
-        },
-        {
-          linkText: "Admissions Management System",
-          linkUrl: "#events-announce",
-        },
-        {
-          linkText: "Admissions Management System",
-          linkUrl: "#events-announce",
-        },
-        {
-          linkText: "Admissions Management System",
-          linkUrl: "#events-announce",
-        },
-        {
-          linkText: "Admissions Management System",
-          linkUrl: "#events-announce",
-        },
-        {
-          linkText: "Admissions Management System",
           linkUrl: "#events-announce",
         },
       ],

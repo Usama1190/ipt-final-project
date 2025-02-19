@@ -9,33 +9,34 @@ import { useEffect, useState } from "react";
 // import EventList from "../components/EventList";
 
 const EventManagerDashboard = () => {
-  // const data = [
-  //   {
-  //     title: "University Event Management System",
-  //     navigate: [
-  //       {
-  //         linkText: "Home",
-  //         linkUrl: "/event-manager-dashboard",
-  //       },
-  //       {
-  //         linkText: "Events",
-  //         linkUrl: "/event-manager-dashboard/events",
-  //       },
-  //       {
-  //         linkText: "Event Announce",
-  //         linkUrl: "#events-announce",
-  //       },
-  //       {
-  //         linkText: "Event Organized",
-  //         linkUrl: "/events/add-event",
-  //       },
-  //       {
-  //         linkText: "Event Applications",
-  //         linkUrl: "/event-manager-dashboard/event-application",
-  //       },
-  //     ],
-  //   },
-  // ];
+  const data = [
+    {
+      title: "Event Management System of University of Karachi",
+      navigate: [
+        {
+          linkText: "Dashboard",
+          linkUrl: "/event-manager",
+        },
+        {
+          linkText: "Event Listing",
+          linkUrl: "/event-manager#events",
+        },
+        {
+          linkText: "Event Organized",
+          linkUrl: "/event-manager#organize-event",
+        },
+        {
+          linkText: "Event Applications (Students)",
+          linkUrl: "/event-manager#event-applications",
+        },
+        ,
+        {
+          linkText: "Events Approved (Admin)",
+          linkUrl: "/event-manager#approved-events-by-admin",
+        },
+      ],
+    },
+  ];
 
   const [events, setEvents] = useState([]);
 
@@ -56,13 +57,7 @@ const EventManagerDashboard = () => {
   return (
     <div className={styles.ema}>
       <div className={styles.emb}>
-        <aside>
-          Side Bar
-        </aside>
-      </div>
-      <div>
-        <header>Header</header>
-        <div>Context</div>
+        <PageCom data={data} />
       </div>
     </div>
   );

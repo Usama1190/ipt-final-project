@@ -1,12 +1,12 @@
 .ema {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid red;
-    display: flex;
 }
 
 .emb {
+    width: 100%;
     box-sizing: border-box;
-    border: 1px solid red;
+    margin-top: -25px;
+    /* margin: 0 auto; */
 }
 
