@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import navData from "../../utils/constant/navData";
 import styles from "./Header.module.css";
+import logo from '/assets/imgs/uok-logo.png'
 import { contactNumber, socialData } from "../../utils/constant/socialData";
 
 const HeaderCom = () => {
@@ -9,7 +10,7 @@ const HeaderCom = () => {
       <div className={styles.hb}>
         <div className={styles.hc}>
           <div className={styles.hd}>
-            <img src={"./assets/imgs/uok-logo.png"} alt="uok logo" />
+            <img src={logo} alt="uok logo" />
           </div>
 
           <div className={styles.he}>
@@ -47,7 +48,7 @@ const HeaderCom = () => {
                   <NavLink to={item.linkUrl}>
                     {item.linkText}{" "}
                     {item.dropdown && (
-                      <span className={styles.ddi}>
+                      <span className={styles.hk}>
                         <i className="fa-solid fa-caret-down"></i>
                       </span>
                     )}

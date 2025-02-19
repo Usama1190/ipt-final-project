@@ -57,38 +57,7 @@
 } 
 
 .pc {
-    z-index: 2;
     padding: 12px;
-    display: flex;
-    align-items: flex-start;
-    margin: -2px 0 0 0;
-    justify-content: space-between;
     background-color: var(--light-col);
-    border: 1px solid var(--light-color);
-}
-
-
-.pca {
-    width: 20%;
-    padding: 12px;
-    background-color: var(--pure-white);
-    border-top: 12px solid var(--dark-green);
-    border-left: 1px solid var(--light-color);
-    border-right: 1px solid var(--light-color);
-    border-bottom: 1px solid var(--light-color);
-}
-
-.pca div ul li a {
-    /* line-height: 2.5rem; */
-}
-
-.pca div ul li a:hover {
-    color: var(--dark-green);
-}
-
-.pcb {
-    width: 79%;
-    padding: 12px;
-    background-color: var(--pure-white);
     border: 1px solid var(--light-color);
 }

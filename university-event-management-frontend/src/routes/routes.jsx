@@ -1,3 +1,4 @@
+import AdminDashboard from "../pages/Admin/AdminDashboard";
 import Administration from "../pages/Administration/Administration";
 import Admissions from "../pages/Admissions/Admissions";
 import Alumni from "../pages/Alumni/Alumni";
@@ -9,11 +10,19 @@ import Faculties from "../pages/Faculties/Faculties";
 import Home from "../pages/Home/Home";
 import Journals from "../pages/Journals/Journals";
 import Library from "../pages/Library/Library";
+import EventDashboard from "../pages/Managers/EventDashboard/EventDashboard";
 
 export const routes = [
     {
         path: '/',
         element: <Home />
+    },
+    {
+        path: '/admin-usama',
+        element: <AdminDashboard />
+    }, {
+        path: '/event-manager',
+        element: <EventDashboard />
     },
     {
         path: '/events',

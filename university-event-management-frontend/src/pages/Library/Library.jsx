@@ -3,7 +3,9 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 const Library = () => {
   return (
     <div>
-      <PageLayCom data={[{ title: 'Dr. Muhammad Husain Library'}]} />
+      <PageLayCom title={'Dr. Muhammad Husain Library'}>
+        Hello Library or Digital Library
+      </PageLayCom>
     </div>
   )
 }

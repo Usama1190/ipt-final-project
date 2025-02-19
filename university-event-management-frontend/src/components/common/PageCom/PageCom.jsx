@@ -1,13 +1,14 @@
-import EventCom from "../../(Events)/EventCom/EventCom";
+// import EventCom from "../../(Events)/EventCom/EventCom";
+// import EventManDashLayCom from "../../EventManDashCom/EventManDashLayCom/EventManDashLayCom";
 import styles from "./PageCom.module.css";
 
-const PageCom = ({ data }) => {
+const PageCom = ({ children, title }) => {
   return (
     <div>
       <div className={styles.pa}>
         <div className={styles.pb}>
           <div className={styles.pba}>
-            <h3>{data[0].title}</h3>
+            <h3>{title}</h3>
           </div>
           <div className={styles.pbb}>
             <div className={styles.pbba}></div>
@@ -17,26 +18,7 @@ const PageCom = ({ data }) => {
         </div>
 
         <div className={styles.pc}>
-          <div className={styles.pca}>
-            <div>
-              <ul>
-                {data[0].navigate?.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={item.linkUrl}>{item.linkText}</a><br /><br />
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </div>
-          <div className={styles.pcb}>
-            <div>
-              {data[0].title === "Karachi University Events" && <EventCom data={data} />}
-            </div>
-
-            <div>Hello</div>
-          </div>
+          <div>{children}</div>
         </div>
       </div>
     </div>

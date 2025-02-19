@@ -1,0 +1,10 @@
+.ema {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.emb {
+    width: 100%;
+    margin: -25px 0 0 0;
+    box-sizing: border-box;
+}

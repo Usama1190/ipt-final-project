@@ -3,7 +3,9 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 const Examination = () => {
   return (
     <div>
-      <PageLayCom data={[{ title: 'Annual Examination Section'}]} />
+      <PageLayCom title={'Annual Examination Section'}>
+        Hello Examination!
+      </PageLayCom>
     </div>
   )
 }

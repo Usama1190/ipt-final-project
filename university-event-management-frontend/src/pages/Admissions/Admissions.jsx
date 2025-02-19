@@ -3,7 +3,9 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 const Admissions = () => {
   return (
     <div>
-      <PageLayCom data={[{ title: 'Admissions Page'}]} />
+      <PageLayCom title={'Admissions Page'}>
+        Hello Admission Page!
+      </PageLayCom>
     </div>
   )
 }

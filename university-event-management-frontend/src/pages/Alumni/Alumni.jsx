@@ -3,7 +3,9 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom"
 const Alumni = () => {
   return (
     <div>
-      <PageLayCom data={[{ title: 'University of Karachi Alumni'}]} />
+      <PageLayCom title={'University of Karachi Alumni'}>
+        Hello Alumni!
+      </PageLayCom>
     </div>
   )
 }
