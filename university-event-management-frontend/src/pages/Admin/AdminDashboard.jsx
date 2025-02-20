@@ -1,3 +1,4 @@
+import Dashboard from "../../components/common/Dashboard/Dashboard";
 import PageCom from "../../components/common/PageCom/PageCom";
 import styles from "./AdminDashboard.module.css";
 
@@ -35,11 +36,9 @@ const AdminDashboard = () => {
   // ];
   return (
     <div className={styles.ema}>
-      <div className={styles.emb}>
-        <PageCom title={'Welcome back to the Admin Dashboard!'}>
-          Hello Admin
-        </PageCom>
-      </div>
+      <Dashboard title={"Welcome back to the Admin Dashboard"}>
+        <PageCom title={"Dr. Prof. Abdul Latif Khatri"}>Hello Admin</PageCom>
+      </Dashboard>
     </div>
   );
 };

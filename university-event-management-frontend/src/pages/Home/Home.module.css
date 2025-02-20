@@ -1,0 +1,22 @@
+.hma {
+}
+
+.hmb {
+    max-width: 1300px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.hmc {
+    padding: 24px 12px;
+}
+
+.hmd {
+    box-shadow: 0 4px 6px -2px var(--light-color);
+    width: 100%;
+}
+
+.hmd img {
+    width: 100%;
+    object-fit: cover;
+}

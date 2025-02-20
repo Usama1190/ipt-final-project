@@ -4,9 +4,17 @@
 }
 
 .emb {
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: -25px;
-    /* margin: 0 auto; */
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid red;
 }
 
+.emc {
+    width: 20%;
+    border: 1px solid red;
+    background-color: var(--pure-white);
+}
+
+.emd {
+    border: 1px solid purple;
+}

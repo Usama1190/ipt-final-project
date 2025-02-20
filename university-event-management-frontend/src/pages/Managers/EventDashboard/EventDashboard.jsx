@@ -1,8 +1,8 @@
 import { getReq } from "../../../api/axios";
-import styles from './EventDashboard.module.css'
+import styles from "./EventDashboard.module.css";
 import { useEffect, useState } from "react";
 import PageCom from "../../../components/common/PageCom/PageCom";
-
+import Dashboard from "../../../components/common/Dashboard/Dashboard";
 
 // import EventEditForm from "../components/EventEditForm";
 // import { getReq } from "../api/axios";
@@ -45,22 +45,38 @@ const EventDashboard = () => {
       try {
         const response = await getReq("/events");
         setEvents(response.data.data);
-        
       } catch (error) {
         console.error("Error fetching events:", error);
       }
     };
     fetchEvents();
   }, []);
-  
 
   return (
     <div className={styles.ema}>
-      <div className={styles.emb}>
-        <PageCom title={'Event Management System'}>
-          Hello Manager!
+      <Dashboard title={"Event Management System"}>
+        <PageCom title={"Dr. Hunain Khan"}>
+          <div className={styles.emb}>
+            <div className={styles.emc}>
+              <aside>
+                <h3>Dashboard</h3>
+
+                <ul>
+                  <li>Event Listing</li>
+                  <li>Event Listing</li>
+                  <li>Event Listing</li>
+                  <li>Event Listing</li>
+                  <li>Event Listing</li>
+                  <li>Event Listing</li>
+                  <li>Event Listing</li>
+                  <li>Event Listing</li>
+                </ul>
+              </aside>
+            </div>
+            <div className={styles.emd}>Main Content</div>
+          </div>
         </PageCom>
-      </div>
+      </Dashboard>
     </div>
   );
 };
