@@ -36,7 +36,7 @@
     color: var(--dark-green);
 }
 
-.hme, .hmf a:hover {
+.hme a:hover, .hmf a:hover {
     text-decoration: underline;
 }
 
@@ -92,4 +92,40 @@
 .hmk {
     margin: 0 12px;
     width: 500px;
+}
+
+.hml a, p {
+    color: var(--dark-green);
+    font-size: 14px;
+}
+
+.hml p {
+    animation: highlight 0.9s 0.9s infinite ease;
+}
+
+.hml a:hover {
+    text-decoration: underline;
+}
+
+.hmm {
+    margin: 0 0 12px 0;
+}
+
+.hmm button {
+    padding: 2px 12px;
+    border: none;
+    margin: 0 12px;
+    cursor: pointer;
+    border-radius: 2px;
+    color: var(--pure-white);
+    background-color: var(--dark-green);
+}
+
+@keyframes highlight {
+    from {
+        color: var(--dark-green);
+    }
+    to {
+        color: red;
+    }
 }

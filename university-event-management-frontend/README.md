@@ -23,7 +23,7 @@ database - manager dashboard - approved - admin dashboard - approved
 
 event list
 
-
+animate using Framer Motion.
 
 
 

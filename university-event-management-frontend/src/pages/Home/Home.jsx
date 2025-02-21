@@ -22,6 +22,11 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const data = {
+    title1: "Latest News",
+    title2: "Latest Results",
+  };
+
   return (
     <div className={styles.hma}>
       <div className={styles.hmb}>
@@ -62,30 +67,49 @@ const Home = () => {
 
           <div className={styles.hmh}>
             <div className={styles.hmi}>
-              <img src="./assets/imgs/banner-joinus-dkmi.jpg" alt="vc of uok image" />
+              <img
+                src="./assets/imgs/banner-joinus-dkmi.jpg"
+                alt="vc of uok image"
+              />
             </div>
 
             <div className={styles.hmk}>
-              <PageCom title={'Departments'}>
-                <div>
-                  <p>Jump to department (A-Z)</p>
-                  <select name="" id="">
-                    {
-                      departNames.map((item, index) => {
+              <div className={styles.hmm}>
+                <PageCom title={"Departments"}>
+                  <div>
+                    <p>Jump to department (A-Z)</p>
+                    <select name="" id="">
+                      {departNames.map((item, index) => {
                         return (
-                          <option key={index} value={item}>{item}</option>
-                        )
-                      })
-                    }
-                  </select>
-                  <button>Go search</button>
-                </div>
-              </PageCom>
-              <PageCom title={'Scholarships'}>Hello I am Page Com</PageCom>
+                          <option key={index} value={item}>
+                            {item}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    <button>Go / Search</button>
+                  </div>
+                </PageCom>
+              </div>
+
+              <div>
+                <PageCom title={"Scholarships"}>
+                  <div className={styles.hml}>
+                    <a href="#student-finance-aid-office">
+                      Student Finance Aid Office
+                    </a>
+                    <p>
+                      Interviews Schedule for Sindh HEC Indigenous Scholarship
+                      for M.Phil. / Ph.D. Students 2024-25 ::{" "}
+                      <a href="#click-here">Click here</a>
+                    </p>
+                  </div>
+                </PageCom>
+              </div>
             </div>
 
             <div className={styles.hmj}>
-              <CardCom>Hello Card</CardCom>
+              <CardCom data={data}>Hello Card</CardCom>
             </div>
           </div>
         </div>

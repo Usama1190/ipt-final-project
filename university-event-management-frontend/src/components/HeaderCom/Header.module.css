@@ -1,24 +1,24 @@
 
 nav {
-    background-color: var(--dark-color);
     padding: 10px;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    background-color: var(--dark-color);
 }
 
 nav ul {
+    width: 100%;
     height: 44px;
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 nav ul li a {
+    padding: 12px;
     color: #fff;
     font-size: 1.1rem;
-    padding: 12px;
     border-radius: 10px;
 }
 
@@ -35,9 +35,9 @@ nav ul li a:hover {
 }
 
 .hb {
+    margin: 0 auto;
     max-width: 1300px;
     box-sizing: border-box;
-    margin: 0 auto;
 }
 
 .hc {
@@ -50,12 +50,12 @@ nav ul li a:hover {
 }
 
 .he {
-    max-width: 567px;
     height: 134px;
-    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    max-width: 567px;
     align-items: end;
+    flex-direction: column;
+    box-sizing: border-box;
     justify-content: space-between;
 }
 
@@ -64,32 +64,32 @@ nav ul li a:hover {
 }
 
 .hf li:nth-child(1) a {
-    background-color: var(--dark-green);
     color: var(--pure-white);
+    background-color: var(--dark-green);
 }
 
 .hf li a {
-    color: var(--dark-color);
-    padding: 5px 8px;
     font-size: 14px;
+    padding: 5px 8px;
     border-radius: 4px;
+    color: var(--dark-color);
 }
 
 .hf li a:hover {
-    background-color: var(--dark-green);
     color: var(--pure-white);
+    background-color: var(--dark-green);
 }
 
 .hg {
-    color: var(--dark-green);
     margin-right: 20px;
     font-family: sans-serif;
+    color: var(--dark-green);
 }
 
 .hh {
+    padding: 10px 18px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    padding: 10px 18px;
     background-color: var(--dark-color);
 }
 
@@ -99,16 +99,19 @@ nav ul li a:hover {
 
 .hi {
     width: 300px;
-    border-radius: 4px;
     padding: 6px;
+    border-radius: 4px;
 }
 
 .hj {
     border: none;
-    position: absolute;
-    margin: 4px 0 0 -70px;
+    cursor: pointer;
     padding: 4px 8px;
+    position: absolute;
     border-radius: 4px;
+    margin: 4px 0 0 -65px;
+    color: var(--pure-white);
+    background-color: var(--dark-green);
 }
 
 .hk {
@@ -126,13 +129,13 @@ nav ul li a:hover .hk {
 
 .hl {
     font-size: 10px;
-    margin: -15px 0 0 -12px;
-    border: 1px solid var(--pure-white);
-    background-color: red;
-    color: var(--pure-white);
-    position: absolute;
-    border-radius: 10px;
     padding: 1px 3px;
     font-weight: 800;
+    position: absolute;
+    border-radius: 10px;
+    margin: -15px 0 0 -12px;
+    background-color: red;
+    color: var(--pure-white);
+    border: 1px solid var(--pure-white);
 }
 

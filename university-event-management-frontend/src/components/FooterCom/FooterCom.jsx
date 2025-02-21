@@ -73,6 +73,11 @@ const FooterCom = () => {
               Use <a href="/" className={styles.an}>IE-8</a> or <a href="/" className={styles.an}>above</a>
             </p>
           </div>
+
+          <div className={styles.fh}>
+            <p>Developed By <a href="https://www.linkedin.com/in/usama-israr-khan-3b68312ab/" target="_blanks">Usama Israr Khan</a></p>
+          </div>
+
           <div>
             <ul className={styles.fg}>
               {footerData2.map((item, index) => {

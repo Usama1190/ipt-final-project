@@ -1,7 +1,7 @@
 
 .fa {
     width: 100%;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .fb {
@@ -35,6 +35,10 @@
 
 .fc > div {
     width: 20%;
+}
+
+.fc div p span {
+    color: var(--dark-color);
 }
 
 .fd {
@@ -79,5 +83,9 @@ p {
 }
 
 .an {
+    color: var(--dark-green);
+}
+
+.fh a {
     color: var(--dark-green);
 }

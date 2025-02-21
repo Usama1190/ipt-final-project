@@ -15,13 +15,13 @@ const CardCom = ({ children, data }) => {
           className={isPassOpen ? styles.cd : styles.ce}
           onClick={handleClick}
         >
-          Depart: UBIT
+          {data.title1}
         </button>
         <button
           className={!isPassOpen ? styles.cd : styles.ce}
           onClick={handleClick}
         >
-          Get Event Pass
+          {data.title2}
         </button>
       </div>
 

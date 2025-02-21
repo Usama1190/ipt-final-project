@@ -17,7 +17,7 @@ const PageLayCom = ({ title, children }) => {
           <PageImgCom imgTitle={title} />
         </div>
 
-        <div>
+        <div className={styles.pf}>
         <PageCom title={title}>
           {children}
         </PageCom>

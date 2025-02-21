@@ -35,7 +35,7 @@ const HeaderCom = () => {
             </div>
             <div className={styles.hh}>
               <input type="text" className={styles.hi} placeholder="Enter text to search" />
-              <input type="submit" placeholder="Search" className={`active ${styles.hj}`} />
+              <button className={`active ${styles.hj}`}>Search</button>
             </div>
           </div>
         </div>
