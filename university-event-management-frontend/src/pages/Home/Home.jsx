@@ -25,6 +25,43 @@ const Home = () => {
   const data = {
     title1: "Latest News",
     title2: "Latest Results",
+    arrayOne: [
+      {
+        title: 'MBBS Annual Examination 2024',
+        link: 'Final',
+        text: 'Modular',
+        date: '(18FEB2025)'
+      },
+      {
+        title: 'MBBS Annual Examination 2024',
+        link: 'III PRO',
+        text: 'Modular',
+        date: '(04DEC2024)'
+      },
+      {
+        title: 'B.D.S Examination 2024',
+        link: 'I-PRO(Supply)',
+        link2: 'III-PRO(Annual)',
+        date: '(04DEC2024)'
+      }
+    ],
+    arrayTwo: [
+      {
+        title: 'Schedule of Postponed Papers',
+        link: 'Notification',
+        date: '(17FEB2025)'
+      },
+      {
+        title: 'Submission of Enrolment Form',
+        link: 'Associate Degree Program',
+        date: '(10FEB2025)'
+      },
+      {
+        title: 'Examination Schedule 2023-24',
+        link: 'Click here',
+        date: '(10JAN2024)'
+      }
+    ]
   };
 
   return (
@@ -109,7 +146,7 @@ const Home = () => {
             </div>
 
             <div className={styles.hmj}>
-              <CardCom data={data}>Hello Card</CardCom>
+              <CardCom data={data} />
             </div>
           </div>
         </div>

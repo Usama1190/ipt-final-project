@@ -1,4 +1,4 @@
-import logo from '/assets/imgs/uok-logo.png'
+import logoUok from '/assets/imgs/uok-logo.png'
 import styles from './HeadCom.module.css'
 
 const HeadCom = ({ title }) => {
@@ -6,7 +6,7 @@ const HeadCom = ({ title }) => {
     <div>
       <div className={styles.dha}>
         <div>
-            <img src={logo} alt="logo uok" />
+            <img src={logoUok} alt="logo uok" />
         </div>
         <div>
             <h1>{title || 'Dashboard'}</h1>

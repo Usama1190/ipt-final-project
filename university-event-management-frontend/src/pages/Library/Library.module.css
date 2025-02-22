@@ -1,0 +1,26 @@
+
+.lba {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.lbb {
+    width: 20%;
+    border-top: 8px solid var(--dark-green);
+    padding: 24px;
+    background-color: var(--pure-white);
+}
+
+.lbb aside ul li {
+    margin: 8px 0;
+}
+
+.lbb aside ul li a:hover {
+    color: var(--dark-green);
+}
+
+.lbc {
+    width: 80%;
+    padding: 24px;
+}
