@@ -1,86 +1,54 @@
-import styles from './Library.module.css'
+import styles from "./Library.module.css";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
+import PageConCom from "../../components/common/PageConCom/PageConCom";
+import navData from "../../utils/constant/navData";
 
 const Library = () => {
+  const data = navData[3].innerLinkTextAndUrl;
+
   return (
     <div>
       <PageLayCom title={"Dr. Muhammad Husain Library"}>
-        <div className={styles.lba}>
-          <div className={styles.lbb}>
-            <aside>
-              <ul>
-                <li>
-                  <a href="#introduction">Introduction</a>
-                </li>
-                <li>
-                  <a href="#quide-azam-collection">Quide-Azam Collection</a>
-                </li>
-                <li>
-                  <a href="#digital-library">Digital Library</a>
-                </li>
-                <li>
-                  <a href="#services">Services</a>
-                </li>
-                <li>
-                  <a href="#building-plan">Building Plan</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
-                <li>
-                  <a href="#pharmecy">Pharmacy</a>
-                </li>
-                <li>
-                  <a href="#science">Science</a>
-                </li>
-                <li>
-                  <a href="#social-science">Social Science</a>
-                </li>
-                <li>
-                  <a href="#research-institude">Research Institude</a>
-                </li>
-              </ul>
-            </aside>
-          </div>
-
-          <div className={styles.lbc}>
+        <PageConCom data={data}>
+        <div>
             <div>
-              <h3>Faculity of Education</h3>
-              <p>Dean: Prof. Dr. Nasir Salman</p>
+              <h3>Chief Librarian: Ms. Malahat Kareem</h3>
             </div>
 
             <div>
+              <div className={styles.lbd}>
+                <img src="/assets/imgs/mh2.gif" alt="library image" />
+              </div>
               <p>
-                The Faculty of Education, was established in 1970 at the
-                University of Karachi, and had been governing all colleges,
-                teaching education in the city of Karachi. Earlier, the Dean of
-                the Education Faculty was selected from colleges on the basis of
-                seniority. In 2003, for the first time, Dr. Fatima Razi,
-                Professor, Department of Education was appointed as the Dean,
-                Education. Since then, the University realized that the Faculty
-                of Education should be functional and finally the Faculty got
-                approval in 2012 by the University statuary bodies and started
-                working. The Faculty of Education comprised of the following
-                three Departments became the part of the Faculty:
+                The Central library of the University of Karachi is housed in a
+                unique building, resembles a huge Ship. It is not only located
+                in the center of the campus, but in fact a hub of academic and
+                research activities of the one of the largest universities of
+                the country.
               </p>
 
               <p>
-                Besides, Departments, Faculty of Education also governs the
-                functioning of all affiliated colleges, in the city of Karachi,
-                teaching “Education” in general and Teacher Education in
-                specific.
-              </p>
-
-              <p>
-                The Faculty is very active in developing linkages with other
-                programs both at National and International levels. The target
-                areas are teaching, research, publication and collaborative
-                assignments between Universities and institutions both at
-                National and International levels.
+                The Library was founded in 1952, when the University of Karachi
+                itself came into being. In 1975 after the death of Prof. Dr.
+                Mahmud Husain then Vice Chancellor and renowned scholar, the
+                library was named as Dr. Mahmud Husain Library in recognition of
+                his services to scholarship, education and for the promotion of
+                librarianship in Pakistan. The Library has a collection of more
+                than 350,000 books and the same number of bound volumes of
+                research and scientific journals. Library also has the status of
+                UNO depositary center. A valuable collection of rare books and
+                manuscripts consists of about 6000 volumes dated back to 16th
+                century and the Personal book collections of 46 Scholars,
+                writers and renowned academicians are also the part of the
+                Library. The most significant of all is the personal collection
+                of Quaid-e-Azam Muhammad Ali Jinnah, stored in the original
+                antique book cabinets received as a part of the collection.
+                Original photographs, letters and Posters of the Freedom
+                Movement are also an asset for the Library.
               </p>
             </div>
           </div>
-        </div>
+        </PageConCom>
       </PageLayCom>
     </div>
   );

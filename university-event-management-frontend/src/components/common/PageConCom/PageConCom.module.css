@@ -1,43 +1,36 @@
 
-.lba {
+.pcca {
     width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
 }
 
-.lbb {
+.pccb {
     width: 20%;
     border-top: 8px solid var(--dark-green);
-    padding: 24px;
+    padding: 12px;
     background-color: var(--pure-white);
 }
 
-.lbb aside ul li {
-    margin: 8px 0;
-}
-
-.lbb aside ul li a:hover {
-    color: var(--dark-green);
-}
-
-.lbc {
+.pccc {
     width: 79%;
     padding: 24px;
     background-color: var(--pure-white);
 }
 
-.lbc div h3 {
+.pccc h3 {
     color: var(--dark-green);
 }
 
-.lbc div p {
+.pccc p {
     color: var(--dark-color);
 }
 
-.lbd {
-    margin: 24px;
-    display: flex;
-    justify-content: center;
+.pccb ul li {
+    margin: 8px 0;
 }
 
+.pccb ul li a:hover {
+    color: var(--dark-green);
+}

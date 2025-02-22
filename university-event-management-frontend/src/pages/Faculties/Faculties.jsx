@@ -1,49 +1,14 @@
-import styles from "./Faculties.module.css";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
+import navData from "../../utils/constant/navData";
+import PageConCom from "../../components/common/PageConCom/PageConCom";
 
 const Faculties = () => {
+  const data = navData[2].innerLinkTextAndUrl;
   return (
     <div>
       <PageLayCom title={"List of Faculties"}>
-        <div className={styles.fca}>
-          <div className={styles.fcb}>
-            <aside>
-              <ul>
-                <li>
-                  <a href="#education">Education</a>
-                </li>
-                <li>
-                  <a href="#engineering">Engineering</a>
-                </li>
-                <li>
-                  <a href="#islamic-studies">Islamic Studies</a>
-                </li>
-                <li>
-                  <a href="#law">Law</a>
-                </li>
-                <li>
-                  <a href="#management-science">Management Science</a>
-                </li>
-                <li>
-                  <a href="#medicine">Medicine</a>
-                </li>
-                <li>
-                  <a href="#pharmecy">Pharmacy</a>
-                </li>
-                <li>
-                  <a href="#science">Science</a>
-                </li>
-                <li>
-                  <a href="#social-science">Social Science</a>
-                </li>
-                <li>
-                  <a href="#research-institude">Research Institude</a>
-                </li>
-              </ul>
-            </aside>
-          </div>
-
-          <div className={styles.fcc}>
+        <PageConCom data={data}>
+        <div>
             <div>
               <h3>Faculity of Education</h3>
               <p>Dean: Prof. Dr. Nasir Salman</p>
@@ -80,7 +45,7 @@ const Faculties = () => {
               </p>
             </div>
           </div>
-        </div>
+        </PageConCom>
       </PageLayCom>
     </div>
   );

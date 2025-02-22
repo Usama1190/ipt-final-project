@@ -1,11 +1,31 @@
-import styles from "./Admissions.module.css";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
+import PageConCom from "../../components/common/PageConCom/PageConCom";
+import navData from "../../utils/constant/navData";
 
 const Admissions = () => {
+  const data = navData[1].innerLinkTextAndUrl;
+
   return (
     <div>
       <PageLayCom title={"Admissions Page"}>
-        <div className={styles.ada}>
+        <PageConCom data={data}>
+        <div>
+            <div>
+              <h3>Dr. Saima Akhter</h3>
+              <p>Incharge, Directorate of Admissions</p>
+              <p>Emails: <a href="#">admissions.uok.edu.pk</a></p>
+            </div>
+
+            <div>
+              <img src="/assets/imgs/oap.jpg" alt="Admissions image guide" />
+            </div>
+
+            <div>
+              <img src="/assets/imgs/seafs.jpg" alt="Admissions image guide" />
+            </div>
+          </div>
+        </PageConCom>
+        {/* <div className={styles.ada}>
           <div className={styles.adb}>
             <aside>
               <ul>
@@ -40,7 +60,7 @@ const Admissions = () => {
               <img src="/assets/imgs/seafs.jpg" alt="Admissions image guide" />
             </div>
           </div>
-        </div>
+        </div> */}
       </PageLayCom>
     </div>
   );
