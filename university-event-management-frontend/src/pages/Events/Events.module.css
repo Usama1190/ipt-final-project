@@ -14,3 +14,15 @@
 .eld .ele:nth-child(even) {
     background-color: var(--light-green);
 }
+
+.elf {
+    border: 1px solid red;
+}
+
+.elf form {
+    padding: 24px 0 0 0;
+}
+
+.elf label {
+    padding: 0 32px 0 0;
+}

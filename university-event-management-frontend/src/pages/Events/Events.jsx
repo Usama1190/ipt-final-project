@@ -4,6 +4,7 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
 import { getReq } from "../../api/axios";
 import EventCom from "../../components/(Events)/EventCom/EventCom";
 import styles from "./Events.module.css";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 
 const Events = () => {
   // const eventData = [
@@ -88,8 +89,49 @@ const Events = () => {
             </div>
           </div>
 
-          <div id="application-event">
+          <div id="application-event" className={styles.elf}>
             <h3>Application For Event</h3>
+            
+            <div>
+              <form action="">
+                <label htmlFor="name">
+                  Name : <input type="text" name="name" id="name" placeholder="John" />
+                </label>
+
+                <label htmlFor="fname">
+                  Father Name : <input type="text" name="fname" id="fname" placeholder="Deo" />
+                </label><br /><br />
+
+                <label htmlFor="email">
+                  Email : <input type="email" name="email" id="email" placeholder="johndoe@gmail.com" />
+                </label>
+
+                <label htmlFor="dname">
+                  Department Name : <input type="text" name="dname" id="dname" placeholder="Mass Com" />
+                </label><br /><br />
+
+                <label htmlFor="snumber">
+                  Seat No : <input type="text" name="snumber" id="snumber" placeholder="20101010" />
+                </label>
+
+                Shift : {' '}
+                  <input type="radio" name="morning" id="morning" /> {' '}
+                <label htmlFor="morning">
+                Morning
+                </label>
+
+                <input type="radio" name="morning" id="evening" /> {' '}
+                <label htmlFor="evening">
+                Evening
+                </label><br /><br />
+
+                <label htmlFor="ename">
+                  Event Name : <input type="text" name="ename" id="ename" placeholder="Sport" />
+                </label>
+
+                <ButtonCom btnText={'Submit'} btnLink={'#submit'} btnLayout={'btn2'} />
+              </form>
+            </div>
           </div>
         </PageConCom>
       </PageLayCom>
