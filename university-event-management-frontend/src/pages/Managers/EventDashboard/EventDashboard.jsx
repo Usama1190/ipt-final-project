@@ -55,7 +55,7 @@ const EventDashboard = () => {
   return (
     <div className={styles.ema}>
       <Dashboard title={"Event Management System"}>
-        <PageCom title={"Dr. Hunain Khan"}>
+        <PageCom title={"Dr. Prof. Aejaz Khan"}>
           <div className={styles.emb}>
             <div className={styles.emc}>
               <aside>

@@ -5,6 +5,9 @@
     margin: 24px 0;
     border: 1px solid var(--light-green);
     border-radius: 2px;
+    /* background-image: url('./assets/imgs/uok-logo.png');
+    background-repeat: no-repeat;
+    background-position:center; */
 }
 
 h4 {
@@ -16,10 +19,6 @@ h4 {
     flex-wrap: wrap;
     align-items: center;
 }
-
-/* .ena:hover {
-    background-color: var(--light-green);
-} */
 
 .enb span {
     /* border: 1px solid red; */

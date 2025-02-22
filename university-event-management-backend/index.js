@@ -4,6 +4,7 @@ import enums from './constant/enums.js';
 import dbConnection from './database/dbConnection.js';
 import cors from 'cors';
 import eventRoute from './routes/eventRoutes.js';
+import eventAppRoute from './routes/eventAppRoutes.js';
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/', eventRoute);
+
+app.use('/', eventAppRoute);
 
 app.get('/', (req, res) => {
     try {
