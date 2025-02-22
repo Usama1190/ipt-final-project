@@ -5,9 +5,14 @@ import navData from "../../utils/constant/navData";
 const Admissions = () => {
   const data = navData[1].innerLinkTextAndUrl;
 
+  const titles = {
+    imgTitle: 'Admissions Page',
+    pageTitle: 'Main Page'
+  }
+
   return (
     <div>
-      <PageLayCom title={"Admissions Page"}>
+      <PageLayCom titles={titles}>
         <PageConCom data={data}>
         <div>
             <div>

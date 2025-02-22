@@ -3,7 +3,6 @@ import Administration from "../pages/Administration/Administration";
 import Admissions from "../pages/Admissions/Admissions";
 import Alumni from "../pages/Alumni/Alumni";
 import ErrorPage from "../pages/Error/ErrorPage";
-import EventAppPage from "../pages/EventApp/EventAppPage";
 import Events from "../pages/Events/Events";
 import Examination from "../pages/Examination/Examination";
 import Faculties from "../pages/Faculties/Faculties";
@@ -27,10 +26,6 @@ export const routes = [
     {
         path: '/events',
         element: <Events />
-    },
-    {
-        path: '/events/application-new-event',
-        element: <EventAppPage />
     },
     {
         path: '/admissions',

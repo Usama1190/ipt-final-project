@@ -4,9 +4,15 @@ import PageConCom from "../../components/common/PageConCom/PageConCom";
 
 const Faculties = () => {
   const data = navData[2].innerLinkTextAndUrl;
+
+  const titles = {
+    imgTitle: 'List of Faculties',
+    pageTitle: 'Academics'
+  }
+
   return (
     <div>
-      <PageLayCom title={"List of Faculties"}>
+      <PageLayCom titles={titles}>
         <PageConCom data={data}>
         <div>
             <div>

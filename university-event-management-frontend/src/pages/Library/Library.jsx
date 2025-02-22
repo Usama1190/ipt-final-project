@@ -6,9 +6,14 @@ import navData from "../../utils/constant/navData";
 const Library = () => {
   const data = navData[3].innerLinkTextAndUrl;
 
+  const titles = {
+    imgTitle: 'Dr. Muhammad Husain Library',
+    pageTitle: 'Introduction'
+  }
+
   return (
     <div>
-      <PageLayCom title={"Dr. Muhammad Husain Library"}>
+      <PageLayCom titles={titles}>
         <PageConCom data={data}>
         <div>
             <div>
