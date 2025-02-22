@@ -1,0 +1,16 @@
+
+.ela {
+    padding: 0 0 164px;
+}
+
+.elb {
+    padding: 0 0 164px;
+}
+
+.elc {
+    padding: 24px 0;
+}
+
+.eld .ele:nth-child(even) {
+    background-color: var(--light-green);
+}

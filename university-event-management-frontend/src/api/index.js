@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/event-manager',
+    baseURL: 'http://localhost:3000',
     header: {
         'Content-Type': 'application/json',
     },
