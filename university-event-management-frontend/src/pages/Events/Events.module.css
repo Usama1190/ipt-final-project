@@ -16,12 +16,8 @@
 }
 
 .elf {
-<<<<<<< HEAD
     border: 1px solid var(--light-green);
     padding: 24px 12px;
-=======
-    border: 1px solid red;
->>>>>>> 7eeafcd8ee05b60c6ece6b35a25fd4311c69901e
 }
 
 .elf form {
@@ -30,7 +26,6 @@
 
 .elf label {
     padding: 0 32px 0 0;
-<<<<<<< HEAD
 }
 
 .elf input {
@@ -61,6 +56,3 @@
     border: none;
     border-bottom: none;
 }
-=======
-}
->>>>>>> 7eeafcd8ee05b60c6ece6b35a25fd4311c69901e

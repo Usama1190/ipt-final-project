@@ -4,6 +4,7 @@ import { departImages } from "../../utils/constant/departImages";
 import CardCom from "../../components/common/CardCom/CardCom";
 import PageCom from "../../components/common/PageCom/PageCom";
 import { departNames } from "../../utils/constant/departNames";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 
 const Home = () => {
   const [id, setId] = useState(0);
@@ -27,41 +28,41 @@ const Home = () => {
     title2: "Latest Results",
     arrayOne: [
       {
-        title: 'MBBS Annual Examination 2024',
-        link: 'Final',
-        text: 'Modular',
-        date: '(18FEB2025)'
+        title: "MBBS Annual Examination 2024",
+        link: "Final",
+        text: "Modular",
+        date: "(18FEB2025)",
       },
       {
-        title: 'MBBS Annual Examination 2024',
-        link: 'III PRO',
-        text: 'Modular',
-        date: '(04DEC2024)'
+        title: "MBBS Annual Examination 2024",
+        link: "III PRO",
+        text: "Modular",
+        date: "(04DEC2024)",
       },
       {
-        title: 'B.D.S Examination 2024',
-        link: 'I-PRO(Supply)',
-        link2: 'III-PRO(Annual)',
-        date: '(04DEC2024)'
-      }
+        title: "B.D.S Examination 2024",
+        link: "I-PRO(Supply)",
+        link2: "III-PRO(Annual)",
+        date: "(04DEC2024)",
+      },
     ],
     arrayTwo: [
       {
-        title: 'Schedule of Postponed Papers',
-        link: 'Notification',
-        date: '(17FEB2025)'
+        title: "Schedule of Postponed Papers",
+        link: "Notification",
+        date: "(17FEB2025)",
       },
       {
-        title: 'Submission of Enrolment Form',
-        link: 'Associate Degree Program',
-        date: '(10FEB2025)'
+        title: "Submission of Enrolment Form",
+        link: "Associate Degree Program",
+        date: "(10FEB2025)",
       },
       {
-        title: 'Examination Schedule 2023-24',
-        link: 'Click here',
-        date: '(10JAN2024)'
-      }
-    ]
+        title: "Examination Schedule 2023-24",
+        link: "Click here",
+        date: "(10JAN2024)",
+      },
+    ],
   };
 
   return (
@@ -76,11 +77,16 @@ const Home = () => {
           </div>
 
           <div className={styles.hme}>
-            <a href="#alumni-registration">Alumni registration</a>,{" "}
-            <a href="#official-students'-societies">
-              Official Students&apos; Societies
-            </a>
-            , <a href="#view-uoK's-profile">View UoK&apos;s profile</a>
+            <div>
+              <a href="#alumni-registration">Alumni registration</a>,{" "}
+              <a href="#official-students'-societies">
+                Official Students&apos; Societies
+              </a>
+              , <a href="#view-uoK's-profile">View UoK&apos;s profile</a>
+            </div>
+            <div>
+              <ButtonCom btnLayout={'btn2'} btnText={'Register'} btnLink={'/register'} />
+            </div>
           </div>
 
           <div className={styles.hmf}>

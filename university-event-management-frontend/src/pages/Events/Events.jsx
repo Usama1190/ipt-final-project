@@ -4,13 +4,37 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
 import { getReq } from "../../api/axios";
 import EventCom from "../../components/(Events)/EventCom/EventCom";
 import styles from "./Events.module.css";
-<<<<<<< HEAD
+
 import { departNames } from "../../utils/constant/departNames";
-=======
-import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
->>>>>>> 7eeafcd8ee05b60c6ece6b35a25fd4311c69901e
 
 const Events = () => {
+  const userData = {
+    studentName: '',
+    fatherName: '',
+    studentEmail: '',
+    departName: '',
+    seatNo: '',
+    shift: '',
+    eventName: '',
+  };
+
+  const [userInput, setUserInput] = useState(userData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setUserInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = () => {
+    // setUserInput(userData)
+    console.log(userInput, 'userInput after submit');
+  };
+
+  console.log(userInput, 'userInput before submit');
 
   const data = [
     {
@@ -39,7 +63,7 @@ const Events = () => {
       try {
         const response = await getReq("/events");
         setEvents(response.data.data);
-        console.log(response.data.data);
+        // console.log(response.data.data);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
@@ -47,7 +71,7 @@ const Events = () => {
     fetchEvents();
   }, []);
 
-  console.log(events);
+  // console.log(events);
 
   return (
     <div>
@@ -56,7 +80,10 @@ const Events = () => {
           <div className={styles.ela}>
             <h3>Dr. Prof. Aejaz Khan</h3>
             <p>Incharge, Directorate of Events</p>
-            <p>Send Application, for an Exciting Events ::<a href="#application-event">Click here</a></p>
+            <p>
+              Send Application, for an Exciting Events ::
+              <a href="#application-event">Click here</a>
+            </p>
           </div>
 
           <div id="latest-events" className={styles.elb}>
@@ -79,127 +106,119 @@ const Events = () => {
           </div>
 
           <div id="application-event" className={styles.elf}>
-            <h3>Application For Event</h3>
-<<<<<<< HEAD
-            <br />
-
+            <h3>Application For Event</h3><br />
             <div>
-              <p>
-                <strong>Note :</strong> Only <strong>Active</strong> students
-                can fill the form.
+              <p><strong>Note :</strong> Only <strong>Active</strong>{' '}
+                students can fill the form.
               </p>
-              <form action="">
-                <label htmlFor="name">
+              <form>
+                <label htmlFor="studentName">
                   Name :{" "}
-                  <input type="text" name="name" id="name" placeholder="John" required />
+                  <input
+                    type="text"
+                    name="studentName"
+                    id="studentName"
+                    placeholder="John"
+                    required
+                    value={userInput.studentName}
+                    onChange={handleChange}
+                  />
                 </label>
-                <label htmlFor="fname">
+                <label htmlFor="fatherName">
                   Father Name :{" "}
                   <input
                     type="text"
-                    name="fname"
-                    id="fname"
+                    name="fatherName"
+                    id="fatherName"
                     placeholder="Deo"
                     required
+                    value={userInput.fatherName}
+                    onChange={handleChange}
                   />
-                </label>
-                <br />
-                <br />
-                <label htmlFor="email">
+                </label><br /><br />
+                <label htmlFor="studentEmail">
                   Email :{" "}
                   <input
                     type="email"
-                    name="email"
-                    id="email"
+                    name="studentEmail"
+                    id="studentEmail"
                     placeholder="johndoe@gmail.com"
                     required
+                    value={userInput.studentEmail}
+                    onChange={handleChange}
                   />
                 </label>
-                <label htmlFor="dname">
+                <label htmlFor="departName">
                   Department Name :{" "}
-                  <select name="dname" id="dname" required>
+                  <select
+                    name="departName"
+                    id="departName"
+                    required
+                    value={userInput.departName}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select Department</option>
                     {departNames.map((item, index) => {
                       return (
-                        <option key={index} value="dname">
-                          {item}
-                        </option>
+                        <option key={index}>{item}</option>
                       );
                     })}
                   </select>
-                </label>
-                <br />
-                <br />
-                <label htmlFor="snumber">
+                </label><br /><br />
+                <label htmlFor="seatNo">
                   Seat No :{" "}
                   <input
                     type="text"
-                    name="snumber"
-                    id="snumber"
+                    name="seatNo"
+                    id="seatNo"
                     placeholder="20101010"
                     min={8}
                     required
+                    value={userInput.seatNo}
+                    onChange={handleChange}
                   />
                 </label>
-                Shift : <input type="radio" name="morning" id="morning" />{" "}
-                <label htmlFor="morning">Morning</label>
-                <input type="radio" name="morning" id="evening" />{" "}
-                <label htmlFor="evening">Evening</label>
-                <br />
-                <br />
-                <label htmlFor="ename">
+                Shift :{" "}
+                <label htmlFor="morning">
+                <input
+                  type="radio"
+                  name="shift"
+                  id="morning"
+                  value="Morning"
+                  checked={userInput.shift === "Morning"}
+                  onChange={handleChange}
+                />{" "}
+                Morning
+                </label>
+                
+                <label htmlFor="evening">
+                <input
+                  type="radio"
+                  name="shift"
+                  id="evening"
+                  value="Evening"
+                  checked={userInput.shift === "Evening"}
+                  onChange={handleChange}
+                />{" "}
+                Evening
+                </label><br /><br />
+                <label htmlFor="eventName">
                   Event Name :{" "}
                   <input
                     type="text"
-                    name="ename"
-                    id="ename"
+                    name="eventName"
+                    id="eventName"
                     placeholder="Sport"
                     required
+                    value={userInput.eventName}
+                    onChange={handleChange}
                   />
                 </label>
                 <div className={styles.elg}>
-                  <input type="submit" className={styles.elh} />
+                  <button type="button" onClick={handleSubmit} className={styles.elh}>
+                    Submit
+                  </button>
                 </div>
-=======
-            
-            <div>
-              <form action="">
-                <label htmlFor="name">
-                  Name : <input type="text" name="name" id="name" placeholder="John" />
-                </label>
-
-                <label htmlFor="fname">
-                  Father Name : <input type="text" name="fname" id="fname" placeholder="Deo" />
-                </label><br /><br />
-
-                <label htmlFor="email">
-                  Email : <input type="email" name="email" id="email" placeholder="johndoe@gmail.com" />
-                </label>
-
-                <label htmlFor="dname">
-                  Department Name : <input type="text" name="dname" id="dname" placeholder="Mass Com" />
-                </label><br /><br />
-
-                <label htmlFor="snumber">
-                  Seat No : <input type="text" name="snumber" id="snumber" placeholder="20101010" />
-                </label>
-
-                Shift : {' '}
-                  <input type="radio" name="morning" id="morning" /> {' '}
-                <label htmlFor="morning">
-                Morning
-                </label>
-
-                <input type="radio" name="morning" id="evening" /> {' '}
-                <label htmlFor="evening">
-                Evening
-                </label><br /><br />
-
-                <label htmlFor="ename">
-                  Event Name : <input type="text" name="ename" id="ename" placeholder="Sport" />
-                </label>
-
-                <ButtonCom btnText={'Submit'} btnLink={'#submit'} btnLayout={'btn2'} />
->>>>>>> 7eeafcd8ee05b60c6ece6b35a25fd4311c69901e
               </form>
             </div>
           </div>

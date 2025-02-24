@@ -1,18 +1,18 @@
 import express from "express";
-import EventApp from "../models/eventAppModel.js";
 import enums from "../constant/enums.js";
+import StudentRegister from "../models/studentRegisterModel.js";
 
-const eventAppRoute = express.Router();
+const studentRegisterRoute = express.Router();
 
-// Get Events Application
+// Get Student Registers
 
-eventAppRoute.get("/eventapps", async (req, res) => {
+studentRegisterRoute.get("/students", async (req, res) => {
   try {
-    const getAllEventApps = await EventApp.find();
+    const getAllRegisters = await StudentRegister.find();
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_READIND_DATA,
-      data: getAllEventApps,
+      data: getAllRegisters,
     });
   } catch (error) {
     res
@@ -21,21 +21,21 @@ eventAppRoute.get("/eventapps", async (req, res) => {
   }
 });
 
-// Get Single Event Application
+// Get Single Student Registers
 
-eventAppRoute.get("/eventapps/:id", async (req, res) => {
+studentRegisterRoute.get("/students/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const getSingleEventApp = await EventApp.findById(id);
+    const getSingleRegister = await StudentRegister.findById(id);
 
-    if (!getSingleEventApp) {
+    if (!getSingleRegister) {
       res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_READIND_DATA,
-      data: getSingleEvents,
+      data: getSingleRegister,
     });
   } catch (error) {
     res
@@ -44,88 +44,88 @@ eventAppRoute.get("/eventapps/:id", async (req, res) => {
   }
 });
 
-// Post Event Application
+// Post Student Registers
 
-eventAppRoute.post("/eventapps/create-eventapp", async (req, res) => {
+studentRegisterRoute.post("/students/create-student", async (req, res) => {
   try {
     const data = req.body;
-    const createEventApp = await EventApp.create(data);
+    const createRegister = await StudentRegister.create(data);
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_POST_DATA,
-      data: createEventApp,
+      data: createRegister,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_POST_DATA });
   }
 });
 
-// Delete Event Application
+// Delete Student Registers
 
-eventAppRoute.delete("/eventapps/delete-eventapp/:id", async (req, res) => {
+studentRegisterRoute.delete("/students/delete-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteEventApp = await EventApp.findByIdAndDelete(id);
+    const deleteRegister = await StudentRegister.findByIdAndDelete(id);
 
-    if (!deleteEventApp) {
+    if (!deleteRegister) {
       return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_DELETE_DATA,
-      data: deleteEventApp,
+      data: deleteRegister,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_DELETE_DATA });
   }
 });
 
-// Put Event Application
+// Put Student Registers
 
-eventAppRoute.put("/eventapps/update-eventapp/:id", async (req, res) => {
+studentRegisterRoute.put("/students/update-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const data = req.body;
-    const updateEventApp = await EventApp.findByIdAndUpdate(data, id);
+    const updateRegister = await StudentRegister.findByIdAndUpdate(data, id);
 
-    if (!updateEventApp) {
+    if (!updateRegister) {
       return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_PUT_DATA,
-      data: updateEventApp,
+      data: updateRegister,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_PUT_DATA });
   }
 });
 
-// Patch Event Application
+// Patch Student Registers
 
-eventAppRoute.patch("/eventapps/update-item-eventapp/:id", async (req, res) => {
+studentRegisterRoute.patch("/students/update-item-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const data = req.body;
-    const updateItemOnEventApp = await EventApp.findByIdAndUpdate(id, data, {
+    const updateItemOnRegister = await StudentRegister.findByIdAndUpdate(id, data, {
       new: true,
     });
 
-    if (!updateItemOnEventApp) {
+    if (!updateItemOnRegister) {
       return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_PATCH_DATA,
-      data: updateItemOnEventApp,
+      data: updateItemOnRegister,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_PATCH_DATA });
   }
 });
 
-export default eventAppRoute;
+export default studentRegisterRoute;
