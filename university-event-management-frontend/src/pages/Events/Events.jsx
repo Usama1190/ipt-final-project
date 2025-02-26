@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import PageConCom from "../../components/common/PageConCom/PageConCom";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
-import { getReq } from "../../api/axios";
 import EventCom from "../../components/(Events)/EventCom/EventCom";
-import styles from "./Events.module.css";
-
 import { departNames } from "../../utils/constant/departNames";
+import { getReq, postReq } from "../../api/axios";
+import styles from "./Events.module.css";
 
 const Events = () => {
   const userData = {
@@ -19,6 +18,8 @@ const Events = () => {
   };
 
   const [userInput, setUserInput] = useState(userData);
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,12 +30,23 @@ const Events = () => {
     }))
   }
 
-  const handleSubmit = () => {
-    // setUserInput(userData)
-    console.log(userInput, 'userInput after submit');
+  const handleSubmit = async () => {
+      try {
+        setIsLoading(true);
+        console.log(isLoading);
+        
+        const response = await postReq("/eventapps/create-eventapp", userInput);
+        console.log(response);
+        alert('Submit Application')
+        if(response) {
+          ''
+        }
+        
+      } catch (error) {
+        setIsLoading(false);
+        console.error("Error Posting event app:", error);
+      }
   };
-
-  console.log(userInput, 'userInput before submit');
 
   const data = [
     {
@@ -56,22 +68,19 @@ const Events = () => {
     pageTitle: "Events Page",
   };
 
-  const [events, setEvents] = useState([]);
-
   useEffect(() => {
     const fetchEvents = async () => {
       try {
+        setIsLoading(true);
         const response = await getReq("/events");
         setEvents(response.data.data);
-        // console.log(response.data.data);
       } catch (error) {
+        setIsLoading(false);
         console.error("Error fetching events:", error);
       }
     };
     fetchEvents();
   }, []);
-
-  // console.log(events);
 
   return (
     <div>

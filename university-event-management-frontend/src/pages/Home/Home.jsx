@@ -85,7 +85,7 @@ const Home = () => {
               , <a href="#view-uoK's-profile">View UoK&apos;s profile</a>
             </div>
             <div>
-              <ButtonCom btnLayout={'btn2'} btnText={'Register'} btnLink={'/register'} />
+              <ButtonCom btnLayout={'btn2'} btnText={'Student Portal'} btnLink={'/login'} />
             </div>
           </div>
 

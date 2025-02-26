@@ -9,7 +9,9 @@ import Faculties from "../pages/Faculties/Faculties";
 import Home from "../pages/Home/Home";
 import Journals from "../pages/Journals/Journals";
 import Library from "../pages/Library/Library";
+import Login from "../pages/Login/Login";
 import EventDashboard from "../pages/Managers/EventDashboard/EventDashboard";
+import Signup from "../pages/Signup/Signup";
 
 export const routes = [
     {
@@ -19,9 +21,18 @@ export const routes = [
     {
         path: '/admin-usama',
         element: <AdminDashboard />
-    }, {
+    }, 
+    {
         path: '/event-manager',
         element: <EventDashboard />
+    },
+    {
+        path: '/sign-up',
+        element: <Signup />
+    },
+    {
+        path: '/login',
+        element: <Login />
     },
     {
         path: '/events',

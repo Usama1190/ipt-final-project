@@ -8,7 +8,6 @@ const eventAppSchema = mongoose.Schema({
     seatNo: { type: Number, required: true, unique: true },
     shift: { type: String, required: true },
     eventName: { type: String, required: true },
-    note: { type: String, required: true },
 }, { timestamps: true });
 
 const EventApp = mongoose.model('EventApp', eventAppSchema);

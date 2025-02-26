@@ -6,15 +6,26 @@
 .emb {
     display: flex;
     align-items: flex-start;
-    border: 1px solid red;
+    justify-content: space-between;
+    /* border: 1px solid red; */
 }
 
 .emc {
     width: 20%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: var(--pure-white);
 }
 
+.emc aside h3 {
+    padding: 12px;
+}
+
+.emc aside ul li {
+    padding: 12px;
+}
+
 .emd {
-    border: 1px solid purple;
+    width: 79%;
+    background-color: var(--pure-white);
+    /* border: 1px solid purple; */
 }

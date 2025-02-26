@@ -11,30 +11,24 @@ import Dashboard from "../../../components/common/Dashboard/Dashboard";
 const EventDashboard = () => {
   const data = [
     {
-      title: "Event Management System of University of Karachi",
-      navigate: [
-        {
-          linkText: "Dashboard",
-          linkUrl: "/event-manager",
-        },
-        {
-          linkText: "Event Listing",
-          linkUrl: "/event-manager#events",
-        },
-        {
-          linkText: "Event Organized",
-          linkUrl: "/event-manager#organize-event",
-        },
-        {
-          linkText: "Event Applications (Students)",
-          linkUrl: "/event-manager#event-applications",
-        },
-        ,
-        {
-          linkText: "Events Approved (Admin)",
-          linkUrl: "/event-manager#approved-events-by-admin",
-        },
-      ],
+      linkText: "Dashboard",
+      linkUrl: "/event-manager",
+    },
+    {
+      linkText: "Event Listing",
+      linkUrl: "/event-manager#events",
+    },
+    {
+      linkText: "Event Organized",
+      linkUrl: "/event-manager#organize-event",
+    },
+    {
+      linkText: "Event Applications (Students)",
+      linkUrl: "/event-manager#event-applications",
+    },
+    {
+      linkText: "Events Approved (Admin)",
+      linkUrl: "/event-manager#approved-events-by-admin",
     },
   ];
 
@@ -62,18 +56,34 @@ const EventDashboard = () => {
                 <h3>Dashboard</h3>
 
                 <ul>
-                  <li>Event Listing</li>
-                  <li>Event Listing</li>
-                  <li>Event Listing</li>
-                  <li>Event Listing</li>
-                  <li>Event Listing</li>
-                  <li>Event Listing</li>
-                  <li>Event Listing</li>
-                  <li>Event Listing</li>
+                  {data.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <a href={item.linkUrl}>{item.linkText}</a>
+                      </li>
+                    )
+                  })}
                 </ul>
               </aside>
             </div>
-            <div className={styles.emd}>Main Content</div>
+
+            <div className={styles.emd}>
+              <div>
+                Main Content
+              </div>
+
+              <div id="events">
+                <h2>Events</h2>
+              </div>
+
+              <div id="organiz-event">
+                <h2>Organiz Events</h2>
+              </div>
+
+              <div id="event-applications">
+                <h2>Event Applications</h2>
+              </div>
+            </div>
           </div>
         </PageCom>
       </Dashboard>

@@ -1,18 +1,18 @@
 import express from "express";
 import enums from "../constant/enums.js";
-import StudentRegister from "../models/studentRegisterModel.js";
+import Student from "../models/studentModel.js";
 
-const studentRegisterRoute = express.Router();
+const studentRoute = express.Router();
 
-// Get Student Registers
+// Get Student
 
-studentRegisterRoute.get("/students", async (req, res) => {
+studentRoute.get("/students", async (req, res) => {
   try {
-    const getAllRegisters = await StudentRegister.find();
+    const getAllStudents = await Student.find();
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_READIND_DATA,
-      data: getAllRegisters,
+      data: getAllStudents,
     });
   } catch (error) {
     res
@@ -21,21 +21,21 @@ studentRegisterRoute.get("/students", async (req, res) => {
   }
 });
 
-// Get Single Student Registers
+// Get Single Student
 
-studentRegisterRoute.get("/students/:id", async (req, res) => {
+studentRoute.get("/students/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const getSingleRegister = await StudentRegister.findById(id);
+    const getSingleStudent = await Student.findById(id);
 
-    if (!getSingleRegister) {
+    if (!getSingleStudent) {
       res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_READIND_DATA,
-      data: getSingleRegister,
+      data: getSingleStudent,
     });
   } catch (error) {
     res
@@ -44,88 +44,88 @@ studentRegisterRoute.get("/students/:id", async (req, res) => {
   }
 });
 
-// Post Student Registers
+// Post Student
 
-studentRegisterRoute.post("/students/create-student", async (req, res) => {
+studentRoute.post("/students/create-student", async (req, res) => {
   try {
     const data = req.body;
-    const createRegister = await StudentRegister.create(data);
+    const createStudent = await Student.create(data);
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_POST_DATA,
-      data: createRegister,
+      data: createStudent,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_POST_DATA });
   }
 });
 
-// Delete Student Registers
+// Delete Student
 
-studentRegisterRoute.delete("/students/delete-student/:id", async (req, res) => {
+studentRoute.delete("/students/delete-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteRegister = await StudentRegister.findByIdAndDelete(id);
+    const deleteStudent = await Student.findByIdAndDelete(id);
 
-    if (!deleteRegister) {
+    if (!deleteStudent) {
       return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_DELETE_DATA,
-      data: deleteRegister,
+      data: deleteStudent,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_DELETE_DATA });
   }
 });
 
-// Put Student Registers
+// Put Student
 
-studentRegisterRoute.put("/students/update-student/:id", async (req, res) => {
+studentRoute.put("/students/update-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const data = req.body;
-    const updateRegister = await StudentRegister.findByIdAndUpdate(data, id);
+    const updateStudent = await Student.findByIdAndUpdate(data, id);
 
-    if (!updateRegister) {
+    if (!updateStudent) {
       return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_PUT_DATA,
-      data: updateRegister,
+      data: updateStudent,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_PUT_DATA });
   }
 });
 
-// Patch Student Registers
+// Patch Student
 
-studentRegisterRoute.patch("/students/update-item-student/:id", async (req, res) => {
+studentRoute.patch("/students/update-item-student/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const data = req.body;
-    const updateItemOnRegister = await StudentRegister.findByIdAndUpdate(id, data, {
+    const updateItemOnStudent = await Student.findByIdAndUpdate(id, data, {
       new: true,
     });
 
-    if (!updateItemOnRegister) {
+    if (!updateItemOnStudent) {
       return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
     }
 
     res.status(200).send({
       status: 200,
       message: enums.SUCCESS_ON_PATCH_DATA,
-      data: updateItemOnRegister,
+      data: updateItemOnStudent,
     });
   } catch (error) {
     res.status(502).send({ status: 502, message: enums.FAILED_ON_PATCH_DATA });
   }
 });
 
-export default studentRegisterRoute;
+export default studentRoute;

@@ -5,7 +5,7 @@ import enums from './constant/enums.js';
 import eventRoute from './routes/eventRoutes.js';
 import dbConnection from './database/dbConnection.js';
 import eventAppRoute from './routes/eventAppRoutes.js';
-import studentRegisterRoute from './routes/studentRegisterRoute.js';
+import studentRoute from './routes/studentRoute.js';
 
 const app = express();
 
@@ -16,10 +16,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/', eventRoute);
-
 app.use('/', eventAppRoute);
-
-app.use('/', studentRegisterRoute);
+app.use('/', studentRoute);
 
 app.get('/', (req, res) => {
     try {
