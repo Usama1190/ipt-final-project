@@ -1,0 +1,31 @@
+.ema {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.emb {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.emc {
+    width: 20%;
+    /* border: 1px solid red; */
+    background-color: var(--pure-white);
+}
+
+.emc aside h3 {
+    padding: 12px;
+}
+
+.emc aside ul li {
+    padding: 12px;
+}
+
+.emd {
+    width: 79%;
+    background-color: var(--pure-white);
+    /* border: 1px solid purple; */
+}

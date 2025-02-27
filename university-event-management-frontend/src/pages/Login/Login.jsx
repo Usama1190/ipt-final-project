@@ -55,7 +55,7 @@ const Login = () => {
       navigate('/event-manager');
     }
     else if(user.length === 1) {
-      navigate('/');
+      navigate(`/students/${user[0]._id}`);
     }
   };
 

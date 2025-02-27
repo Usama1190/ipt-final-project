@@ -1,19 +1,23 @@
-import { Route, Routes, useLocation } from "react-router";
+import { Route, Routes, useLocation, useParams } from "react-router";
 import FooterCom from "./components/FooterCom/FooterCom";
 import HeaderCom from "./components/HeaderCom/HeaderCom";
 import { routes } from "./routes/routes";
 import "./App.css";
 
 const App = () => {
+  const {id} = useParams()
   const location = useLocation();
-  let admin = false;
 
-  if (
-    location.pathname === "/event-manager" ||
-    location.pathname === "/admin-usama"
-  ) {
-    admin = true;
-  }
+  const restrictedPaths = [
+    "/event-manager",
+    "/admin-usama",
+    `/students/${id}`,
+  ];
+  
+  const admin = restrictedPaths.includes(location.pathname);
+
+  console.log(admin);
+  
 
   return (
     <div>

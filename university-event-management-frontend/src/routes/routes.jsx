@@ -12,6 +12,7 @@ import Library from "../pages/Library/Library";
 import Login from "../pages/Login/Login";
 import EventDashboard from "../pages/Managers/EventDashboard/EventDashboard";
 import Signup from "../pages/Signup/Signup";
+import StudentDashboard from "../pages/Students/[id]";
 
 export const routes = [
     {
@@ -25,6 +26,10 @@ export const routes = [
     {
         path: '/event-manager',
         element: <EventDashboard />
+    },
+    {
+        path: '/students/:id',
+        element: <StudentDashboard />
     },
     {
         path: '/sign-up',
