@@ -27,5 +27,65 @@
 .emd {
     width: 79%;
     background-color: var(--pure-white);
+    padding: 12px;
     /* border: 1px solid purple; */
+}
+
+.eme {
+    padding: 48px 0;
+}
+
+
+
+
+
+
+
+
+
+
+.eld .ele:nth-child(even) {
+    background-color: var(--light-green);
+}
+
+.elf {
+    border: 1px solid var(--light-green);
+    padding: 24px 12px;
+}
+
+.elf form {
+    padding: 24px 0 0 0;
+}
+
+.elf label {
+    padding: 0 32px 0 0;
+}
+
+.elf input {
+    border: none;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+.elf input:focus {
+    outline: none;
+}
+
+.elf select {
+    border: none;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+.elf select:focus {
+    outline: none;
+}
+
+.elg {
+    margin: 24px 0 0;
+}
+
+.elh {
+    padding: 12px 24px;
+    cursor: pointer;
+    border: none;
+    border-bottom: none;
 }

@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 
 
-
+https://streamlit.io/#install
 
 University Event Management System
 
