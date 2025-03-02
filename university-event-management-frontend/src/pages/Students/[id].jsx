@@ -4,6 +4,7 @@ import PageCom from "../../components/common/PageCom/PageCom";
 import styles from "./Students.module.css";
 import { useEffect, useState } from "react";
 import { getReq } from "../../api/axios";
+import ErrorPage from "../Error/ErrorPage";
 
 const StudentDashboard = () => {
   const { id } = useParams();
@@ -29,6 +30,9 @@ const StudentDashboard = () => {
 
   return (
     <div className={styles.ema}>
+      {
+        Student === undefined ? <ErrorPage /> :
+      
       <Dashboard title={"Student Dashboard"}>
         <PageCom title={`Mr / Mrs ${Student.studentName}`}>
           <div className={styles.emb}>
@@ -47,6 +51,7 @@ const StudentDashboard = () => {
           </div>
         </PageCom>
       </Dashboard>
+      }
     </div>
   );
 };

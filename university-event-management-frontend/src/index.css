@@ -88,3 +88,33 @@ table tr:hover {
     color: var(--pure-white);
     border: 1px solid transparent;
 }
+
+
+
+
+form {
+    padding: 24px 0 0 0;
+}
+
+form label {
+    padding: 0 32px 0 0;
+}
+
+form input {
+    border: none;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+form input:focus {
+    outline: none;
+}
+
+form select {
+    border: none;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+form select:focus {
+    outline: none;
+}
+

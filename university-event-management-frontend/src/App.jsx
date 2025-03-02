@@ -15,10 +15,8 @@ const App = () => {
   ];
   
   const admin = restrictedPaths.includes(location.pathname);
-
-  console.log(admin);
+  // console.log(admin);
   
-
   return (
     <div>
       <div>

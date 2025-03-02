@@ -35,8 +35,12 @@
     padding: 48px 0;
 }
 
-
-
+/*
+.eme form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+} */
 
 
 
@@ -47,6 +51,34 @@
 .eld .ele:nth-child(even) {
     background-color: var(--light-green);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 .elf {
     border: 1px solid var(--light-green);
@@ -80,12 +112,12 @@
 }
 
 .elg {
-    margin: 24px 0 0;
+    margin: 24px 0 12px;
 }
 
-.elh {
+.elg button {
     padding: 12px 24px;
     cursor: pointer;
     border: none;
     border-bottom: none;
-}
+} */

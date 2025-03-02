@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import styles from "./Home.module.css";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 import { departImages } from "../../utils/constant/departImages";
+import { departNames } from "../../utils/constant/departNames";
 import CardCom from "../../components/common/CardCom/CardCom";
 import PageCom from "../../components/common/PageCom/PageCom";
-import { departNames } from "../../utils/constant/departNames";
-import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
+import { useEffect, useState } from "react";
+import styles from "./Home.module.css";
 
 const Home = () => {
   const [id, setId] = useState(0);
@@ -85,7 +85,11 @@ const Home = () => {
               , <a href="#view-uoK's-profile">View UoK&apos;s profile</a>
             </div>
             <div>
-              <ButtonCom btnLayout={'btn2'} btnText={'Student Portal'} btnLink={'/login'} />
+              <ButtonCom
+                btnLayout={"btn2"}
+                btnText={"Student Portal"}
+                btnLink={"/login"}
+              />
             </div>
           </div>
 

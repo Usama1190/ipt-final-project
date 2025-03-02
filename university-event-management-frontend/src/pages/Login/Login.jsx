@@ -31,31 +31,29 @@ const Login = () => {
     }));
 };
 
-// console.log(students);
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = students.filter(
+    const users = students.filter(
       (item) => item.studentEmail == userInput.studentEmail
     );
+
+    const  user = users[0];
     console.log(user);
     
-    if (user.length === 0 ) {
-      setIsCorrect(false);
-      navigate('/')
-    } else {
+    if (!user) {
       setIsCorrect(true);
+    } else {
+      setIsCorrect(false);
     }
 
-    if(user[0].role === 'Admin') {
+    if(user.role === 'Admin') {
       navigate('/admin-usama');
     }
-    else if(user[0].role === 'Event Manager') {
+    else if(user.role === 'Event Manager') {
       navigate('/event-manager');
     }
-    else if(user.length === 1) {
-      navigate(`/students/${user[0]._id}`);
+    else if(user) {
+      navigate(`/students/${user._id}`);
     }
   };
 
@@ -92,8 +90,6 @@ const Login = () => {
                       onChange={handleChange}
                     />
                   </label>
-                  <br />
-                  <br />
                   <label htmlFor="seatNo">
                     Seat No :{" "}
                     <input
@@ -107,9 +103,8 @@ const Login = () => {
                       onChange={handleChange}
                     />
                   </label>
-                  <br />
                   <p className={`${isCorrect ? styles.db : styles.dn}`}>
-                    Please enter a correct email address or seat number.
+                  Invalid email address or user does not exist.
                   </p>
                   <div className={styles.elg}>
                     <button
@@ -121,7 +116,7 @@ const Login = () => {
                     </button>
                   </div>
                   <p>
-                    Don&apos;t have an account, Please{" "}
+                    Don&apos;t have an account, Please::
                     <a href="/sign-up">Sign up</a>
                   </p>
                 </form>

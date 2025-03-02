@@ -20,39 +20,9 @@
     padding: 24px 12px;
 }
 
-.elf form {
-    padding: 24px 0 0 0;
-}
-
-.elf label {
-    padding: 0 32px 0 0;
-}
-
-.elf input {
-    border: none;
-    border-bottom: 1px solid var(--dark-color);
-}
-
-.elf input:focus {
-    outline: none;
-}
-
-.elf select {
-    border: none;
-    border-bottom: 1px solid var(--dark-color);
-}
-
-.elf select:focus {
-    outline: none;
-}
-
-.elg {
-    margin: 24px 0 0;
-}
-
-.elh {
+.elg button {
     padding: 12px 24px;
     cursor: pointer;
     border: none;
     border-bottom: none;
-}
+} 

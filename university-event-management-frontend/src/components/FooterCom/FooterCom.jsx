@@ -1,13 +1,14 @@
-import { NavLink } from "react-router-dom";
 import { footerData, footerData2 } from "../../utils/constant/footerData";
 import styles from "./FooterCom.module.css";
+import { NavLink } from "react-router-dom";
+import footerImage from '/assets/imgs/footerend-uok.png';
 
 const FooterCom = () => {
   return (
     <div className={styles.fa}>
       <div className={styles.fb}>
         <div>
-          <img src="./assets/imgs/footerend-uok.png" alt="footer image uok" />
+          <img src={footerImage} alt="footer image uok" />
         </div>
 
         <div className={styles.fc}>

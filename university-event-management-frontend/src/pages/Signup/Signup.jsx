@@ -4,7 +4,6 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
 import { postReq } from "../../api/axios";
 import styles from "./Signup.module.css";
 import { departNames } from "../../utils/constant/departNames";
-import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 
 const Signup = () => {
   const titles = {
@@ -15,6 +14,7 @@ const Signup = () => {
   const userData = {
     studentName: "",
     fatherName: "",
+    gender: "",
     studentEmail: "",
     departName: "",
     seatNo: "",
@@ -78,6 +78,29 @@ const Signup = () => {
                   </label>
                   <br />
                   <br />
+                  Gender :{" "}
+                  <label htmlFor="male">
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="male"
+                      value="Male"
+                      checked={userInput.shift === "Male"}
+                      onChange={handleChange}
+                    />{" "}
+                    Male
+                  </label>
+                  <label htmlFor="female">
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="Female"
+                      checked={userInput.shift === "Female"}
+                      onChange={handleChange}
+                    />{" "}
+                    Female
+                  </label>
                   <label htmlFor="studentEmail">
                     Email :{" "}
                     <input
@@ -90,6 +113,8 @@ const Signup = () => {
                       onChange={handleChange}
                     />
                   </label>
+                  <br />
+                  <br />
                   <label htmlFor="departName">
                     Department Name :{" "}
                     <select
@@ -142,13 +167,13 @@ const Signup = () => {
                       onChange={handleChange}
                     />{" "}
                     Evening
-                  </label>
-                  <br />
+                  </label><br /><br />
+                  <p>Invalid email address or user does not exist.</p>
                   <div className={styles.elg}>
                     <button onClick={handleSubmit}>Sign up</button>
                   </div>
                   <p>
-                    Already have an account, Please<a href="/login">Login</a>
+                    Already have an account, Please::<a href="/login">Login</a>
                   </p>
                 </form>
               </div>

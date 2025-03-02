@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
 import PageConCom from "../../components/common/PageConCom/PageConCom";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
-import EventCom from "../../components/(Events)/EventCom/EventCom";
+import EventCom from "../../components/Events/EventCom/EventCom";
 import { departNames } from "../../utils/constant/departNames";
 import { getReq, postReq } from "../../api/axios";
+import { useEffect, useState } from "react";
 import styles from "./Events.module.css";
 
 const Events = () => {
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+
   const userData = {
     studentName: '',
     fatherName: '',
@@ -18,8 +21,6 @@ const Events = () => {
   };
 
   const [userInput, setUserInput] = useState(userData);
-  const [events, setEvents] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -210,6 +211,18 @@ const Events = () => {
                   onChange={handleChange}
                 />{" "}
                 Evening
+                </label>
+                
+                <label htmlFor="both">
+                <input
+                  type="radio"
+                  name="shift"
+                  id="both"
+                  value="both"
+                  checked={userInput.shift === "both"}
+                  onChange={handleChange}
+                />{" "}
+                Both
                 </label><br /><br />
                 <label htmlFor="eventName">
                   Event Name :{" "}
@@ -222,9 +235,9 @@ const Events = () => {
                     value={userInput.eventName}
                     onChange={handleChange}
                   />
-                </label>
+                </label><br /><br />
                 <div className={styles.elg}>
-                  <button type="button" onClick={handleSubmit} className={styles.elh}>
+                  <button type="button" onClick={handleSubmit}>
                     Submit
                   </button>
                 </div>

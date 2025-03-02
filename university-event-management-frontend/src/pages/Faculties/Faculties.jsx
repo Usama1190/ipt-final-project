@@ -1,6 +1,6 @@
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
-import navData from "../../utils/constant/navData";
 import PageConCom from "../../components/common/PageConCom/PageConCom";
+import navData from "../../utils/constant/navData";
 
 const Faculties = () => {
   const data = navData[2].innerLinkTextAndUrl;

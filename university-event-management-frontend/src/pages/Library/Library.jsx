@@ -1,7 +1,7 @@
-import styles from "./Library.module.css";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
 import PageConCom from "../../components/common/PageConCom/PageConCom";
 import navData from "../../utils/constant/navData";
+import styles from "./Library.module.css";
 
 const Library = () => {
   const data = navData[3].innerLinkTextAndUrl;

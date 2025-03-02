@@ -139,3 +139,88 @@ nav ul li a:hover .hk {
     border: 1px solid var(--pure-white);
 }
 
+.hdd {
+    position: absolute;
+    width: 100%;
+    /* display: none; */
+}
+
+.hddi {
+    display: flex;
+    /* justify-content: space-between; */
+    max-width: 1300px;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+
+.hddi>div {
+    padding: 12px;
+    border: 1px solid purple;
+}
+
+.hddi>div:nth-child(1) {
+    background-color: red;
+    visibility: hidden;
+}
+
+.hddi a {
+    font-size: 14px;
+}
+
+.hddl {
+    z-index: 99;
+    background-color: black;
+}
+
+.hddl a {
+    color: red;
+}
+
+.vv {
+    visibility: visible;
+}
+
+.vh {
+    visibility: hidden;
+}
+
+.db {
+    display: block;
+}
+
+.dn {
+    display: none;
+}
+
+.ddla {
+    position: absolute;
+    background-color: var(--pure-white);
+    z-index: 99;
+    margin: 12px 0 0 40px;
+    width: 220px;
+    display: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.ddla div {
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--light-color);
+}
+
+.ddla div a {
+    width: 100%;
+    color: var(--dark-green);
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.ddla div a:hover {
+    background-color: transparent;
+    color: var(--pure-black);
+}
+
+nav>ul>li:hover .ddla  {
+    display: block;
+}

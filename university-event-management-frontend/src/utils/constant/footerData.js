@@ -2,41 +2,41 @@ export const footerData = [
     {
         title: 'About Us',
         linksAndTexts: [
-            {text: 'Downloads', link: '/downloads'},
-            {text: 'MCN', link: '/mcn'},
-            {text: 'News & Events', link: '/news-and-events'},
-            {text: 'Picture Gallery', link: '/picture-gallery'},
-            {text: 'Pansion Form', link: '/pansion-form'},
-            {text: 'Semester Fee', link: '/semester-fee'}
+            {text: 'Downloads', link: '/alumni#aboutus'},
+            {text: 'MCN', link: '/journals#mcn'},
+            {text: 'News & Events', link: '/events#news-and-events'},
+            {text: 'Picture Gallery', link: '/events#picture-gallery'},
+            {text: 'Pansion Form', link: '/administration#pansion-form'},
+            {text: 'Semester Fee', link: '/ann_results#semester-fee'}
         ]
     },
     {
         title: 'Quick Links',
         linksAndTexts: [
-            {text: 'Affiliation Committee', link: '/affiliation-committee'},
-            {text: 'Postgraduate Students Portal Registration', link: '/downloads'},
-            {text: 'Directorates & offices', link: '/downloads'},
-            {text: 'Job Portal', link: '/downloads'},
-            {text: 'Student Advisor Office', link: '/downloads'},
+            {text: 'Affiliation Committee', link: '/administration#ac'},
+            {text: 'Postgraduate Students Portal Registration', link: '/administration#pgspr'},
+            {text: 'Directorates & offices', link: '/administration#d&o'},
+            {text: 'Job Portal', link: '/administration#job-portal'},
+            {text: 'Student Advisor Office', link: '/administration#sao'},
         ]
     },
     {
         linksAndTexts: [
-            {text: 'Physical Education', link: '/downloads'},
-            {text: 'Tenders and Quotations', link: '/downloads'},
-            {text: 'Syllabus Undergraduate Program', link: '/downloads'},
-            {text: 'Placements and Internships', link: '/downloads'},
-            {text: 'Karachi University Journal of Science', link: '/downloads'},
-            {text: 'Facebook-MCN', link: '/downloads'}
+            {text: 'Physical Education', link: '/admissions#physical-edu'},
+            {text: 'Tenders and Quotations', link: '/journals#t&q'},
+            {text: 'Syllabus Undergraduate Program', link: '/admissions#sup'},
+            {text: 'Placements and Internships', link: '/administration#p&i'},
+            {text: 'Karachi University Journal of Science', link: '/journals'},
+            {text: 'Facebook-MCN', link: '/journals#fb-mcn'}
         ]
     },
     {
         title: 'Web Links',
         linksAndTexts: [
-            {text: 'Digital Library', link: '/downloads'},
-            {text: 'Quality Enhancement Cell', link: '/downloads'},
-            {text: 'Karachi University Press', link: '/downloads'},
-            {text: 'NAEAC', link: '/downloads'},
+            {text: 'Digital Library', link: '/library'},
+            {text: 'Quality Enhancement Cell', link: '/library#qec'},
+            {text: 'Karachi University Press', link: '/administration#kup'},
+            {text: 'NAEAC', link: '/administration#naeac'},
         ]
     },
     {

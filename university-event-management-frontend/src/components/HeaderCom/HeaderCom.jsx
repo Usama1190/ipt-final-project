@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import navData from "../../utils/constant/navData";
 import styles from "./Header.module.css";
-import logo from '/assets/imgs/uok-logo.png'
+import logo from "/assets/imgs/uok-logo.png";
 import { contactNumber, socialData } from "../../utils/constant/socialData";
 
 const HeaderCom = () => {
@@ -16,25 +16,27 @@ const HeaderCom = () => {
           <div className={styles.he}>
             <div>
               <ul className={styles.hf}>
-                {
-                  socialData.map((item, index) => {
-                    const lastEle = socialData.length - 1;
-                    
-                    return (
-                      <li key={index}>
-                        <NavLink to={item.url}>{item.name}</NavLink>
-                        { lastEle == index ? null : <span>|</span> }
-                      </li>
-                    )
-                  })
-                }
+                {socialData.map((item, index) => {
+                  const lastEle = socialData.length - 1;
+
+                  return (
+                    <li key={index}>
+                      <NavLink to={item.url}>{item.name}</NavLink>
+                      {lastEle == index ? null : <span>|</span>}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <div>
               <h2 className={styles.hg}>Call: {contactNumber}</h2>
             </div>
             <div className={styles.hh}>
-              <input type="text" className={styles.hi} placeholder="Enter text to search" />
+              <input
+                type="text"
+                className={styles.hi}
+                placeholder="Enter text to search"
+              />
               <button className={`active ${styles.hj}`}>Search</button>
             </div>
           </div>
@@ -56,6 +58,17 @@ const HeaderCom = () => {
                       <span className={styles.hl}>new</span>
                     ) : null}
                   </NavLink>
+                  <div className={`${styles.ddla} ${item.dropdown ? styles.db : styles.dn}`}>
+                    {
+                      item.innerLinkTextAndUrl?.map((item2, index2) => {
+                        return (
+                          <div key={index2}>
+                            <a href={item2.linkUrl}>{item2.linkText}</a>
+                          </div>
+                        )
+                      })
+                    }
+                  </div>
                 </li>
               );
             })}

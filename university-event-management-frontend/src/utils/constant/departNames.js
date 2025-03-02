@@ -1,4 +1,5 @@
 export const departNames = [
+  "All",
   "Applied Physics",
   "Agricutural & Agribusiness Management",
   "Applied Chemistry & Chemical Technology",
