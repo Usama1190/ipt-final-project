@@ -32,11 +32,11 @@ export const routes = [
         element: <StudentDashboard />
     },
     {
-        path: '/sign-up',
+        path: '/account/sign-up',
         element: <Signup />
     },
     {
-        path: '/login',
+        path: '/account/login',
         element: <Login />
     },
     {

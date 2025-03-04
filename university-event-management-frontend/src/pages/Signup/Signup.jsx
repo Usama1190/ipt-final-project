@@ -22,7 +22,6 @@ const Signup = () => {
   };
 
   const [userInput, setUserInput] = useState(userData);
-  // const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,7 +84,7 @@ const Signup = () => {
                       name="gender"
                       id="male"
                       value="Male"
-                      checked={userInput.shift === "Male"}
+                      checked={userInput.gender === "Male"}
                       onChange={handleChange}
                     />{" "}
                     Male
@@ -96,7 +95,7 @@ const Signup = () => {
                       name="gender"
                       id="female"
                       value="Female"
-                      checked={userInput.shift === "Female"}
+                      checked={userInput.gender === "Female"}
                       onChange={handleChange}
                     />{" "}
                     Female
@@ -170,10 +169,10 @@ const Signup = () => {
                   </label><br /><br />
                   <p>Invalid email address or user does not exist.</p>
                   <div className={styles.elg}>
-                    <button onClick={handleSubmit}>Sign up</button>
+                    <button type="button" onClick={handleSubmit}>Sign up</button>
                   </div>
                   <p>
-                    Already have an account, Please::<a href="/login">Login</a>
+                    Already have an account, Please::<a href="/account/login">Login</a>
                   </p>
                 </form>
               </div>

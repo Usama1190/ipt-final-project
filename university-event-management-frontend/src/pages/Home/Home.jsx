@@ -88,7 +88,7 @@ const Home = () => {
               <ButtonCom
                 btnLayout={"btn2"}
                 btnText={"Student Portal"}
-                btnLink={"/login"}
+                btnLink={"/account/login"}
               />
             </div>
           </div>

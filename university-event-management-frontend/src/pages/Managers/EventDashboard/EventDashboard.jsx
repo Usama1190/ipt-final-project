@@ -11,9 +11,6 @@ const EventDashboard = () => {
   const [eventApps, setEventApps] = useState([]);
   const [events, setEvents] = useState([]);
 
-  console.log(eventApps);
-  
-
   const eventData = {
     departName: "",
     eName: "",
@@ -60,7 +57,6 @@ const EventDashboard = () => {
     studentName: 'Student Name',
     fatherName: 'Father Name',
     studentEmail: 'Email Address',
-    gender: 'Gender',
     seatNo: 'Seat No',
     departName: 'Department',
     shift: 'Shift',
@@ -130,11 +126,10 @@ const EventDashboard = () => {
     }
   };
 
-  console.log("events", events);
-
   return (
     <div className={styles.ema}>
       <Dashboard title={"Event Management System"}>
+        <div className={styles.emj}>
         <PageCom title={"Dr. Prof. Aejaz Khan"}>
           <div className={styles.emb}>
             <div className={styles.emc}>
@@ -154,7 +149,17 @@ const EventDashboard = () => {
             </div>
 
             <div className={styles.emd}>
-              <div className={styles.eme}>Main Content</div>
+              <div className={styles.emh}>
+                <div className={styles.emf}>
+                  <p>Directorate & Organizer of Event Management System</p>
+                  <p>Office Joined by Mar 04, 2025</p>
+                </div>
+
+                <div className={styles.emi}>
+                  <div className={styles.emg}>Img - 240x280</div>
+                  <h3>Dr. Prof. Aejaz Khan</h3>
+                </div>
+              </div>
 
               <div id="organiz-event" className={styles.eme}>
                 <h2>Organize Event</h2>
@@ -175,7 +180,7 @@ const EventDashboard = () => {
                           return <option key={index}>{item}</option>;
                         })}
                       </select>
-                    </label>
+                    </label><br /><br />
                     <label htmlFor="eName">
                       Event Name :{" "}
                       <input
@@ -199,7 +204,7 @@ const EventDashboard = () => {
                         value={organizeEvent.eDate}
                         onChange={handleChange}
                       />
-                    </label>
+                    </label><br /><br />
                     <label htmlFor="eTime">
                       Event Time :{" "}
                       <input
@@ -223,7 +228,7 @@ const EventDashboard = () => {
                         value={organizeEvent.eVenue}
                         onChange={handleChange}
                       />
-                    </label>
+                    </label><br /><br />
                     <label htmlFor="eCost">
                       Event Cost :{" "}
                       <input
@@ -249,7 +254,7 @@ const EventDashboard = () => {
                         value={organizeEvent.costType}
                         onChange={handleChange}
                       />
-                    </label>
+                    </label><br /><br />
                     Shift :{" "}
                     <label htmlFor="morning">
                       <input
@@ -284,11 +289,10 @@ const EventDashboard = () => {
                       />{" "}
                       Both
                     </label>
-                    <div className={styles.elg}>
+                    <div className={styles.emk}>
                       <button
                         type="button"
                         onClick={handleSubmit}
-                        className={styles.elh}
                       >
                         Post
                       </button>
@@ -321,6 +325,7 @@ const EventDashboard = () => {
             </div>
           </div>
         </PageCom>
+        </div>
       </Dashboard>
     </div>
   );

@@ -8,7 +8,8 @@ import styles from "./Events.module.css";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [students, setStudents] = useState([]);
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const userData = {
     studentName: '',
@@ -33,20 +34,17 @@ const Events = () => {
 
   const handleSubmit = async () => {
       try {
-        setIsLoading(true);
-        console.log(isLoading);
+        const userEmail = students.filter((item) => item.studentEmail === userInput.studentEmail);
+        console.log(userEmail);
         
-        const response = await postReq("/eventapps/create-eventapp", userInput);
-        console.log(response);
-        alert('Submit Application')
-        if(response) {
-          ''
-        }
-        
+        // const response = await postReq("/eventapps/create-eventapp", userInput);
+        // console.log(response);
+        alert('Submit Application');
+        setIsSubmit(true);
       } catch (error) {
-        setIsLoading(false);
         console.error("Error Posting event app:", error);
       }
+      setIsSubmit(false);
   };
 
   const data = [
@@ -72,15 +70,25 @@ const Events = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        setIsLoading(true);
         const response = await getReq("/events");
         setEvents(response.data.data);
       } catch (error) {
-        setIsLoading(false);
         console.error("Error fetching events:", error);
       }
     };
     fetchEvents();
+
+    const fetchStudents = async () => {
+      try {
+        const response = await getReq("/students");
+        setStudents(response.data.data);
+        console.log(students);
+        
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+    fetchStudents();
   }, []);
 
   return (
@@ -213,17 +221,7 @@ const Events = () => {
                 Evening
                 </label>
                 
-                <label htmlFor="both">
-                <input
-                  type="radio"
-                  name="shift"
-                  id="both"
-                  value="both"
-                  checked={userInput.shift === "both"}
-                  onChange={handleChange}
-                />{" "}
-                Both
-                </label><br /><br />
+                <br /><br />
                 <label htmlFor="eventName">
                   Event Name :{" "}
                   <input
@@ -237,7 +235,7 @@ const Events = () => {
                   />
                 </label><br /><br />
                 <div className={styles.elg}>
-                  <button type="button" onClick={handleSubmit}>
+                  <button disabled={isSubmit} type="button" onClick={handleSubmit}>
                     Submit
                   </button>
                 </div>

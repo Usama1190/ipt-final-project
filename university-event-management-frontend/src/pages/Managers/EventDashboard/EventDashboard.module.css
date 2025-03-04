@@ -35,16 +35,42 @@
     padding: 48px 0;
 }
 
-/*
-.eme form {
-    width: 100%;
+.emf {
+}
+
+.emg {
+    width: 240px;
+    height: 280px;
+    border: 1px solid var(--light-color);
     display: flex;
-    flex-wrap: wrap;
-} */
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 12px;
+}
 
+.emh {
+    padding: 48px 0;
+    display: flex;
+    justify-content: space-between;
+}
 
+.emi {
+    text-align: center;
+}
 
+.emj {
+    margin: 24px 0 0 0;
+}
 
+.emk {
+    margin: 24px 0 0 0;
+}
+
+.emk button {
+    padding: 12px 16px;
+    border: none;
+    cursor: pointer;
+}
 
 
 
