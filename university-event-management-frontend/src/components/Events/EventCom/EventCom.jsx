@@ -1,23 +1,44 @@
+import { useState } from "react";
 import ButtonCom from "../../common/ButtonCom/ButtonCom";
 import styles from "./EventCom.module.css";
 
 const EventCom = ({ data }) => {
+  const [isModal, setIsModal] = useState(false);
+
+  const handleModal = () => {
+    setIsModal(!isModal);
+  }
+
   return (
     <div className={styles.ena}>
-        <h4>Department: {data?.departName || "UBIT"}</h4>
       <div className={styles.enb}>
-        <span><strong>Event:</strong> {data?.eventName || "Sport"}</span>
-        <span><strong>Shift:</strong> {data?.shift || "Both (Morning & Evening)"}</span>
-        <span><strong>Official Annoucement:</strong> {data?.date || "Sat, Feb 23, 25"}</span>
-        <span><strong>Event Date:</strong> {data?.eventDate || "Fri, Feb 27, 25"}</span>
-        <span><strong>Event Time:</strong> {data?.eventTime || "15:00pm - 18:00pm (Evening)"}</span>
-        <span><strong>Event Venue:</strong> {data?.eventVenue || "UBIT"}</span>
-        <span><strong>Event Pass Cost:</strong> {`Rs.${data?.eventCost}/-` || 'RS.249/-'}</span>
-        <span><strong>Cost Type:</strong> {data?.costType || 'Not Refundable'}</span>
-        <span><strong>Pass Expired:</strong> {data?.dueDate || 'Wed, Feb 25, 25'}</span>
-        <span><ButtonCom btnLayout={'btn2'} btnText={'Get Pass'} btnLink={'#get-pass'} /></span>
+        <div>
+        <p><strong>Department : {data?.departName}</strong></p>
+        <p><b>Event :</b> <strong>{data?.eventName}</strong></p>
+        <p>{data?.eventDate}</p>
+        </div>
+        <div>
+          <button className='btn2' onClick={handleModal}>{ !isModal ? 'View more' : 'View less'}</button>
+        </div>
       </div>
-      <p><strong>Note:</strong> {data?.note || 'After due date Get Pass Button are disabled.'}</p>
+      <div className={!isModal ? styles.dn : styles.db}>
+        <p><b>Shift :</b> <strong>{data?.shift}</strong></p>
+        <p><b>Event Post :</b> <strong>{data?.date}</strong></p>
+        <p><b>Event Time :</b> <strong>{data?.eventTime}</strong></p>
+        <p><b>Event Venue :</b> <strong>{data?.eventVenue}</strong></p>
+        <hr /><br />
+        <p><b>Pass :</b> <strong>{`Rs.${data?.eventCost}/-`}</strong></p>
+        <p><b>Type :</b> <strong>{data?.costType}</strong></p>
+        <p><b>Expire :</b> <strong>{data?.dueDate}</strong></p>
+        <div>
+          <ButtonCom
+            btnLayout={"btn2"}
+            btnText={"Get Pass"}
+            btnLink={"#get-pass"}
+          />
+        </div><br />
+        <p><strong>Note : </strong>{data?.note}</p>
+      </div>
     </div>
   );
 };

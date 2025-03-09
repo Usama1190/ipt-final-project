@@ -1,13 +1,6 @@
 .ena {
     width: 100%;
-    /* border: 1px solid red; */
     padding: 12px;
-    margin: 24px 0;
-    border: 1px solid var(--light-green);
-    border-radius: 2px;
-    /* background-image: url('./assets/imgs/uok-logo.png');
-    background-repeat: no-repeat;
-    background-position:center; */
 }
 
 h4 {
@@ -16,11 +9,18 @@ h4 {
 
 .enb {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
 
 .enb span {
-    /* border: 1px solid red; */
     padding: 12px 24px;
+}
+
+.dn {
+    display: none;
+}
+
+.db {
+    display: block;
 }

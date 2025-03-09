@@ -134,8 +134,6 @@ const EventDashboard = () => {
           <div className={styles.emb}>
             <div className={styles.emc}>
               <aside>
-                <h3>Dashboard</h3>
-
                 <ul>
                   {asideLinks.map((item, index) => {
                     return (
@@ -162,7 +160,7 @@ const EventDashboard = () => {
               </div>
 
               <div id="organiz-event" className={styles.eme}>
-                <h2>Organize Event</h2>
+                <h3>Organize Event</h3>
 
                 <div>
                   <form>
@@ -302,7 +300,7 @@ const EventDashboard = () => {
               </div>
 
               <div id="event-applications" className={styles.eme}>
-                <h2>Event Applications</h2>
+                <h3>Event Applications</h3>
                 <div>
                   {eventApps.length > 0 ? (
                     <Table headData={eventAppsHeadData} rowData={eventApps} />
@@ -313,7 +311,7 @@ const EventDashboard = () => {
               </div>
 
               <div id="events" className={styles.eme}>
-                <h2>Events</h2>
+                <h3>Events</h3>
                 <div>
                   {events.length > 0 ? (
                     <Table headData={eventHeadData} rowData={events} />

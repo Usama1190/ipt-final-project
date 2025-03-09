@@ -8,7 +8,7 @@ import { departNames } from "../../utils/constant/departNames";
 const Signup = () => {
   const titles = {
     imgTitle: "Karachi University Student Portal",
-    pageTitle: "Sign up Page",
+    pageTitle: "Account Page",
   };
 
   const userData = {

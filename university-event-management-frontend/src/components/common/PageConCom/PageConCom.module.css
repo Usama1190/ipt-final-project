@@ -8,9 +8,9 @@
 
 .pccb {
     width: 20%;
-    border-top: 8px solid var(--dark-green);
     padding: 12px;
     background-color: var(--pure-white);
+    border-top: 8px solid var(--dark-green);
 }
 
 .pccc {
@@ -27,8 +27,14 @@
     color: var(--dark-color);
 }
 
+.pccb ul {
+    list-style:square;
+    color: var(--dark-green);
+    margin: 0 0 0 18px;
+}
+
 .pccb ul li {
-    margin: 8px 0;
+    padding: 12px;
 }
 
 .pccb ul li a:hover {
@@ -36,8 +42,8 @@
 }
 
 .pccc a {
-    margin: 12px 0 0 12px;
     font-size: 14px;
+    margin: 12px 0 0 12px;
     color: var(--dark-green);
 }
 

@@ -7,11 +7,19 @@
     padding: 24px 0 164px;
 }
 
+.elb h3 {
+    margin: 0 0 24px;
+}
+
 .elc {
     padding: 24px 0;
 }
 
-.eld .ele:nth-child(even) {
+.eld>div {
+    border-radius: 10px;
+}
+
+.eld .ele:nth-child(odd) {
     background-color: var(--light-green);
 }
 
