@@ -9,7 +9,6 @@ const eventSchema = mongoose.Schema({
     eVenue: { type: String, required: true },
     eCost: { type: Number, required: true },
     costType: { type: String, required: true },
-    dueDate: { type: Date, required: true },
 }, { timestamps: true });
 
 const Event = mongoose.model('Event', eventSchema);

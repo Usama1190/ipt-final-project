@@ -10,11 +10,24 @@ h4 {
 .enb {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
 }
 
 .enb span {
     padding: 12px 24px;
+}
+
+.enc {
+    display: flex;
+    gap: 48px;
+}
+
+.end {
+    cursor: pointer;
+}
+
+.end:hover {
+    text-decoration: underline;
 }
 
 .dn {

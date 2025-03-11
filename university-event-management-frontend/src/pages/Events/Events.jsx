@@ -123,7 +123,7 @@ const Events = () => {
             </div>
           </div>
 
-          <div id="application-event" className={styles.elf}>
+          <div id="application-event">
             <h3>Application For Event</h3><br />
             <div>
               <p><strong>Note :</strong> Only <strong>Active</strong>{' '}

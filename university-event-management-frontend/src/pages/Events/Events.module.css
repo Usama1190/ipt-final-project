@@ -23,11 +23,6 @@
     background-color: var(--light-green);
 }
 
-.elf {
-    border: 1px solid var(--light-green);
-    padding: 24px 12px;
-}
-
 .elg button {
     padding: 12px 24px;
     cursor: pointer;

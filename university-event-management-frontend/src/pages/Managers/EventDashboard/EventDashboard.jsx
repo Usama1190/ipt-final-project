@@ -20,8 +20,6 @@ const EventDashboard = () => {
     shift: "",
     eCost: 0,
     costType: "",
-    dueDate: "",
-    officialAnnoucement: "",
   };
 
   const [organizeEvent, setOrganizeEvent] = useState(eventData);
@@ -32,16 +30,16 @@ const EventDashboard = () => {
       linkUrl: "/event-manager",
     },
     {
+      linkText: "Events (Edit / Delete)",
+      linkUrl: "/event-manager#events",
+    },
+    {
       linkText: "Event Organized",
       linkUrl: "/event-manager#organize-event",
     },
     {
       linkText: "Event Applications (Students)",
       linkUrl: "/event-manager#event-applications",
-    },
-    {
-      linkText: "Events (Edit / Delete)",
-      linkUrl: "/event-manager#events",
     },
     {
       linkText: "Events Approved (Admin)",
@@ -111,17 +109,10 @@ const EventDashboard = () => {
 
   const handleSubmit = async () => {
     try {
-      setIsLoading(true);
-      console.log(isLoading);
-
       const response = await postReq("/events/create-event", organizeEvent);
       console.log(response);
-      alert("Submit Application");
-      if (response) {
-        ("");
-      }
+      
     } catch (error) {
-      setIsLoading(false);
       console.error("Error Posting event:", error);
     }
   };
@@ -156,6 +147,17 @@ const EventDashboard = () => {
                 <div className={styles.emi}>
                   <div className={styles.emg}>Img - 240x280</div>
                   <h3>Dr. Prof. Aejaz Khan</h3>
+                </div>
+              </div>
+
+              <div id="events" className={styles.eme}>
+                <h3>Events</h3>
+                <div>
+                  {events.length > 0 ? (
+                    <Table headData={eventHeadData} rowData={events} />
+                  ) : (
+                    <p>Events Not Found!</p>
+                  )}
                 </div>
               </div>
 
@@ -292,7 +294,7 @@ const EventDashboard = () => {
                         type="button"
                         onClick={handleSubmit}
                       >
-                        Post
+                        Event Post
                       </button>
                     </div>
                   </form>
@@ -306,17 +308,6 @@ const EventDashboard = () => {
                     <Table headData={eventAppsHeadData} rowData={eventApps} />
                   ) : (
                     <p>Event Applications Not Found!</p>
-                  )}
-                </div>
-              </div>
-
-              <div id="events" className={styles.eme}>
-                <h3>Events</h3>
-                <div>
-                  {events.length > 0 ? (
-                    <Table headData={eventHeadData} rowData={events} />
-                  ) : (
-                    <p>Events Not Found!</p>
                   )}
                 </div>
               </div>
