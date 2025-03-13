@@ -17,10 +17,15 @@
 
 .eld>div {
     border-radius: 10px;
+    margin: 12px 0;
 }
 
 .eld .ele:nth-child(odd) {
     background-color: var(--light-green);
+}
+
+.eld .ele:nth-child(even) {
+    border: 1px solid var(--light-green);
 }
 
 .elg button {

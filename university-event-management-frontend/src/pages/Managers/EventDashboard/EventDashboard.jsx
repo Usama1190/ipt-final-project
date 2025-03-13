@@ -7,19 +7,21 @@ import styles from "./EventDashboard.module.css";
 import { useEffect, useState } from "react";
 
 const EventDashboard = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [eventApps, setEventApps] = useState([]);
   const [events, setEvents] = useState([]);
 
   const eventData = {
     departName: "",
     eName: "",
+    shift: "",
     eDate: "",
     eTime: "",
     eVenue: "",
-    shift: "",
     eCost: 0,
     costType: "",
+    dueDate: '',
+    officialAnnounce: ''
   };
 
   const [organizeEvent, setOrganizeEvent] = useState(eventData);
@@ -62,13 +64,13 @@ const EventDashboard = () => {
   }
 
   const eventHeadData = {
-    eventName: 'Event Name',
-    eventDate: 'Event Date',
-    eventTime: 'Event Time',
-    eventVenue: 'Event Venue',
+    eName: 'Event Name',
+    eDate: 'Event Date',
+    eTime: 'Event Time',
+    eVenue: 'Event Venue',
     shift: 'Shift',
     departName: 'Depart Name',
-    eventCost: 'Event Cost',
+    eCost: 'Event Cost',
     costType: 'Cost Type',
     dueDate: 'Due Date',
     date: 'Official Annoucement'
@@ -96,7 +98,7 @@ const EventDashboard = () => {
     };
 
     fetchEventApps();
-  }, []);
+  }, [events]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -108,6 +110,8 @@ const EventDashboard = () => {
   };
 
   const handleSubmit = async () => {
+    console.log(organizeEvent);
+    
     try {
       const response = await postReq("/events/create-event", organizeEvent);
       console.log(response);
@@ -249,7 +253,6 @@ const EventDashboard = () => {
                         name="costType"
                         id="costType"
                         placeholder=""
-                        min={8}
                         required
                         value={organizeEvent.costType}
                         onChange={handleChange}

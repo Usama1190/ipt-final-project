@@ -17,9 +17,9 @@ const EventCom = ({ data }) => {
             <strong>Department : {data?.departName}</strong>
           </p>
           <p>
-            <b>Event :</b> <strong>{data?.eventName}</strong>
+            <b>Event :</b> <strong>{data?.eName}</strong>
           </p>
-          <p>{data?.eventDate}</p>
+          <p>{data?.eDate}</p>
         </div>
         <div>
           <p className={styles.end} onClick={handleModal}>
@@ -34,24 +34,24 @@ const EventCom = ({ data }) => {
               <b>Shift :</b> <strong>{data?.shift}</strong>
             </p>
             <p>
-              <b>Event Post :</b> <strong>{data?.date}</strong>
+              <b>Event Post :</b> <strong>{data?.createdAt}</strong>
             </p>
             <p>
-              <b>Event Time :</b> <strong>{data?.eventTime}</strong>
+              <b>Event Time :</b> <strong>{data?.eTime}</strong>
             </p>
             <p>
-              <b>Event Venue :</b> <strong>{data?.eventVenue}</strong>
+              <b>Event Venue :</b> <strong>{data?.eVenue}</strong>
             </p>
           </div>
           <div>
             <p>
-              <b>Pass :</b> <strong>{`Rs.${data?.eventCost}/-`}</strong>
+              <b>Pass :</b> <strong>{`Rs.${data?.eCost}/-`}</strong>
             </p>
             <p>
               <b>Type :</b> <strong>{data?.costType}</strong>
             </p>
             <p>
-              <b>Expire :</b> <strong>{data?.dueDate}</strong>
+              <b>Expire :</b> <strong>{data?.createdAt}</strong>
             </p>
             <div>
               <ButtonCom
@@ -62,7 +62,6 @@ const EventCom = ({ data }) => {
             </div>
           </div>
         </div>
-        <br />
       </div>
     </div>
   );

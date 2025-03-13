@@ -30,7 +30,6 @@ strong {
 }
 
 table {
-    /* border: 1px solid red; */
     width: 100%;
     margin: 24px 0 0;
     border-collapse: collapse;
@@ -56,6 +55,12 @@ table tr:nth-child(even) {
 table tr:hover {
     background-color: var(--dark-green);
     color: var(--pure-white);
+}
+
+p {
+    font-size: 14px;
+    margin: 0 0 12px;
+    color: var(--gray-color);
 }
 
 
