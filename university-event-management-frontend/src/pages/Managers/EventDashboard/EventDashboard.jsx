@@ -20,7 +20,6 @@ const EventDashboard = () => {
     eVenue: "",
     eCost: 0,
     costType: "",
-    dueDate: '',
     officialAnnounce: ''
   };
 
@@ -60,7 +59,9 @@ const EventDashboard = () => {
     seatNo: 'Seat No',
     departName: 'Department',
     shift: 'Shift',
-    eventName: 'Event Name'
+    eventName: 'Event Name',
+    createdAt: 'App Date',
+    status: 'App Status'
   }
 
   const eventHeadData = {
@@ -72,9 +73,7 @@ const EventDashboard = () => {
     departName: 'Depart Name',
     eCost: 'Event Cost',
     costType: 'Cost Type',
-    dueDate: 'Due Date',
-    date: 'Official Annoucement'
-
+    createdAt: 'Official Annoucement'
   }
 
   useEffect(() => {

@@ -37,8 +37,8 @@ const Events = () => {
         const userEmail = students.filter((item) => item.studentEmail === userInput.studentEmail);
         console.log(userEmail);
         
-        // const response = await postReq("/eventapps/create-eventapp", userInput);
-        // console.log(response);
+        const response = await postReq("/eventapps/create-eventapp", userInput);
+        console.log(response);
         alert('Submit Application');
         setIsSubmit(true);
       } catch (error) {
