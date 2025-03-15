@@ -1,24 +1,21 @@
 import PageConCom from "../../components/common/PageConCom/PageConCom";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
 import EventCom from "../../components/Events/EventCom/EventCom";
-import { departNames } from "../../utils/constant/departNames";
 import { getReq, postReq } from "../../api/axios";
 import { useEffect, useState } from "react";
 import styles from "./Events.module.css";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [students, setStudents] = useState([]);
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [appBtnDisabled, setAppBtnDisabled] = useState(true);
+  const [studentNotFound, setStudentNotFound] = useState(false);
 
   const userData = {
-    studentName: '',
-    fatherName: '',
-    studentEmail: '',
-    departName: '',
-    seatNo: '',
-    shift: '',
-    eventName: '',
+    studentEmail: "",
+    seatNo: "",
+    eventName: "",
   };
 
   const [userInput, setUserInput] = useState(userData);
@@ -29,22 +26,32 @@ const Events = () => {
     setUserInput((prevState) => ({
       ...prevState,
       [name]: value,
-    }))
-  }
+    }));
+
+    if (userInput.studentEmail.length > 4 && userInput.seatNo.length === 8) {
+      setAppBtnDisabled(false);
+    } else {
+      setAppBtnDisabled(true);
+    }
+  };
 
   const handleSubmit = async () => {
-      try {
-        const userEmail = students.filter((item) => item.studentEmail === userInput.studentEmail);
-        console.log(userEmail);
-        
+    try {
+      const findAndGetUserData = students.filter(
+        (item) => item.studentEmail === userInput.studentEmail
+      );
+      const [getStudent] = findAndGetUserData;
+      console.log(getStudent);
+
+      if (findAndGetUserData.length === 0) {
+        setStudentNotFound(true);
+      } else {
         const response = await postReq("/eventapps/create-eventapp", userInput);
-        console.log(response);
-        alert('Submit Application');
-        setIsSubmit(true);
-      } catch (error) {
-        console.error("Error Posting event app:", error);
+        setStudentNotFound(false);
       }
-      setIsSubmit(false);
+    } catch (error) {
+      console.error("Error Posting event app:", error);
+    }
   };
 
   const data = [
@@ -83,7 +90,6 @@ const Events = () => {
         const response = await getReq("/students");
         setStudents(response.data.data);
         console.log(students);
-        
       } catch (error) {
         console.error("Error fetching events:", error);
       }
@@ -124,36 +130,14 @@ const Events = () => {
           </div>
 
           <div id="application-event">
-            <h3>Application For Event</h3><br />
+            <h3>Application For Event</h3>
+            <br />
             <div>
-              <p><strong>Note :</strong> Only <strong>Active</strong>{' '}
-                students can fill the form.
+              <p>
+                <strong>Note :</strong> Only <strong>Active</strong> students
+                can fill the form.
               </p>
               <form>
-                <label htmlFor="studentName">
-                  Name :{" "}
-                  <input
-                    type="text"
-                    name="studentName"
-                    id="studentName"
-                    placeholder="John"
-                    required
-                    value={userInput.studentName}
-                    onChange={handleChange}
-                  />
-                </label>
-                <label htmlFor="fatherName">
-                  Father Name :{" "}
-                  <input
-                    type="text"
-                    name="fatherName"
-                    id="fatherName"
-                    placeholder="Deo"
-                    required
-                    value={userInput.fatherName}
-                    onChange={handleChange}
-                  />
-                </label><br /><br />
                 <label htmlFor="studentEmail">
                   Email :{" "}
                   <input
@@ -166,62 +150,19 @@ const Events = () => {
                     onChange={handleChange}
                   />
                 </label>
-                <label htmlFor="departName">
-                  Department Name :{" "}
-                  <select
-                    name="departName"
-                    id="departName"
-                    required
-                    value={userInput.departName}
-                    onChange={handleChange}
-                  >
-                    <option value="">Select Department</option>
-                    {departNames.map((item, index) => {
-                      return (
-                        <option key={index}>{item}</option>
-                      );
-                    })}
-                  </select>
-                </label><br /><br />
                 <label htmlFor="seatNo">
                   Seat No :{" "}
                   <input
                     type="text"
                     name="seatNo"
                     id="seatNo"
-                    placeholder="20101010"
-                    min={8}
+                    placeholder="10101010"
+                    maxLength={8}
                     required
                     value={userInput.seatNo}
                     onChange={handleChange}
                   />
                 </label>
-                Shift :{" "}
-                <label htmlFor="morning">
-                <input
-                  type="radio"
-                  name="shift"
-                  id="morning"
-                  value="Morning"
-                  checked={userInput.shift === "Morning"}
-                  onChange={handleChange}
-                />{" "}
-                Morning
-                </label>
-                
-                <label htmlFor="evening">
-                <input
-                  type="radio"
-                  name="shift"
-                  id="evening"
-                  value="Evening"
-                  checked={userInput.shift === "Evening"}
-                  onChange={handleChange}
-                />{" "}
-                Evening
-                </label>
-                
-                <br /><br />
                 <label htmlFor="eventName">
                   Event Name :{" "}
                   <input
@@ -233,11 +174,22 @@ const Events = () => {
                     value={userInput.eventName}
                     onChange={handleChange}
                   />
-                </label><br /><br />
+                </label>
+                <br />
+                <br />
+                {studentNotFound && (
+                  <p>
+                    <small>Student Not Found!, Please first create account{" "}</small>
+                    <a href="/account/sign-up">Click here</a>
+                  </p>
+                )}
                 <div>
-                  <button disabled={isSubmit} type="button" className="btn3" onClick={handleSubmit}>
-                    Submit
-                  </button>
+                  <ButtonCom
+                    btnText={"Submit"}
+                    btnLayout={"btn3"}
+                    callFun={handleSubmit}
+                    disabled={appBtnDisabled}
+                  />
                 </div>
               </form>
             </div>

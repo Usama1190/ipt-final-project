@@ -101,7 +101,9 @@ p {
     border-bottom: none;
 }
 
-
+small {
+    color: red;
+}
 
 
 form {

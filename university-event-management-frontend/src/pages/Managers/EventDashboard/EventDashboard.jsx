@@ -11,6 +11,8 @@ const EventDashboard = () => {
   // const [isLoading, setIsLoading] = useState(false);
   const [eventApps, setEventApps] = useState([]);
   const [events, setEvents] = useState([]);
+  const [organizeBtnDisabled, setOrganizeBtnDisabled] = useState(true);
+  const [isWarning, setIsWarning] = useState(false);
 
   const eventData = {
     departName: "",
@@ -62,7 +64,7 @@ const EventDashboard = () => {
     shift: "Shift",
     eventName: "Event Name",
     createdAt: "App Date",
-    status: "App Status",
+    status: "Approved Status",
   };
 
   const eventHeadData = {
@@ -107,14 +109,39 @@ const EventDashboard = () => {
       ...prevState,
       [name]: value,
     }));
+
+    if (
+      organizeEvent.departName.length > 2 &&
+      organizeEvent.costType.length > 3 &&
+      organizeEvent.eDate.length > 0 &&
+      organizeEvent.eName.length > 3 &&
+      organizeEvent.eTime.length > 3 &&
+      organizeEvent.eVenue.length > 2
+    ) {
+      setOrganizeBtnDisabled(false);
+    } else {
+      setOrganizeBtnDisabled(true);
+    }
   };
 
   const handleSubmit = async () => {
     console.log(organizeEvent);
 
+    const eventExits = events.filter(
+      (item) => item.departName === organizeEvent.departName
+    );
+
+    console.log(eventExits, 'eventExits');
+  
     try {
-      const response = await postReq("/events/create-event", organizeEvent);
-      console.log(response);
+      if(eventExits.length > 0) {
+        setIsWarning(true);
+      }
+      else {
+        // const response = await postReq("/events/create-event", organizeEvent);
+        // console.log(response);
+        setIsWarning(false);
+      }
     } catch (error) {
       console.error("Error Posting event:", error);
     }
@@ -251,17 +278,39 @@ const EventDashboard = () => {
                       </label>
                       <br />
                       <br />
-                      <label htmlFor="costType">
-                        Cost Type :{" "}
+                      Cost Type :{" "}
+                      <label htmlFor="refundable">
                         <input
-                          type="text"
+                          type="radio"
                           name="costType"
-                          id="costType"
-                          placeholder=""
-                          required
-                          value={organizeEvent.costType}
+                          id="refundable"
+                          value="Refundable"
+                          checked={organizeEvent.costType === "Refundable"}
                           onChange={handleChange}
-                        />
+                        />{" "}
+                        Refundable
+                      </label>
+                      <label htmlFor="notRefundable">
+                        <input
+                          type="radio"
+                          name="costType"
+                          id="notRefundable"
+                          value="Not Refundable"
+                          checked={organizeEvent.costType === "Not Refundable"}
+                          onChange={handleChange}
+                        />{" "}
+                        Not Refundable
+                      </label>
+                      <label htmlFor="free">
+                        <input
+                          type="radio"
+                          name="costType"
+                          id="free"
+                          value="Free"
+                          checked={organizeEvent.costType === "Free"}
+                          onChange={handleChange}
+                        />{" "}
+                        Free
                       </label>
                       Shift :{" "}
                       <label htmlFor="morning">
@@ -297,11 +346,16 @@ const EventDashboard = () => {
                         />{" "}
                         Both
                       </label>
+                      <br /><br />
+                      {
+                        isWarning && <p><small>Event are already exits at this department.</small></p>
+                      }
                       <div className={styles.emk}>
                         <ButtonCom
                           btnText={"Event Post"}
                           btnLayout={"btn3"}
                           callFun={handleSubmit}
+                          disabled={organizeBtnDisabled}
                         />
                       </div>
                     </form>
