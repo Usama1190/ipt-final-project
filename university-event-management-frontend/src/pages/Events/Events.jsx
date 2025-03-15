@@ -234,8 +234,8 @@ const Events = () => {
                     onChange={handleChange}
                   />
                 </label><br /><br />
-                <div className={styles.elg}>
-                  <button disabled={isSubmit} type="button" onClick={handleSubmit}>
+                <div>
+                  <button disabled={isSubmit} type="button" className="btn3" onClick={handleSubmit}>
                     Submit
                   </button>
                 </div>

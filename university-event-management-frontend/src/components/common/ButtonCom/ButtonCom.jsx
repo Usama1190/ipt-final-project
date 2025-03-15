@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 
-const ButtonCom = ({ btnText, btnLink, btnLayout }) => {
+const ButtonCom = ({ btnText, btnLink, btnLayout, callFun }) => {
   return (
     <div>
       <NavLink to={btnLink}>
-        <button className={btnLayout}>{btnText}</button>
+        <button className={btnLayout} onClick={callFun}>{btnText}</button>
       </NavLink>
     </div>
   );

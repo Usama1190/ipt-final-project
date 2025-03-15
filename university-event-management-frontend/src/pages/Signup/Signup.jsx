@@ -4,6 +4,7 @@ import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
 import { postReq } from "../../api/axios";
 import styles from "./Signup.module.css";
 import { departNames } from "../../utils/constant/departNames";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 
 const Signup = () => {
   const titles = {
@@ -166,13 +167,20 @@ const Signup = () => {
                       onChange={handleChange}
                     />{" "}
                     Evening
-                  </label><br /><br />
+                  </label>
+                  <br />
+                  <br />
                   <p>Invalid email address or user does not exist.</p>
                   <div className={styles.elg}>
-                    <button type="button" onClick={handleSubmit}>Sign up</button>
+                    <ButtonCom
+                      btnText={"Sign up"}
+                      btnLayout={"btn3"}
+                      callFun={handleSubmit}
+                    />
                   </div>
                   <p>
-                    Already have an account, Please::<a href="/account/login">Login</a>
+                    Already have an account, Please::
+                    <a href="/account/login">Login</a>
                   </p>
                 </form>
               </div>

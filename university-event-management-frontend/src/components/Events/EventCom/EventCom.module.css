@@ -3,14 +3,10 @@
     padding: 12px;
 }
 
-h4 {
-    color: var(--dark-green);
-}
-
 .enb {
     display: flex;
-    justify-content: space-between;
     align-items: end;
+    justify-content: space-between;
 }
 
 .enb span {
@@ -19,7 +15,10 @@ h4 {
 
 .enc {
     display: flex;
-    gap: 48px;
+}
+
+.enc>div {
+    width: 50%;
 }
 
 .end {
@@ -28,6 +27,12 @@ h4 {
 
 .end:hover {
     text-decoration: underline;
+}
+
+.ene {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .dn {

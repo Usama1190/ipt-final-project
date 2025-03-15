@@ -33,13 +33,6 @@
     margin: 24px 0 12px;
 }
 
-.elg button {
-    padding: 12px 24px;
-    cursor: pointer;
-    border: none;
-    border-bottom: none;
-}
-
 .db {
     display: block;
     color: red !important;

@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { getReq } from "../../api/axios";
-import PageConCom from "../../components/common/PageConCom/PageConCom";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
-import styles from "./Login.module.css";
+import PageConCom from "../../components/common/PageConCom/PageConCom";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { getReq } from "../../api/axios";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const titles = {
@@ -20,7 +21,7 @@ const Login = () => {
   const [students, setStudents] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +30,7 @@ const Login = () => {
       ...prevState,
       [name]: value,
     }));
-};
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,22 +38,20 @@ const Login = () => {
       (item) => item.studentEmail == userInput.studentEmail
     );
 
-    const  user = users[0];
+    const [user] = users;
     console.log(user);
-    
+
     if (!user) {
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
     }
 
-    if(user.role === 'Admin') {
-      navigate('/admin-usama');
-    }
-    else if(user.role === 'Event Manager') {
-      navigate('/event-manager');
-    }
-    else if(user) {
+    if (user.role === "Admin") {
+      navigate("/admin-usama");
+    } else if (user.role === "Event Manager") {
+      navigate("/event-manager");
+    } else if (user) {
       navigate(`/students/${user._id}`);
     }
   };
@@ -79,7 +78,7 @@ const Login = () => {
               <div>
                 <form>
                   <label htmlFor="studentEmail">
-                    Email :{" "}
+                    Email address :{" "}
                     <input
                       type="email"
                       name="studentEmail"
@@ -91,29 +90,27 @@ const Login = () => {
                     />
                   </label>
                   <label htmlFor="seatNo">
-                    Seat No :{" "}
+                    Seat number :{" "}
                     <input
                       type="text"
                       name="seatNo"
                       id="seatNo"
                       placeholder="20101010"
-                      min={8}
+                      maxLength={8}
                       required
                       value={userInput.seatNo}
                       onChange={handleChange}
                     />
                   </label>
                   <p className={`${isCorrect ? styles.db : styles.dn}`}>
-                  Invalid email address or user does not exist.
+                    Invalid email address or user does not exist.
                   </p>
                   <div className={styles.elg}>
-                    <button
-                      type="button"
-                      className={styles.elh}
-                      onClick={handleSubmit}
-                    >
-                      Login
-                    </button>
+                    <ButtonCom
+                      btnLayout={"btn3"}
+                      btnText={"Login"}
+                      callFun={handleSubmit}
+                    />
                   </div>
                   <p>
                     Don&apos;t have an account, Please::

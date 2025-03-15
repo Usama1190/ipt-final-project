@@ -94,6 +94,13 @@ p {
     border: 1px solid transparent;
 }
 
+.btn3 {
+    padding: 12px 24px;
+    cursor: pointer;
+    border: none;
+    border-bottom: none;
+}
+
 
 
 
