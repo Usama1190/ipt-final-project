@@ -8,11 +8,12 @@ import { useEffect, useState } from "react";
 import ButtonCom from "../../../components/common/ButtonCom/ButtonCom";
 
 const EventDashboard = () => {
-  // const [isLoading, setIsLoading] = useState(false);
   const [eventApps, setEventApps] = useState([]);
   const [events, setEvents] = useState([]);
   const [organizeBtnDisabled, setOrganizeBtnDisabled] = useState(true);
   const [isWarning, setIsWarning] = useState(false);
+  const [eventLoader, setEventLoader] = useState(false);
+  const [eventAppLoader, setEventAppLoader] = useState(false);
 
   const eventData = {
     departName: "",
@@ -81,21 +82,30 @@ const EventDashboard = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
+      setEventLoader(true);
       try {
         const response = await getReq("/events");
         setEvents(response.data.data);
+        setEventLoader(false);
       } catch (error) {
-        console.error("Error fetching events:", error);
+        setEventLoader(false);
+        console.error("Error fetching events: event manager line no 91", error);
       }
     };
     fetchEvents();
 
     const fetchEventApps = async () => {
+      setEventAppLoader(true);
       try {
         const getAllEventApps = await getReq("/eventapps");
         setEventApps(getAllEventApps.data.data);
+        setEventAppLoader(false);
       } catch (error) {
-        console.log(error);
+        setEventAppLoader(false);
+        console.log(
+          "Fetching event applications: event manager line no 104: ",
+          error
+        );
       }
     };
 
@@ -131,13 +141,12 @@ const EventDashboard = () => {
       (item) => item.departName === organizeEvent.departName
     );
 
-    console.log(eventExits, 'eventExits');
-  
+    console.log(eventExits, "eventExits");
+
     try {
-      if(eventExits.length > 0) {
+      if (eventExits.length > 0) {
         setIsWarning(true);
-      }
-      else {
+      } else {
         // const response = await postReq("/events/create-event", organizeEvent);
         // console.log(response);
         setIsWarning(false);
@@ -182,13 +191,17 @@ const EventDashboard = () => {
 
                 <div id="events" className={styles.eme}>
                   <h3>Events</h3>
-                  <div>
-                    {events.length > 0 ? (
-                      <Table headData={eventHeadData} rowData={events} />
-                    ) : (
-                      <p>Events Not Found!</p>
-                    )}
-                  </div>
+                  {eventLoader ? (
+                    <p>Loading...</p>
+                  ) : (
+                    <div>
+                      {events.length > 0 ? (
+                        <Table headData={eventHeadData} rowData={events} />
+                      ) : (
+                        <p>Events Not Found!</p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div id="organiz-event" className={styles.eme}>
@@ -346,10 +359,15 @@ const EventDashboard = () => {
                         />{" "}
                         Both
                       </label>
-                      <br /><br />
-                      {
-                        isWarning && <p><small>Event are already exits at this department.</small></p>
-                      }
+                      <br />
+                      <br />
+                      {isWarning && (
+                        <p>
+                          <small>
+                            Event are already exits at this department.
+                          </small>
+                        </p>
+                      )}
                       <div className={styles.emk}>
                         <ButtonCom
                           btnText={"Event Post"}
@@ -364,13 +382,20 @@ const EventDashboard = () => {
 
                 <div id="event-applications" className={styles.eme}>
                   <h3>Event Applications</h3>
-                  <div>
-                    {eventApps.length > 0 ? (
-                      <Table headData={eventAppsHeadData} rowData={eventApps} />
-                    ) : (
-                      <p>Event Applications Not Found!</p>
-                    )}
-                  </div>
+                  {eventAppLoader ? (
+                    <p>Loading...</p>
+                  ) : (
+                    <div>
+                      {eventApps.length > 0 ? (
+                        <Table
+                          headData={eventAppsHeadData}
+                          rowData={eventApps}
+                        />
+                      ) : (
+                        <p>Event Applications Not Found!</p>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

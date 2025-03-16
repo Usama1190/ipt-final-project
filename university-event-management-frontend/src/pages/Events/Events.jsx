@@ -11,6 +11,8 @@ const Events = () => {
   const [students, setStudents] = useState([]);
   const [appBtnDisabled, setAppBtnDisabled] = useState(true);
   const [studentNotFound, setStudentNotFound] = useState(false);
+  const [eventLoader, setEventLoader] = useState(false);
+  const [btnLoader, setBtnLoader] = useState(false);
 
   const userData = {
     studentEmail: "",
@@ -37,6 +39,7 @@ const Events = () => {
 
   const handleSubmit = async () => {
     try {
+      setBtnLoader(true);
       const findAndGetUserData = students.filter(
         (item) => item.studentEmail === userInput.studentEmail
       );
@@ -44,13 +47,17 @@ const Events = () => {
       console.log(getStudent);
 
       if (findAndGetUserData.length === 0) {
+        setBtnLoader(false);
         setStudentNotFound(true);
       } else {
         const response = await postReq("/eventapps/create-eventapp", userInput);
+        console.log(response);
+        setBtnLoader(false);
         setStudentNotFound(false);
       }
     } catch (error) {
-      console.error("Error Posting event app:", error);
+      setBtnLoader(false);
+      console.error("Error Posting event app: line no 59 ", error);
     }
   };
 
@@ -76,11 +83,14 @@ const Events = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
+      setEventLoader(true);
       try {
         const response = await getReq("/events");
         setEvents(response.data.data);
+        setEventLoader(false);
       } catch (error) {
-        console.error("Error fetching events:", error);
+        setEventLoader(false);
+        console.error("Error fetching events: line no 92", error);
       }
     };
     fetchEvents();
@@ -89,9 +99,8 @@ const Events = () => {
       try {
         const response = await getReq("/students");
         setStudents(response.data.data);
-        console.log(students);
       } catch (error) {
-        console.error("Error fetching events:", error);
+        console.error("Error fetching students: line no 102", error);
       }
     };
     fetchStudents();
@@ -112,21 +121,25 @@ const Events = () => {
 
           <div id="latest-events" className={styles.elb}>
             <h3>Latest Events</h3>
-            <div className={styles.eld}>
-              {events.length > 0 ? (
-                events?.map((item, index) => {
-                  return (
-                    <div key={index} className={styles.ele}>
-                      <EventCom data={item} />
-                    </div>
-                  );
-                })
-              ) : (
-                <div className={styles.elc}>
-                  <p>Events Not Found!</p>
-                </div>
-              )}
-            </div>
+            {eventLoader ? (
+              <p>Loading...</p>
+            ) : (
+              <div className={styles.eld}>
+                {events.length > 0 ? (
+                  events?.map((item, index) => {
+                    return (
+                      <div key={index} className={styles.ele}>
+                        <EventCom data={item} />
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className={styles.elc}>
+                    <span>Events Not Found!</span>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <div id="application-event">
@@ -179,13 +192,15 @@ const Events = () => {
                 <br />
                 {studentNotFound && (
                   <p>
-                    <small>Student Not Found!, Please first create account{" "}</small>
+                    <small>
+                      Student Not Found!, Please first create account{" "}
+                    </small>
                     <a href="/account/sign-up">Click here</a>
                   </p>
                 )}
                 <div>
                   <ButtonCom
-                    btnText={"Submit"}
+                    btnText={'Send'}
                     btnLayout={"btn3"}
                     callFun={handleSubmit}
                     disabled={appBtnDisabled}
