@@ -22,6 +22,10 @@
     padding: 12px;
 }
 
+.emc aside ul li a:hover {
+    color: var(--dark-green);
+}
+
 .emd {
     width: 79%;
     padding: 12px;
@@ -34,6 +38,7 @@
 
 .eme h3 {
      color: var(--dark-green);
+     margin: 0 0 16px;
 }
 
 .eme>p {
@@ -53,8 +58,17 @@
 
 .emh {
     padding: 48px 0;
-    display: flex;
-    justify-content: space-between;
+}
+
+.emh h3 {
+    color: var(--dark-green);
+}
+
+.emh h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0 0 0 12px;
+    padding: 0;
 }
 
 .emi {
@@ -77,4 +91,61 @@
 
 .eld .ele:nth-child(even) {
     background-color: var(--light-green);
+}
+
+.eml {
+    /* border: 1px solid red; */
+    padding: 4rem 12px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eml>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eml>div>h1 {
+    /* border: 1px solid var(--light-color); */
+    border-top: 10px solid var(--light-greenesh);
+    border-right: 10px solid var(--greenesh);
+    border-bottom: 10px solid var(--yelloesh);
+    border-left: 6px solid var(--light-yelloesh);
+    height: 170px;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: var(--dark-green);
+    box-shadow: 0px 0px 6px var(--light-color);
+}
+
+.emm {
+    padding: 2rem 0;
+}
+
+.emn {
+    display: flex;
+    gap: 12px;
+}
+
+.emo {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+}
+
+.emo>p {
+    position: absolute;
+    left: 270px;
+    bottom: 0;
+    font-size: 1.5rem;
 }

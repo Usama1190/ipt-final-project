@@ -122,7 +122,9 @@ const Events = () => {
           <div id="latest-events" className={styles.elb}>
             <h3>Latest Events</h3>
             {eventLoader ? (
-              <p>Loading...</p>
+              <div>
+                <span className="loader"></span>
+              </div>
             ) : (
               <div className={styles.eld}>
                 {events.length > 0 ? (

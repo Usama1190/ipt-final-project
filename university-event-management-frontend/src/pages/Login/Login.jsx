@@ -7,6 +7,11 @@ import { getReq } from "../../api/axios";
 import styles from "./Login.module.css";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [students, setStudents] = useState([]);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [btnDisabled, setBtnDisabled] = useState(true);
+
   const titles = {
     imgTitle: "Karachi University Student Portal",
     pageTitle: "Login Page",
@@ -18,10 +23,7 @@ const Login = () => {
   };
 
   const [userInput, setUserInput] = useState(userData);
-  const [students, setStudents] = useState([]);
-  const [isCorrect, setIsCorrect] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +32,13 @@ const Login = () => {
       ...prevState,
       [name]: value,
     }));
+
+    if (userInput.studentEmail.length > 5) {
+      setBtnDisabled(false)
+    }
+    else {
+      setBtnDisabled(true)
+    }
   };
 
   const handleSubmit = (e) => {
@@ -102,14 +111,15 @@ const Login = () => {
                       onChange={handleChange}
                     />
                   </label>
-                  <p className={`${isCorrect ? styles.db : styles.dn}`}>
+                  <small className={`${isCorrect ? 'db' : 'dn'}`}>
                     Invalid email address or user does not exist.
-                  </p>
+                  </small>
                   <div className={styles.elg}>
                     <ButtonCom
                       btnLayout={"btn3"}
                       btnText={"Login"}
                       callFun={handleSubmit}
+                      disabled={btnDisabled}
                     />
                   </div>
                   <p>

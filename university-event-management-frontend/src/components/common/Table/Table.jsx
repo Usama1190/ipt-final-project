@@ -1,4 +1,16 @@
-const Table = ({ headData, rowData }) => {
+import { delReq } from "../../../api/axios";
+import ButtonCom from "../ButtonCom/ButtonCom";
+
+const Table = ({ headData, rowData, fetchEvent, fetchEventApps }) => {
+  const deleteEventPost = async (id) => {
+    try {
+      const responce = await delReq(`/events/delete-event/${id}`);
+      fetchEvent();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       {rowData?.length > 0 ? (
@@ -20,6 +32,16 @@ const Table = ({ headData, rowData }) => {
                   Object.keys(headData).map((key) => (
                     <td key={key}>{item[key]}</td>
                   ))}
+                <td>
+                  <ButtonCom btnText={"Edit"} btnLayout={"btn4"} />
+                </td>
+                <td>
+                  <ButtonCom
+                    btnText={"Delete"}
+                    btnLayout={"btn"}
+                    callFun={() => deleteEventPost(item._id)}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

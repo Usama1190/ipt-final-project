@@ -1,19 +1,21 @@
 import Dashboard from "../../../components/common/Dashboard/Dashboard";
+import ButtonCom from "../../../components/common/ButtonCom/ButtonCom";
 import { departNames } from "../../../utils/constant/departNames";
 import PageCom from "../../../components/common/PageCom/PageCom";
+import BioCom from "../../../components/common/BioCom/BioCom";
+import managerImg from "/assets/imgs/banner-joinus-dkmi.jpg";
 import Table from "../../../components/common/Table/Table";
 import { getReq, postReq } from "../../../api/axios";
 import styles from "./EventDashboard.module.css";
 import { useEffect, useState } from "react";
-import ButtonCom from "../../../components/common/ButtonCom/ButtonCom";
 
 const EventDashboard = () => {
-  const [eventApps, setEventApps] = useState([]);
   const [events, setEvents] = useState([]);
-  const [organizeBtnDisabled, setOrganizeBtnDisabled] = useState(true);
+  const [eventApps, setEventApps] = useState([]);
   const [isWarning, setIsWarning] = useState(false);
   const [eventLoader, setEventLoader] = useState(false);
   const [eventAppLoader, setEventAppLoader] = useState(false);
+  const [organizeBtnDisabled, setOrganizeBtnDisabled] = useState(true);
 
   const eventData = {
     departName: "",
@@ -28,6 +30,13 @@ const EventDashboard = () => {
   };
 
   const [organizeEvent, setOrganizeEvent] = useState(eventData);
+
+  const managerData = {
+    post: "Event Management System",
+    name: "Dr. Prof. Aejaz Khan",
+    imgUrl: managerImg,
+    imgAlt: "Event Manager Image",
+  };
 
   const asideLinks = [
     {
@@ -80,37 +89,51 @@ const EventDashboard = () => {
     createdAt: "Event Annouce",
   };
 
+  const fetchEvents = async () => {
+    setEventLoader(true);
+    try {
+      const response = await getReq("/events");
+      setEvents(response.data.data);
+      setEventLoader(false);
+    } catch (error) {
+      setEventLoader(false);
+      console.error("Error fetching events: event manager line no 91", error);
+    }
+  };
+
+  const fetchEventApps = async () => {
+    setEventAppLoader(true);
+    try {
+      const getAllEventApps = await getReq("/eventapps");
+      setEventApps(getAllEventApps.data.data);
+      setEventAppLoader(false);
+    } catch (error) {
+      setEventAppLoader(false);
+      console.log(
+        "Fetching event applications: event manager line no 104: ",
+        error
+      );
+    }
+  };
+
+  const [time, setTime] = useState(new Date());
+  const hours = time.getHours() % 12 || 12; // 0 ko 12 banana
+  const minutes = String(time.getMinutes()).padStart(2, "0");
+  const seconds = String(time.getSeconds()).padStart(2, "0");
+  const amPm = time.getHours() >= 12 ? "pm" : "am";
+
   useEffect(() => {
-    const fetchEvents = async () => {
-      setEventLoader(true);
-      try {
-        const response = await getReq("/events");
-        setEvents(response.data.data);
-        setEventLoader(false);
-      } catch (error) {
-        setEventLoader(false);
-        console.error("Error fetching events: event manager line no 91", error);
-      }
-    };
     fetchEvents();
-
-    const fetchEventApps = async () => {
-      setEventAppLoader(true);
-      try {
-        const getAllEventApps = await getReq("/eventapps");
-        setEventApps(getAllEventApps.data.data);
-        setEventAppLoader(false);
-      } catch (error) {
-        setEventAppLoader(false);
-        console.log(
-          "Fetching event applications: event manager line no 104: ",
-          error
-        );
-      }
-    };
-
     fetchEventApps();
-  }, [events]);
+
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // console.log(events);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -147,8 +170,9 @@ const EventDashboard = () => {
       if (eventExits.length > 0) {
         setIsWarning(true);
       } else {
-        // const response = await postReq("/events/create-event", organizeEvent);
-        // console.log(response);
+        const response = await postReq("/events/create-event", organizeEvent);
+        console.log(response);
+        fetchEvents();
         setIsWarning(false);
       }
     } catch (error) {
@@ -158,9 +182,9 @@ const EventDashboard = () => {
 
   return (
     <div className={styles.ema}>
-      <Dashboard title={"Event Management System"}>
+      <Dashboard title={managerData.post}>
         <div className={styles.emj}>
-          <PageCom title={"Dr. Prof. Aejaz Khan"}>
+          <PageCom title={managerData.name}>
             <div className={styles.emb}>
               <div className={styles.emc}>
                 <aside>
@@ -178,25 +202,55 @@ const EventDashboard = () => {
 
               <div className={styles.emd}>
                 <div className={styles.emh}>
-                  <div className={styles.emf}>
-                    <p>Directorate & Organizer of Event Management System</p>
-                    <p>Office Joined by Mar 04, 2025</p>
-                  </div>
+                  <BioCom data={managerData}>
+                    <div>
+                      <p>Directorate & Organizer of Event Management System</p>
+                      <p>Office Joined by Mar 04, 2025 to</p>
 
-                  <div className={styles.emi}>
-                    <div className={styles.emg}>Img - 240x280</div>
-                    <h3>Dr. Prof. Aejaz Khan</h3>
-                  </div>
+                      <div className={styles.emm}>
+                        <h3>Clock</h3>
+                        <div className={styles.emo}>
+                        <h2>{`${hours < 10 ? '0'+ hours : hours} : ${minutes} : ${seconds}`}</h2>
+                        <p>{amPm}</p>
+                        </div>
+                      </div>
+
+                      <h3>Office Timing</h3>
+                      <div className={styles.emn}>
+                      <p>09:00pm to 05:00pm sharp</p>
+                      <small>Close</small>
+                      </div>
+
+                      <div className={styles.eml}>
+                        <div>
+                          <h1>{eventApps.length}</h1>
+                          <h4>Recieved Applications</h4>
+                        </div>
+                        <div>
+                          <h1>{events.length}</h1>
+                          <h4>Ongoing Events</h4>
+                        </div>
+                        <div>
+                          <h1>{events.length - 1}</h1>
+                          <h4>Approved Applications</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </BioCom>
                 </div>
 
                 <div id="events" className={styles.eme}>
                   <h3>Events</h3>
                   {eventLoader ? (
-                    <p>Loading...</p>
+                    <span className="loader"></span>
                   ) : (
                     <div>
                       {events.length > 0 ? (
-                        <Table headData={eventHeadData} rowData={events} />
+                        <Table
+                          headData={eventHeadData}
+                          rowData={events}
+                          fetchEvents={fetchEvents}
+                        />
                       ) : (
                         <p>Events Not Found!</p>
                       )}
@@ -383,13 +437,14 @@ const EventDashboard = () => {
                 <div id="event-applications" className={styles.eme}>
                   <h3>Event Applications</h3>
                   {eventAppLoader ? (
-                    <p>Loading...</p>
+                    <span className="loader"></span>
                   ) : (
                     <div>
                       {eventApps.length > 0 ? (
                         <Table
                           headData={eventAppsHeadData}
                           rowData={eventApps}
+                          fetchEventApps={fetchEventApps}
                         />
                       ) : (
                         <p>Event Applications Not Found!</p>

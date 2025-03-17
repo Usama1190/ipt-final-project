@@ -5,8 +5,13 @@ import { postReq } from "../../api/axios";
 import styles from "./Signup.module.css";
 import { departNames } from "../../utils/constant/departNames";
 import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
+  const [btnDisable, setBtnDisabled] = useState(true);
+  const [isWarning, setIsWarning] = useState(false);
+  const navigate = useNavigate();
+
   const titles = {
     imgTitle: "Karachi University Student Portal",
     pageTitle: "Account Page",
@@ -24,6 +29,8 @@ const Signup = () => {
 
   const [userInput, setUserInput] = useState(userData);
 
+  const {departName, fatherName, gender, studentEmail, studentName, seatNo } = userInput;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -31,14 +38,31 @@ const Signup = () => {
       ...prevState,
       [name]: value,
     }));
+
+    if (
+      departName.length > 2 &&
+      fatherName.length > 2 &&
+      gender.length > 3 &&
+      studentEmail.length > 5 &&
+      studentName.length > 2 &&
+      seatNo.length > 7
+    ) {
+      setBtnDisabled(false);
+    }
+    else {
+      setBtnDisabled(true);
+    }
   };
 
   const handleSubmit = async () => {
     try {
       const response = await postReq("/students/create-student", userInput);
+      navigate(`/students/${response.data.data._id}`);
       console.log(response);
+      setIsWarning(false);
       alert("Signup Successfully!");
     } catch (error) {
+      setIsWarning(true);
       console.error("Error For Signup:", error);
     }
   };
@@ -138,8 +162,8 @@ const Signup = () => {
                       type="text"
                       name="seatNo"
                       id="seatNo"
-                      placeholder="20101010"
-                      min={8}
+                      placeholder="25100101 - 25100130"
+                      maxLength={8}
                       required
                       value={userInput.seatNo}
                       onChange={handleChange}
@@ -169,13 +193,13 @@ const Signup = () => {
                     Evening
                   </label>
                   <br />
-                  <br />
-                  <p>Invalid email address or user does not exist.</p>
+                  <small className={isWarning ? 'db' : 'dn'}>Invalid email address or user does not exist.</small>
                   <div className={styles.elg}>
                     <ButtonCom
                       btnText={"Sign up"}
                       btnLayout={"btn3"}
                       callFun={handleSubmit}
+                      disabled={btnDisable}
                     />
                   </div>
                   <p>

@@ -5,22 +5,20 @@ import { routes } from "./routes/routes";
 import "./App.css";
 
 const App = () => {
-  const {id} = useParams()
+  const { id } = useParams();
   const location = useLocation();
 
-  const restrictedPaths = [
-    "/event-manager",
-    "/admin-usama",
-    `/students/${id}`,
-  ];
-  
-  const admin = restrictedPaths.includes(location.pathname);
+  const restrictedPaths = ["/event-manager", "/admin-usama", `/students/${id}`];
+
+  const admin =
+    restrictedPaths.includes(location.pathname) ||
+    location.pathname.startsWith("/students/");
   // console.log(admin);
-  
+
   return (
     <div>
       <div>
-        <div className={admin ? "hide" : "visible"}>
+        <div className={admin ? "dn" : "db"}>
           <HeaderCom />
         </div>
         <Routes>
@@ -30,7 +28,7 @@ const App = () => {
             );
           })}
         </Routes>
-        <div className={admin ? "hide" : "visible"}>
+        <div className={admin ? "dn" : "db"}>
           <FooterCom />
         </div>
       </div>
