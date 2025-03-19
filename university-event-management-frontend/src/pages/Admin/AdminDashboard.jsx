@@ -4,6 +4,7 @@ import Dashboard from "../../components/common/Dashboard/Dashboard";
 import PageCom from "../../components/common/PageCom/PageCom";
 import styles from "./AdminDashboard.module.css";
 import adminImg from "/assets/imgs/banner-joinus-dkmi.jpg";
+import ClockCom from "../../components/common/ClockCom/ClockCom";
 
 const AdminDashboard = () => {
   const asideLinks = [
@@ -112,19 +113,7 @@ const AdminDashboard = () => {
                     <p>Office Joined by Mar 04, 2025 to</p>
 
                     <div className={styles.emm}>
-                      <h3>Clock</h3>
-                      <div className={styles.emo}>
-                        <h2>{`${
-                          hours < 10 ? "0" + hours : hours
-                        } : ${minutes} : ${seconds}`}</h2>
-                        <p>{amPm}</p>
-                      </div>
-                    </div>
-
-                    <h3>Office Timing</h3>
-                    <div className={styles.emn}>
-                      <p>09:00pm to 05:00pm sharp</p>
-                      <small>Close</small>
+                    <ClockCom />
                     </div>
 
                     <div className={styles.eml}>

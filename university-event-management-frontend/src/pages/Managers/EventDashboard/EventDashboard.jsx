@@ -8,6 +8,7 @@ import Table from "../../../components/common/Table/Table";
 import { getReq, postReq } from "../../../api/axios";
 import styles from "./EventDashboard.module.css";
 import { useEffect, useState } from "react";
+import ClockCom from "../../../components/common/ClockCom/ClockCom";
 
 const EventDashboard = () => {
   const [events, setEvents] = useState([]);
@@ -116,24 +117,10 @@ const EventDashboard = () => {
     }
   };
 
-  const [time, setTime] = useState(new Date());
-  const hours = time.getHours() % 12 || 12; // 0 ko 12 banana
-  const minutes = String(time.getMinutes()).padStart(2, "0");
-  const seconds = String(time.getSeconds()).padStart(2, "0");
-  const amPm = time.getHours() >= 12 ? "pm" : "am";
-
   useEffect(() => {
     fetchEvents();
     fetchEventApps();
-
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(interval);
   }, []);
-
-  // console.log(events);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -207,18 +194,8 @@ const EventDashboard = () => {
                       <p>Directorate & Organizer of Event Management System</p>
                       <p>Office Joined by Mar 04, 2025 to</p>
 
-                      <div className={styles.emm}>
-                        <h3>Clock</h3>
-                        <div className={styles.emo}>
-                        <h2>{`${hours < 10 ? '0'+ hours : hours} : ${minutes} : ${seconds}`}</h2>
-                        <p>{amPm}</p>
-                        </div>
-                      </div>
-
-                      <h3>Office Timing</h3>
-                      <div className={styles.emn}>
-                      <p>09:00pm to 05:00pm sharp</p>
-                      <small>Close</small>
+                      <div>
+                        <ClockCom />
                       </div>
 
                       <div className={styles.eml}>

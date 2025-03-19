@@ -1,0 +1,21 @@
+.emm {
+    padding: 2rem 0;
+}
+
+.emn {
+    display: flex;
+    gap: 12px;
+}
+
+.emo {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+}
+
+.emo>p {
+    position: absolute;
+    left: 270px;
+    bottom: 0;
+    font-size: 1.5rem;
+}

@@ -127,25 +127,3 @@
     color: var(--dark-green);
     box-shadow: 0px 0px 6px var(--light-color);
 }
-
-.emm {
-    padding: 2rem 0;
-}
-
-.emn {
-    display: flex;
-    gap: 12px;
-}
-
-.emo {
-    position: relative;
-    display: flex;
-    align-items: baseline;
-}
-
-.emo>p {
-    position: absolute;
-    left: 270px;
-    bottom: 0;
-    font-size: 1.5rem;
-}
