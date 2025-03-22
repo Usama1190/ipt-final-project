@@ -3,7 +3,6 @@ export const departNames = [
   "Applied Physics",
   "Agricutural & Agribusiness Management",
   "Applied Chemistry & Chemical Technology",
-  "Applied Physics",
   "Arabic",
   "Bangali",
   "Biochemistry",

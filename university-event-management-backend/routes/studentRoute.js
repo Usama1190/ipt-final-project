@@ -1,131 +1,30 @@
+import { createStudentCon, deleteStudentCon, getStudentByIdCon, getStudentCon, updateItemOnStudent, updateStudentCon } from "../controllers/studentCon.js";
 import express from "express";
-import enums from "../constant/enums.js";
-import Student from "../models/studentModel.js";
 
 const studentRoute = express.Router();
 
 // Get Student
 
-studentRoute.get("/students", async (req, res) => {
-  try {
-    const getAllStudents = await Student.find();
-    res.status(200).send({
-      status: 200,
-      message: enums.SUCCESS_ON_READIND_DATA,
-      data: getAllStudents,
-    });
-  } catch (error) {
-    res
-      .status(500)
-      .send({ status: 500, message: enums.FAILED_ON_READING_DATA });
-  }
-});
+studentRoute.get("/students", getStudentCon);
 
 // Get Single Student
 
-studentRoute.get("/students/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const getSingleStudent = await Student.findById(id);
-
-    if (!getSingleStudent) {
-      res.status(404).send({ status: 404, message: enums.NOT_FOUND });
-    }
-
-    res.status(200).send({
-      status: 200,
-      message: enums.SUCCESS_ON_READIND_DATA,
-      data: getSingleStudent,
-    });
-  } catch (error) {
-    res
-      .status(500)
-      .send({ status: 500, message: enums.FAILED_ON_READING_DATA });
-  }
-});
+studentRoute.get("/students/:id", getStudentByIdCon);
 
 // Post Student
 
-studentRoute.post("/students/create-student", async (req, res) => {
-  try {
-    const data = req.body;
-    const createStudent = await Student.create(data);
-
-    res.status(200).send({
-      status: 200,
-      message: enums.SUCCESS_ON_POST_DATA,
-      data: createStudent,
-    });
-  } catch (error) {
-    res.status(502).send({ status: 502, message: enums.FAILED_ON_POST_DATA });
-  }
-});
+studentRoute.post("/students/create-student", createStudentCon);
 
 // Delete Student
 
-studentRoute.delete("/students/delete-student/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleteStudent = await Student.findByIdAndDelete(id);
-
-    if (!deleteStudent) {
-      return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
-    }
-
-    res.status(200).send({
-      status: 200,
-      message: enums.SUCCESS_ON_DELETE_DATA,
-      data: deleteStudent,
-    });
-  } catch (error) {
-    res.status(502).send({ status: 502, message: enums.FAILED_ON_DELETE_DATA });
-  }
-});
+studentRoute.delete("/students/delete-student/:id", deleteStudentCon);
 
 // Put Student
 
-studentRoute.put("/students/update-student/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const data = req.body;
-    const updateStudent = await Student.findByIdAndUpdate(data, id);
-
-    if (!updateStudent) {
-      return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
-    }
-
-    res.status(200).send({
-      status: 200,
-      message: enums.SUCCESS_ON_PUT_DATA,
-      data: updateStudent,
-    });
-  } catch (error) {
-    res.status(502).send({ status: 502, message: enums.FAILED_ON_PUT_DATA });
-  }
-});
+studentRoute.put("/students/update-student/:id", updateStudentCon);
 
 // Patch Student
 
-studentRoute.patch("/students/update-item-student/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const data = req.body;
-    const updateItemOnStudent = await Student.findByIdAndUpdate(id, data, {
-      new: true,
-    });
-
-    if (!updateItemOnStudent) {
-      return res.status(404).send({ status: 404, message: enums.NOT_FOUND });
-    }
-
-    res.status(200).send({
-      status: 200,
-      message: enums.SUCCESS_ON_PATCH_DATA,
-      data: updateItemOnStudent,
-    });
-  } catch (error) {
-    res.status(502).send({ status: 502, message: enums.FAILED_ON_PATCH_DATA });
-  }
-});
+studentRoute.patch("/students/update-item-student/:id", updateItemOnStudent);
 
 export default studentRoute;

@@ -1,36 +1,32 @@
-import { useEffect, useState } from "react";
-import BioCom from "../../components/common/BioCom/BioCom";
 import Dashboard from "../../components/common/Dashboard/Dashboard";
-import PageCom from "../../components/common/PageCom/PageCom";
-import styles from "./AdminDashboard.module.css";
-import adminImg from "/assets/imgs/banner-joinus-dkmi.jpg";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 import ClockCom from "../../components/common/ClockCom/ClockCom";
+import { departNames } from "../../utils/constant/departNames";
+import PageCom from "../../components/common/PageCom/PageCom";
+import BioCom from "../../components/common/BioCom/BioCom";
+import adminImg from "/assets/imgs/banner-joinus-dkmi.jpg";
+import styles from "./AdminDashboard.module.css";
+import { useEffect, useState } from "react";
 
 const AdminDashboard = () => {
+  const [isHide, setIsHide] = useState(true);
+
   const asideLinks = [
     {
-      linkText: "Dashboard",
+      linkText: "Administration Management",
+      linkUrl: "/",
+    },
+    {
+      linkText: "Examination Management",
       linkUrl: "/event-manager",
     },
     {
-      linkText: "Events (Edit / Delete)",
+      linkText: "Feculty Management",
       linkUrl: "/event-manager#events",
     },
     {
-      linkText: "Event Organized",
+      linkText: "Event Management",
       linkUrl: "/event-manager#organize-event",
-    },
-    {
-      linkText: "Event Applications (Students)",
-      linkUrl: "/event-manager#event-applications",
-    },
-    {
-      linkText: "Events Approved (Admin)",
-      linkUrl: "/event-manager#approved-events-by-admin",
-    },
-    {
-      linkText: "Logout",
-      linkUrl: "/",
     },
   ];
 
@@ -41,19 +37,9 @@ const AdminDashboard = () => {
     imgAlt: "Event Manager Image",
   };
 
-  const [time, setTime] = useState(new Date());
-  const hours = time.getHours() % 12 || 12; // 0 ko 12 banana
-  const minutes = String(time.getMinutes()).padStart(2, "0");
-  const seconds = String(time.getSeconds()).padStart(2, "0");
-  const amPm = time.getHours() >= 12 ? "pm" : "am";
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const hideListDepart = () => {
+    setIsHide(!isHide);
+  }
 
   // const data = [
   //   {
@@ -86,6 +72,7 @@ const AdminDashboard = () => {
   //     ],
   //   },
   // ];
+
   return (
     <div className={styles.ema}>
       <Dashboard title={"Welcome back to the Admin Dashboard"}>
@@ -93,14 +80,57 @@ const AdminDashboard = () => {
           <div className={styles.emb}>
             <div className={styles.emc}>
               <aside>
+                <div>
+                  <ButtonCom btnText={"Logout"} btnLayout={"btn5"} />
+                </div>
                 <ul>
-                  {asideLinks.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        <a href={item.linkUrl}>{item.linkText}</a>
-                      </li>
-                    );
-                  })}
+                  <li>
+                    <h4>Admin Dashboard</h4>
+                  </li>
+                  <li>
+                    <strong>Management Systems</strong>
+                  </li>
+                  <li>
+                    <ul>
+                      {asideLinks.map((item, index) => {
+                        return (
+                          <li key={index}>
+                            <a href={item.linkUrl}>{item.linkText}</a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Department Systems</strong>
+                  </li>
+                  <li>
+                    <ul>
+                      {departNames.map((item, index) => {
+                        return (
+                          <div key={index}>
+                            {index <= 4 && (
+                              <li>
+                                <a href={item}>{item}</a>
+                              </li>
+                            )}
+                            {index === 4 && (
+                              <ButtonCom
+                                btnText={isHide ? "View more" : "View less"}
+                                btnLayout={"btn4"}
+                                callFun={hideListDepart}
+                              />
+                            )}
+                            {index > 4 && (
+                              <li className={isHide ? 'dn' : 'db'}>
+                                <a href={item}>{item}</a>
+                              </li>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </ul>
+                  </li>
                 </ul>
               </aside>
             </div>
@@ -113,21 +143,21 @@ const AdminDashboard = () => {
                     <p>Office Joined by Mar 04, 2025 to</p>
 
                     <div className={styles.emm}>
-                    <ClockCom />
+                      <ClockCom />
                     </div>
 
                     <div className={styles.eml}>
                       <div>
-                        <h1>10</h1>
-                        <h4>Recieved Applications</h4>
+                        <h1>40+</h1>
+                        <h4>Departments</h4>
                       </div>
                       <div>
-                        <h1>12</h1>
-                        <h4>Ongoing Events</h4>
+                        <h1>48k+</h1>
+                        <h4>Students</h4>
                       </div>
                       <div>
-                        <h1>15</h1>
-                        <h4>Approved Applications</h4>
+                        <h1>1.5k+</h1>
+                        <h4>Faculty</h4>
                       </div>
                     </div>
                   </div>

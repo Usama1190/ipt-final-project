@@ -1,14 +1,21 @@
-import { useParams } from "react-router";
 import Dashboard from "../../components/common/Dashboard/Dashboard";
 import PageCom from "../../components/common/PageCom/PageCom";
-import styles from "./Students.module.css";
+import BioCom from "../../components/common/BioCom/BioCom";
 import { useEffect, useState } from "react";
-import { getReq } from "../../api/axios";
+import styles from "./Students.module.css";
 import ErrorPage from "../Error/ErrorPage";
+import { useParams } from "react-router";
+import { getReq } from "../../api/axios";
 
 const StudentDashboard = () => {
   const { id } = useParams();
   const [ Student, setStudent ] = useState([]);
+
+  const data = {
+    name: 'Usama Israr Khan',
+    imgUrl: 'example.png',
+    imgAlt: 'Usama Image'
+  }
 
   useEffect(() => {
     const getAllStudents = async () => {
@@ -44,8 +51,7 @@ const StudentDashboard = () => {
 
             <div className={styles.emd}>
               <div>
-                Main Content
-                {id}
+                <BioCom data={data} />
               </div>
             </div>
           </div>

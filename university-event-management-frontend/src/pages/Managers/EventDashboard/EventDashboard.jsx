@@ -57,10 +57,6 @@ const EventDashboard = () => {
       linkUrl: "/event-manager#event-applications",
     },
     {
-      linkText: "Events Approved (Admin)",
-      linkUrl: "/event-manager#approved-events-by-admin",
-    },
-    {
       linkText: "Logout",
       linkUrl: "/",
     },
@@ -75,7 +71,6 @@ const EventDashboard = () => {
     shift: "Shift",
     eventName: "Event Name",
     createdAt: "App Date",
-    status: "Approved Status",
   };
 
   const eventHeadData = {
@@ -200,7 +195,7 @@ const EventDashboard = () => {
 
                       <div className={styles.eml}>
                         <div>
-                          <h1>{eventApps.length}</h1>
+                          <h1>{eventApps.length}+</h1>
                           <h4>Recieved Applications</h4>
                         </div>
                         <div>
@@ -208,7 +203,7 @@ const EventDashboard = () => {
                           <h4>Ongoing Events</h4>
                         </div>
                         <div>
-                          <h1>{events.length - 1}</h1>
+                          <h1>{events.length + 1}%</h1>
                           <h4>Approved Applications</h4>
                         </div>
                       </div>

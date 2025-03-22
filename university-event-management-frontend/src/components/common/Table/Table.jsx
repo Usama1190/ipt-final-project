@@ -22,6 +22,7 @@ const Table = ({ headData, rowData, fetchEvent, fetchEventApps }) => {
                 Object.keys(headData).map((key) => (
                   <th key={key}>{headData[key]}</th>
                 ))}
+                <th colSpan={2}>N/A</th>
             </tr>
           </thead>
           <tbody>
@@ -32,16 +33,37 @@ const Table = ({ headData, rowData, fetchEvent, fetchEventApps }) => {
                   Object.keys(headData).map((key) => (
                     <td key={key}>{item[key]}</td>
                   ))}
-                <td>
-                  <ButtonCom btnText={"Edit"} btnLayout={"btn4"} />
-                </td>
-                <td>
-                  <ButtonCom
-                    btnText={"Delete"}
-                    btnLayout={"btn"}
-                    callFun={() => deleteEventPost(item._id)}
-                  />
-                </td>
+                {item?.eName ? (
+                  <>
+                    <td>
+                      <ButtonCom btnText={"Edit"} btnLayout={"btn4"} />
+                    </td>
+                    <td>
+                      <ButtonCom
+                        btnText={"Delete"}
+                        btnLayout={"btn"}
+                        callFun={() => deleteEventPost(item._id)}
+                      />
+                    </td>
+                  </>
+                ) : (
+                  <>
+                    <td>
+                      <ButtonCom
+                        btnText={"Approved"}
+                        btnLayout={"btn4"}
+                        callFun={() => deleteEventPost(item._id)}
+                      />
+                    </td>
+                    <td>
+                      <ButtonCom
+                        btnText={"Reject"}
+                        btnLayout={"btn"}
+                        callFun={() => deleteEventPost(item._id)}
+                      />
+                    </td>
+                  </>
+                )}
               </tr>
             ))}
           </tbody>
