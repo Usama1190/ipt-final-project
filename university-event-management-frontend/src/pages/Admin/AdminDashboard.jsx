@@ -7,14 +7,29 @@ import BioCom from "../../components/common/BioCom/BioCom";
 import adminImg from "/assets/imgs/banner-joinus-dkmi.jpg";
 import styles from "./AdminDashboard.module.css";
 import { useEffect, useState } from "react";
+import { getReq } from "../../api/axios";
+import Table from "../../components/common/Table/Table";
 
 const AdminDashboard = () => {
   const [isHide, setIsHide] = useState(true);
+  const [manageLinksHide, setManageLinksHide] = useState(true);
+  const [isLoader, setIsLoader] = useState(false);
+  const [students, setStudents] = useState(null);
+
+  const studentHeadData = {
+    studentName: "Candidate Name",
+    fatherName: "Father Name",
+    studentEmail: "Candidate Email",
+    departName: "Depart Name",
+    seatNo: "Seat No.",
+    shift: "Shift",
+    createdAt: "Account build",
+  };
 
   const asideLinks = [
     {
       linkText: "Administration Management",
-      linkUrl: "/",
+      linkUrl: "#administration-management",
     },
     {
       linkText: "Examination Management",
@@ -23,6 +38,10 @@ const AdminDashboard = () => {
     {
       linkText: "Feculty Management",
       linkUrl: "/event-manager#events",
+    },
+    {
+      linkText: "Event Management",
+      linkUrl: "/event-manager#organize-event",
     },
     {
       linkText: "Event Management",
@@ -37,41 +56,21 @@ const AdminDashboard = () => {
     imgAlt: "Event Manager Image",
   };
 
-  const hideListDepart = () => {
-    setIsHide(!isHide);
-  }
+  useEffect(() => {
+    setIsLoader(true);
+    const fetchStudents = async () => {
+      try {
+        const response = await getReq("/students");
+        setStudents(response.data.data);
+        setIsLoader(false);
+      } catch (error) {
+        setIsLoader(false);
 
-  // const data = [
-  //   {
-  //     title: "Admin Dashboard of University of Karachi",
-  //     navigate: [
-  //       {
-  //         linkText: "Dashboard",
-  //         linkUrl: "/karachi-university-admin-dashboard",
-  //       },
-  //       {
-  //         linkText: "Admissions Management System",
-  //         linkUrl: "#events-announce",
-  //       },
-  //       {
-  //         linkText: "Faculties Management System",
-  //         linkUrl: "#events-announce",
-  //       },
-  //       {
-  //         linkText: "Examination Management System",
-  //         linkUrl: "#events-announce",
-  //       },
-  //       {
-  //         linkText: "Events Management System",
-  //         linkUrl: "#events-announce",
-  //       },
-  //       {
-  //         linkText: "Alumni Management System",
-  //         linkUrl: "#events-announce",
-  //       },
-  //     ],
-  //   },
-  // ];
+        console.error("Error fetching students: line no 102", error);
+      }
+    };
+    fetchStudents();
+  }, []);
 
   return (
     <div className={styles.ema}>
@@ -94,9 +93,27 @@ const AdminDashboard = () => {
                     <ul>
                       {asideLinks.map((item, index) => {
                         return (
-                          <li key={index}>
-                            <a href={item.linkUrl}>{item.linkText}</a>
-                          </li>
+                          <div key={index}>
+                            {index <= 3 && (
+                              <li>
+                                <a href={item.linkUrl}>{item.linkText}</a>
+                              </li>
+                            )}
+                            {index === 3 && (
+                              <div className={styles.ada}>
+                                <ButtonCom
+                                btnText={manageLinksHide ? "View more" : "View less"}
+                                btnLayout={"btn4"}
+                                callFun={() => setManageLinksHide(!manageLinksHide)}
+                              />
+                              </div>
+                            )}
+                            {index > 3 && (
+                              <li className={manageLinksHide ? "dn" : "db"}>
+                                <a href={item.linkUrl}>{item.linkText}</a>
+                              </li>
+                            )}
+                          </div>
                         );
                       })}
                     </ul>
@@ -107,6 +124,8 @@ const AdminDashboard = () => {
                   <li>
                     <ul>
                       {departNames.map((item, index) => {
+                        if (index === 0) return null;
+
                         return (
                           <div key={index}>
                             {index <= 4 && (
@@ -115,14 +134,16 @@ const AdminDashboard = () => {
                               </li>
                             )}
                             {index === 4 && (
-                              <ButtonCom
+                              <div className={styles.ada}>
+                                <ButtonCom
                                 btnText={isHide ? "View more" : "View less"}
                                 btnLayout={"btn4"}
-                                callFun={hideListDepart}
+                                callFun={() => setIsHide(!isHide)}
                               />
+                              </div>
                             )}
                             {index > 4 && (
-                              <li className={isHide ? 'dn' : 'db'}>
+                              <li className={isHide ? "dn" : "db"}>
                                 <a href={item}>{item}</a>
                               </li>
                             )}
@@ -139,8 +160,8 @@ const AdminDashboard = () => {
               <div className={styles.emh}>
                 <BioCom data={adminData}>
                   <div>
-                    <p>Directorate & Organizer of Event Management System</p>
-                    <p>Office Joined by Mar 04, 2025 to</p>
+                    <p>Vice Chancellor of University of Karachi (Uok)</p>
+                    <p>Office Joined from Mar 04, 2025 to</p>
 
                     <div className={styles.emm}>
                       <ClockCom />
@@ -162,6 +183,28 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                 </BioCom>
+              </div>
+
+              <div id="administration-management" className={styles.emh}>
+                <h3>Administration Management</h3>
+                <br />
+                <h4>Candidate&apos;s Account</h4>
+                <br />
+                {isLoader ? (
+                  <span className="loader"></span>
+                ) : (
+                  <div>
+                    {students?.length > 0 ? (
+                      <Table
+                        headData={studentHeadData}
+                        rowData={students}
+                        // fetchEvents={fetchEvents}
+                      />
+                    ) : (
+                      <p>Events Not Found!</p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>

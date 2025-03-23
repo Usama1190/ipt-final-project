@@ -56,7 +56,7 @@ table th {
 }
 
 table tr {
-    border-left: 8px solid transparent;
+    border-left: 4px solid transparent;
 }
 
 table tr td {
@@ -70,7 +70,7 @@ table tr:nth-child(even) {
 }
 
 table tr:hover {
-    border-left: 8px solid var(--dark-green);
+    border-left: 4px solid var(--dark-green);
 }
 
 p {
@@ -137,9 +137,9 @@ p {
     border-bottom: none;
 }
 
-small {
+/* small {
     color: red;
-}
+} */
 
 
 form {

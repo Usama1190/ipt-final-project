@@ -6,6 +6,7 @@ import styles from "./Students.module.css";
 import ErrorPage from "../Error/ErrorPage";
 import { useParams } from "react-router";
 import { getReq } from "../../api/axios";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 
 const StudentDashboard = () => {
   const { id } = useParams();
@@ -16,6 +17,25 @@ const StudentDashboard = () => {
     imgUrl: 'example.png',
     imgAlt: 'Usama Image'
   }
+
+  const asideLinks = [
+    {
+      linkText: "Dashboard",
+      linkUrl: "/event-manager",
+    },
+    {
+      linkText: "Events (Edit / Delete)",
+      linkUrl: "/event-manager#events",
+    },
+    {
+      linkText: "Event Organized",
+      linkUrl: "/event-manager#organize-event",
+    },
+    {
+      linkText: "Event Applications (Students)",
+      linkUrl: "/event-manager#event-applications",
+    },
+  ];
 
   useEffect(() => {
     const getAllStudents = async () => {
@@ -46,6 +66,18 @@ const StudentDashboard = () => {
             <div className={styles.emc}>
               <aside>
                 <h3>Dashboard</h3>
+                <ul>
+                    {asideLinks.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          <a href={item.linkUrl}>{item.linkText}</a>
+                        </li>
+                      );
+                    })}
+                    <li>
+                      <ButtonCom btnText={'Logout'} btnLayout={'btn5'} />
+                    </li>
+                  </ul>
               </aside>
             </div>
 

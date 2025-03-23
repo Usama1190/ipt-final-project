@@ -1,9 +1,13 @@
-.da {
+.dhba {
     width: 100%;
     box-sizing: border-box;
 }
-.db {
+.dhbb {
     width: 100%;
     padding: 12px 24px;
     box-sizing: border-box;
+}
+
+.dhbc {
+    margin: 1.3rem 0 0;
 }

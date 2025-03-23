@@ -1,14 +1,15 @@
 import Dashboard from "../../../components/common/Dashboard/Dashboard";
 import ButtonCom from "../../../components/common/ButtonCom/ButtonCom";
+import ClockCom from "../../../components/common/ClockCom/ClockCom";
 import { departNames } from "../../../utils/constant/departNames";
 import PageCom from "../../../components/common/PageCom/PageCom";
+import MessCom from "../../../components/common/MessCom/MessCom";
 import BioCom from "../../../components/common/BioCom/BioCom";
 import managerImg from "/assets/imgs/banner-joinus-dkmi.jpg";
 import Table from "../../../components/common/Table/Table";
 import { getReq, postReq } from "../../../api/axios";
 import styles from "./EventDashboard.module.css";
 import { useEffect, useState } from "react";
-import ClockCom from "../../../components/common/ClockCom/ClockCom";
 
 const EventDashboard = () => {
   const [events, setEvents] = useState([]);
@@ -55,10 +56,6 @@ const EventDashboard = () => {
     {
       linkText: "Event Applications (Students)",
       linkUrl: "/event-manager#event-applications",
-    },
-    {
-      linkText: "Logout",
-      linkUrl: "/",
     },
   ];
 
@@ -156,6 +153,16 @@ const EventDashboard = () => {
         console.log(response);
         fetchEvents();
         setIsWarning(false);
+        setOrganizeEvent({
+          departName: '',
+          costType: '',
+          eDate: '',
+          eName: '',
+          eTime: '',
+          eVenue: '',
+          shift: '',
+          eCost: 0
+        })
       }
     } catch (error) {
       console.error("Error Posting event:", error);
@@ -165,7 +172,6 @@ const EventDashboard = () => {
   return (
     <div className={styles.ema}>
       <Dashboard title={managerData.post}>
-        <div className={styles.emj}>
           <PageCom title={managerData.name}>
             <div className={styles.emb}>
               <div className={styles.emc}>
@@ -178,6 +184,9 @@ const EventDashboard = () => {
                         </li>
                       );
                     })}
+                    <li>
+                      <ButtonCom btnText={'Logout'} btnLayout={'btn5'} />
+                    </li>
                   </ul>
                 </aside>
               </div>
@@ -224,7 +233,7 @@ const EventDashboard = () => {
                           fetchEvents={fetchEvents}
                         />
                       ) : (
-                        <p>Events Not Found!</p>
+                        <div><MessCom message={'Events Not Found!'} /></div>
                       )}
                     </div>
                   )}
@@ -232,7 +241,6 @@ const EventDashboard = () => {
 
                 <div id="organiz-event" className={styles.eme}>
                   <h3>Organize Event</h3>
-
                   <div>
                     <form>
                       <label htmlFor="eName">
@@ -408,6 +416,7 @@ const EventDashboard = () => {
 
                 <div id="event-applications" className={styles.eme}>
                   <h3>Event Applications</h3>
+                  <div>
                   {eventAppLoader ? (
                     <span className="loader"></span>
                   ) : (
@@ -419,15 +428,15 @@ const EventDashboard = () => {
                           fetchEventApps={fetchEventApps}
                         />
                       ) : (
-                        <p>Event Applications Not Found!</p>
+                        <div><MessCom message={'Event Applications Not Found!'} /></div>
                       )}
                     </div>
                   )}
+                  </div>
                 </div>
               </div>
             </div>
           </PageCom>
-        </div>
       </Dashboard>
     </div>
   );

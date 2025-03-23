@@ -9,7 +9,7 @@ const studentSchema = mongoose.Schema(
     departName: { type: String, required: true },
     seatNo: { type: Number, required: true, unique: true },
     shift: { type: String, required: true },
-    role: { type: String, default: "student" },
+    role: { type: String, default: "candidate" },
   },
   { timestamps: true }
 );

@@ -6,6 +6,7 @@ import styles from "./Signup.module.css";
 import { departNames } from "../../utils/constant/departNames";
 import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
 import { useNavigate } from "react-router";
+import MessCom from "../../components/common/MessCom/MessCom";
 
 const Signup = () => {
   const [btnDisable, setBtnDisabled] = useState(true);
@@ -74,6 +75,9 @@ const Signup = () => {
           <div>
             <div className={styles.elf}>
               <h3>Create Account</h3>
+              <div className={`${isWarning ? 'db' : 'dn'}`}>
+                <MessCom message={'Network issue or server connection error. Please try again later.'} />
+              </div>
               <div>
                 <form>
                   <label htmlFor="studentName">
@@ -192,8 +196,6 @@ const Signup = () => {
                     />{" "}
                     Evening
                   </label>
-                  <br />
-                  <small className={isWarning ? 'db' : 'dn'}>Invalid email address or user does not exist.</small>
                   <div className={styles.elg}>
                     <ButtonCom
                       btnText={"Sign up"}

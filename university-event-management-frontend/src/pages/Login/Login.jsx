@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { getReq } from "../../api/axios";
 import styles from "./Login.module.css";
+import MessCom from "../../components/common/MessCom/MessCom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -84,6 +85,9 @@ const Login = () => {
           <div>
             <div className={styles.elf}>
               <h3>Login to access your account</h3>
+              <div className={`${isCorrect ? 'db' : 'dn'}`}>
+                <MessCom warnLayout message={'Invalid email address or user does not exist.'} />
+              </div>
               <div>
                 <form>
                   <label htmlFor="studentEmail">
@@ -111,9 +115,6 @@ const Login = () => {
                       onChange={handleChange}
                     />
                   </label>
-                  <small className={`${isCorrect ? 'db' : 'dn'}`}>
-                    Invalid email address or user does not exist.
-                  </small>
                   <div className={styles.elg}>
                     <ButtonCom
                       btnLayout={"btn3"}
