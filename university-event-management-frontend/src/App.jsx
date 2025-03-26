@@ -5,15 +5,14 @@ import { routes } from "./routes/routes";
 import "./App.css";
 
 const App = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   const location = useLocation();
 
-  const restrictedPaths = ["/event-manager", "/admin-usama", `/students/${id}`];
+  const restrictedPaths = ["/event-manager", "/admin-usama", `/students/`];
 
   const admin =
     restrictedPaths.includes(location.pathname) ||
     location.pathname.startsWith("/students/");
-  // console.log(admin);
 
   return (
     <div>

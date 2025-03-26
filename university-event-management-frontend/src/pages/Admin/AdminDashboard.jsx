@@ -9,6 +9,7 @@ import styles from "./AdminDashboard.module.css";
 import { useEffect, useState } from "react";
 import { getReq } from "../../api/axios";
 import Table from "../../components/common/Table/Table";
+import MessCom from "../../components/common/MessCom/MessCom";
 
 const AdminDashboard = () => {
   const [isHide, setIsHide] = useState(true);
@@ -201,7 +202,7 @@ const AdminDashboard = () => {
                         // fetchEvents={fetchEvents}
                       />
                     ) : (
-                      <p>Events Not Found!</p>
+                      <div><MessCom message={'Students not found or empty data'} /></div>
                     )}
                   </div>
                 )}

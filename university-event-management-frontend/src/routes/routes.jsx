@@ -28,7 +28,7 @@ export const routes = [
         element: <EventDashboard />
     },
     {
-        path: '/students/:id',
+        path: '/students/',
         element: <StudentDashboard />
     },
     {

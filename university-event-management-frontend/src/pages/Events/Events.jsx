@@ -5,20 +5,23 @@ import { getReq, postReq } from "../../api/axios";
 import { useEffect, useState } from "react";
 import styles from "./Events.module.css";
 import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
+import MessCom from "../../components/common/MessCom/MessCom";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [students, setStudents] = useState([]);
   const [appBtnDisabled, setAppBtnDisabled] = useState(true);
-  const [studentNotFound, setStudentNotFound] = useState(false);
   const [eventLoader, setEventLoader] = useState(false);
   const [btnLoader, setBtnLoader] = useState(false);
+  const [isFindCandidate, setIsFindCandidate] = useState(true)
 
   const userData = {
     studentEmail: "",
     seatNo: "",
     eventName: "",
   };
+
+  console.log(students);
 
   const [userInput, setUserInput] = useState(userData);
 
@@ -46,17 +49,19 @@ const Events = () => {
       const [getStudent] = findAndGetUserData;
       console.log(getStudent);
 
-      if (findAndGetUserData.length === 0) {
+      if (getStudent === undefined) {
+        setIsFindCandidate(false);
         setBtnLoader(false);
-        setStudentNotFound(true);
       } else {
         const response = await postReq("/eventapps/create-eventapp", userInput);
         console.log(response);
         setBtnLoader(false);
-        setStudentNotFound(false);
+        setIsFindCandidate(true);
+        setUserInput({ studentEmail: '', seatNo: '', eventName: ''})
       }
     } catch (error) {
       setBtnLoader(false);
+      setIsFindCandidate(true);
       console.error("Error Posting event app: line no 59 ", error);
     }
   };
@@ -126,18 +131,18 @@ const Events = () => {
                 <span className="loader"></span>
               </div>
             ) : (
-              <div className={styles.eld}>
+              <div>
                 {events.length > 0 ? (
                   events?.map((item, index) => {
                     return (
-                      <div key={index} className={styles.ele}>
+                      <div key={index} className={styles.eld}>
                         <EventCom data={item} />
                       </div>
                     );
                   })
                 ) : (
-                  <div className={styles.elc}>
-                    <span>Events Not Found!</span>
+                  <div>
+                    <MessCom message={"Events not found!"} />
                   </div>
                 )}
               </div>
@@ -150,8 +155,17 @@ const Events = () => {
             <div>
               <p>
                 <strong>Note :</strong> Only <strong>Active</strong> students
-                can fill the form.
+                can fill out the form.
               </p>
+              <div className={isFindCandidate ? 'dn' : 'db'}>
+                <MessCom
+                  warnLayout
+                  message={`Candidate not found!`}
+                /><br />
+                <div>
+                <small>Please first create an account::<a href="/account/sign-up">Click here</a></small>
+                </div>
+              </div>
               <form>
                 <label htmlFor="studentEmail">
                   Email :{" "}
@@ -192,21 +206,19 @@ const Events = () => {
                 </label>
                 <br />
                 <br />
-                {studentNotFound && (
-                  <p>
-                    <small>
-                      Student Not Found!, Please first create account{" "}
-                    </small>
-                    <a href="/account/sign-up">Click here</a>
-                  </p>
-                )}
                 <div>
-                  <ButtonCom
-                    btnText={'Send'}
-                    btnLayout={"btn3"}
-                    callFun={handleSubmit}
-                    disabled={appBtnDisabled}
-                  />
+                  {!btnLoader ? (
+                    <ButtonCom
+                      btnText={"Send"}
+                      btnLayout={"btn3"}
+                      callFun={handleSubmit}
+                      disabled={appBtnDisabled}
+                    />
+                  ) : (
+                    <div>
+                      <span className="loader"></span>
+                    </div>
+                  )}
                 </div>
               </form>
             </div>

@@ -62,7 +62,7 @@ const Login = () => {
     } else if (user.role === "Event Manager") {
       navigate("/event-manager");
     } else if (user) {
-      navigate(`/students/${user._id}`);
+      navigate(`/students/${user.studentName}`);
     }
   };
 
@@ -108,7 +108,7 @@ const Login = () => {
                       type="text"
                       name="seatNo"
                       id="seatNo"
-                      placeholder="20101010"
+                      placeholder="25100101"
                       maxLength={8}
                       required
                       value={userInput.seatNo}

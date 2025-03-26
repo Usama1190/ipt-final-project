@@ -1,12 +1,12 @@
-import { useState } from "react";
 import PageConCom from "../../components/common/PageConCom/PageConCom";
 import PageLayCom from "../../components/common/PageLayCom/PageLayCom";
+import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
+import { departNames } from "../../utils/constant/departNames";
+import MessCom from "../../components/common/MessCom/MessCom";
+import { useNavigate } from "react-router";
 import { postReq } from "../../api/axios";
 import styles from "./Signup.module.css";
-import { departNames } from "../../utils/constant/departNames";
-import ButtonCom from "../../components/common/ButtonCom/ButtonCom";
-import { useNavigate } from "react-router";
-import MessCom from "../../components/common/MessCom/MessCom";
+import { useState } from "react";
 
 const Signup = () => {
   const [btnDisable, setBtnDisabled] = useState(true);
@@ -76,7 +76,7 @@ const Signup = () => {
             <div className={styles.elf}>
               <h3>Create Account</h3>
               <div className={`${isWarning ? 'db' : 'dn'}`}>
-                <MessCom message={'Network issue or server connection error. Please try again later.'} />
+                <MessCom message={'Email already exits'} />
               </div>
               <div>
                 <form>
