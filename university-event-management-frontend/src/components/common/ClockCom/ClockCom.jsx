@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./ClockCom.module.css";
+import MessCom from "../MessCom/MessCom";
 
 const ClockCom = () => {
   const [time, setTime] = useState(new Date());
@@ -31,10 +32,14 @@ const ClockCom = () => {
       <h3>Office Timing</h3>
       <div className={styles.emn}>
         <p>09:00pm to 05:00pm sharp</p>
-        {hours >= 9 && amPm == "pm" ? (
-          <strong>Open</strong>
+        {hours >= 9 && amPm == "am" || hours <= 5 && amPm == "pm" ? (
+          <div>
+            <MessCom message={'Open'} />
+          </div>
         ) : (
-          <small>Close</small>
+          <div>
+            <MessCom warnLayout message={'Close'} />
+          </div>
         )}
       </div>
     </div>
